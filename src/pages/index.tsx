@@ -1,7 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
 import { useRouter } from 'next/router'
+import { Language } from '../components/Language'
 
 export default function Home() {
   function randomNumber() {
@@ -20,6 +18,7 @@ export default function Home() {
   return (
     <>
       <h1 onClick={handleClick}>home</h1>
+      <Language />
     </>
   )
 }
