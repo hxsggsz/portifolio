@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { Language } from '../components/Language'
+import { Language } from '../components/languages/Language'
 
 export default function Home() {
   function randomNumber() {

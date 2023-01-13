@@ -1,7 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  :root {
+    /* first page colors */
+    --black-first: #1A090D;
+    --purple-first: #4A314D;
+    --purple-light-first: #6B6570;
+    --white-first: #A8BA9A;
+    --green-first: #ACE894;
+  }
   /* Reset */
   * {
     margin: 0;
@@ -10,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     display: flex;
-    font-family: Ubuntu Condensed;
+    font-family: Inter;
     flex-direction: column;
     justify-content: center;
     align-items: center;

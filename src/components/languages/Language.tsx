@@ -1,15 +1,16 @@
 import Image from "next/image"
 import LanguageStyles from "."
-import Typist from 'react-typist-component'
-import brasil from '../../public/brasiljpg.jpg'
-import eua from '../../public/bandeira-estados-unidos.jpg'
+import Typist, { TypistProps } from 'react-typist-component'
+import brasil from '../../../public/brasiljpg.jpg'
+import eua from '../../../public/bandeira-estados-unidos.jpg'
+import { ButtonRedirect } from "./ButtonRedirect"
 
 export const Language = () => {
   return (
     <LanguageStyles>
       <section>
         <div className="language">
-          <Typist loop={true}>
+          <Typist cursor={'|'} loop={true}>
             <h1>Escolha a sua linguagem</h1>
             <Typist.Delay ms={1000} />
             <Typist.Backspace count={23} />
@@ -21,13 +22,13 @@ export const Language = () => {
         </div>
 
         <div className="bandeiras">
-          <div>
+          <ButtonRedirect href='ptbr/FirstPage'>
             <Image width={65} height={50} src={brasil} alt='bandeira do brasil' />
-          </div>
+          </ButtonRedirect>
 
-          <div>
+          <ButtonRedirect href=''>
             <Image width={65} height={50} src={eua} alt='bandeira do brasil' />
-          </div>
+          </ButtonRedirect>
         </div>
       </section>
     </LanguageStyles>

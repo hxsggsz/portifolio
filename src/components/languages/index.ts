@@ -13,22 +13,25 @@ const LanguageStyles = styled.div`
     padding: 30px;
     min-width: 30%;
     min-height: 30%;
-    background: #441151;
+    background: rgba(169, 169, 169, 0.2);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 20px;
     .language {
-      height: 100%;
-      width: 100%;
-      border: 1px solid red;
+      top: 3%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
     }
     .bandeiras {
       display: flex;
-      gap: 10px;
+      gap: 25px;
       margin-top: 20px;
     }
-    @media (max-width: 760px) {
+    @media (max-width: 480px) {
       width: 95%;
     }
   }
