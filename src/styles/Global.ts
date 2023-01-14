@@ -4,11 +4,11 @@ export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
   :root {
     /* first page colors */
-    --black-first: #1A090D;
-    --purple-first: #4A314D;
-    --purple-light-first: #6B6570;
-    --white-first: #A8BA9A;
-    --green-first: #ACE894;
+    --midnight-purple-first: #2E1760;
+    --black-first: #171738;
+    --blue-first: #3423A6;
+    --grey-first: #7180B9;
+    --white-first: #DFF3E4;
   }
   /* Reset */
   * {
@@ -16,12 +16,17 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  html {
+    width: 100vw;
+    height: 100vh;
+  }
   body {
     display: flex;
     font-family: Inter;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
     min-height: 100%;
     background: #000;
     color: #fff;
