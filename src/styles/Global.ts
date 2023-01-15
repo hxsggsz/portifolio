@@ -17,8 +17,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   html {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
   body {
     display: flex;
@@ -30,20 +30,22 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     background: #000;
     color: #fff;
-    /* &::-webkit-scrollbar {
-        width: 15px;
-        border: 1px solid black;
-        background: ;
-      }
-      
-    &::-webkit-scrollbar-thumb {
-      background:;
-      border-radius: 2px;
-    } */
-  } 
+     &::-webkit-scrollbar {
+    width: 15px;
+    border: 1px solid black;
+    background: #323333;
+  }
+
+  &::-webkit-scrollbar-thumb {
+  background: rgba(169, 169, 169, 0.4);
+    border-radius: 2px;
+  }
+} 
+  a {
+    text-decoration: none;
+  }
   ul {
       list-style: none;
-      text-decoration: none;
       display: flex;
    }
 `;

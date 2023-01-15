@@ -1,11 +1,11 @@
 import { GetServerSideProps } from "next"
 import { api } from "../api/axios"
-import { ApiTypes } from "./types"
+import { ApiTypes } from "../ptbr/types"
 import { Header } from "../../components/FirstPage/Header"
 import { ContentOne } from "../../components/FirstPage/ContentOne"
 import { ContentTwo } from "../../components/FirstPage/ContentTwo"
 
-export default function FirstPage({ api }: ApiTypes) {
+export default function FirstPageEn({ api }: ApiTypes) {
   return (
     <>
       <Header text={api.partOne.content} image={api.partOne.images} altText='minha foto' />
@@ -16,7 +16,7 @@ export default function FirstPage({ api }: ApiTypes) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await api.get('/first-page')
+  const res = await api.get('/first-page-en')
 
   return {
     props: {

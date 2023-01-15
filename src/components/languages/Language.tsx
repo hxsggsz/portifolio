@@ -26,7 +26,7 @@ export const Language = () => {
             <Image width={65} height={50} src={brasil} alt='bandeira do brasil' />
           </ButtonRedirect>
 
-          <ButtonRedirect href=''>
+          <ButtonRedirect href='en/FirstPageEn'>
             <Image width={65} height={50} src={eua} alt='bandeira do brasil' />
           </ButtonRedirect>
         </div>

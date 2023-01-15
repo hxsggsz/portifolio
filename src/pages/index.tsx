@@ -17,7 +17,6 @@ export default function Home() {
 
   return (
     <>
-      <h1 onClick={handleClick}>home</h1>
       <Language />
     </>
   )
