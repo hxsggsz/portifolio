@@ -1,6 +1,5 @@
 export type ApiTypes = {
   firstPage: {
-    id: string;
     partOne: {
       id: string;
       images: string;

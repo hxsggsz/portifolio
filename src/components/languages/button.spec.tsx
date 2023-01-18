@@ -1,12 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import { ButtonRedirect } from './ButtonRedirect';
+
 describe('ButtonRedirect.tsx', () => {
   it('should render the button component with attributes correctly', () => {
-    render(<ButtonRedirect href="some-place">redirect</ButtonRedirect>)
+    render(<ButtonRedirect href="redirect">redirect</ButtonRedirect>)
 
-    const children = screen.getByText(/redirect/i)
+    const children = screen.getByRole('button', {
+      name: /redirect/i
+    })
 
     expect(children).toBeInTheDocument()
-    expect(children).toHaveAttribute('href', 'some-place')
+    expect(children).totoHaveAttribute('href', 'redirect')
   });
 });

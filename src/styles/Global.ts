@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     --midnight-purple-first: #2E1760;
     --black-first: #171738;
     --blue-first: #3423A6;
+    --blue-sky: #87ceeb;
     --grey-first: #7180B9;
     --white-first: #DFF3E4;
   }

@@ -17,12 +17,14 @@ export const NavStyles = styled.nav<MenuType>`
   .icon {
     margin-left: 50px;
   }
+
   .mobile-menu {
     display: flex;
     width: 100%;
     margin-right: 20px;
     justify-content: space-between;
   }
+
   .button {
     display: none;
     @media (max-width: 790px) {
@@ -62,7 +64,7 @@ export const NavStyles = styled.nav<MenuType>`
     position: relative;
     font-weight: bold;
     font-size: 1.3rem;
-    color: #87ceeb;
+    color: #fff;
     @media (max-width: 790px) {
       font-size: 2rem;
     }

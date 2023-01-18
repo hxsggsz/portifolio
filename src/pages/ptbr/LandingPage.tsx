@@ -1,18 +1,24 @@
-import { GetServerSideProps } from "next";
-import { HeaderLanding } from "../../components/LandingPage/Header";
 import { api } from "../api/axios";
 import { ApiTypes } from "../api/types"
+import { GetServerSideProps } from "next";
 import { About } from "../../components/LandingPage/about/About";
-import { SmallClouds } from "../../components/LandingPage/clouds/SmallClouds";
-import { UseSlider } from "../../hooks/useSlider";
+import { Navbar } from "../../components/LandingPage/navbar/Navbar";
+import { HeaderLanding } from "../../components/LandingPage/header/Header";
+
+const options = [
+  { content: "Home", url: "" },
+  { content: "About", url: "" },
+  { content: "Languages", url: "" },
+  { content: "Projects", url: "" },
+  { content: "Certificates", url: "" }
+]
 
 export default function LandingPage({ firstPage, portifolio }: ApiTypes) {
   return (
     <>
-      <HeaderLanding altText="minha foto" text="Bem-vindo" image={firstPage.partOne.images} />
-      <About clouds={portifolio.about} />
-
-      <SmallClouds SmClouds={portifolio.language} />
+      <Navbar options={options} />
+      <HeaderLanding />
+      <About about={portifolio.about} />
     </>
   )
 }

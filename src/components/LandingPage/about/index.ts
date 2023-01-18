@@ -1,33 +1,41 @@
 import styled from "styled-components";
 
 export const LandingAboutStyled = styled.div`
-  border-top: 10px solid white;
-  border-bottom: 100px solid white;
-  z-index: 999;
   max-width: 100vw;
   max-height: 100vh;
-  .background {
-    position: absolute;
-    width: 100vw;
-    height: 111vh;
-    transform: rotate(3.142rad);
-  }
-  .background::before {
-    content: "";
-    display: block;
-    width: 100vw;
-    background: white;
-  }
-  .cloud-white {
-    margin-top: 5px;
-  }
-  .text {
-    width: 100vw;
-    border: 1px solid red;
-    position: relative;
+  /* position: relative; */
+
+  & > div {
     display: flex;
     align-items: center;
-    z-index: 999;
-    color: black;
+    text-align: center;
+    /* position: absolute; */
+  }
+
+  & > h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    z-index: 2;
+  }
+  .wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .content {
+    width: 30vw;
+    height: 40vh;
+    padding: 1rem;
+    font-size: min(1.1rem, 3vw);
+    background: #21262d;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
   }
 `;

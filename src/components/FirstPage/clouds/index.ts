@@ -3,35 +3,74 @@ import styled from "styled-components";
 export const CloudsStyled = styled.div`
   max-height: 100vh;
   max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   & > div {
     overflow: hidden;
     position: relative;
     display: flex;
   }
-  .container {
-    display: flex;
-    justify-content: center;
-  }
+
   h1 {
-    color: black;
-    min-width: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    z-index: 4;
-    margin-top: 20%;
+    color: #000;
+    font-size: 1.6rem;
     text-align: center;
+    max-width: 94%;
+
+    @media (max-width: 694px) {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 603px) {
+      /* font-size: 1.6rem; */
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 355px) {
+      /* font-size: 1.2rem; */
+    }
   }
-  .div-cloud {
+
+  img {
+    @media (max-width: 607px) {
+      max-width: 100%;
+      height: 300px;
+    }
+
+    /* @media (max-width: 455px) {
+      width: 400px;
+      height: 300px;
+    }
+
+    @media (max-width: 405px) {
+      width: 350px;
+      height: 300px; 
+    } */
+  }
+
+  .container {
+    flex-direction: row;
+    gap: 1rem;
+    z-index: 5;
     display: flex;
-    padding: 5rem;
+  }
+  .wrapper {
+    display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
   }
-  .title {
-    position: relative;
-    font-size: 2rem;
+
+  .content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7rem;
+    height: 100%;
   }
 `;
 

@@ -11,7 +11,7 @@ type SmallCloudsTypes = {
     images: string,
   }[]
 }
-
+ 
 export const SmallClouds = ({ SmClouds }: SmallCloudsTypes) => {
   const slider2 = useRef<HTMLDivElement>(null)
   //passar o state de cloud por context pra ca
