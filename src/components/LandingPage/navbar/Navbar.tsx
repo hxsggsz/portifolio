@@ -11,32 +11,36 @@ type NavbarTypes = {
 
 export const Navbar = ({ options }: NavbarTypes) => {
   const [activeIdx, setActiveIdx] = useState<number | null>(null)
-  const [showMenu, setShowMenu] = useState(false)
+  const [isShowMenu, setisShowMenu] = useState(false)
+  const [isActiveItem, setIsActiveItem] = useState(false)
   return (
-    <NavStyles show={showMenu}>
+    <NavStyles show={isShowMenu}>
 
       <div className="mobile-menu">
         <Code className="icon" size={40} />
 
-        <motion.div whileTap={{ rotate: 360 }} transition={{ type: "spring" }} className="button" onClick={() => setShowMenu(!showMenu)}>
-          {showMenu ? <X color='white' size={30} /> : <List color='white' size={30} />}
+        <motion.div whileTap={{ rotate: 360 }} transition={{ type: "spring" }} className="button" onClick={() => setisShowMenu(!isShowMenu)}>
+          {isShowMenu ? <X color='white' size={30} /> : <List color='white' size={30} />}
         </motion.div>
 
       </div>
 
-      <motion.ul >
+      <motion.ul onHoverEnd={() => !isActiveItem && setActiveIdx(null)} >
 
         {options.map((nav, idx) => {
           const isActive = idx === activeIdx;
           return (
-            <motion.li onHoverStart={() => setActiveIdx(idx)} key={idx} >
+            <motion.li onHoverStart={() => setActiveIdx(idx)} onClick={() => setisShowMenu(false)} key={idx} >
               <Link href={nav.url}>
 
                 {isActive ? (
                   <motion.span layoutId="background" className="background" />
                 ) : null}
 
-                <span onClick={() => setActiveIdx(idx)} >{nav.content}</span>
+                <span onClick={() => {
+                  setActiveIdx(idx)
+                  setIsActiveItem(true)
+                }} >{nav.content}</span>
 
               </Link>
             </motion.li>
@@ -48,3 +52,4 @@ export const Navbar = ({ options }: NavbarTypes) => {
     </NavStyles>
   )
 }
+

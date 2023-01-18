@@ -1,10 +1,6 @@
-import { motion } from "framer-motion"
-import { LandingAboutStyled } from "."
-
-export const About = () => {
+export const Background = () => {
   return (
-    <LandingAboutStyled>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
+    <svg className='background' xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
         <g mask="url(&quot;#SvgjsMask1005&quot;)" fill="none">
           <rect width="1440" height="560" x="0" y="0" fill="rgba(135, 206, 235, 1)"></rect>
           <path d="M1560 560L0 560 L0 231Q77.09 236.09, 72 313.17Q120 289.18, 144 337.18Q146.68 267.86, 216 270.54Q246.73 229.27, 288 260Q337.92 237.92, 360 287.84Q366.74 222.57, 432 229.31Q502.91 180.22, 552 251.13Q634.93 214.06, 672 297Q672.33 225.33, 744 225.66Q791.99 201.65, 816 249.64Q906 219.64, 936 309.65Q952.17 253.82, 1008 270Q1042.72 184.72, 1128 219.44Q1178.43 197.87, 1200 248.3Q1266.19 194.49, 1320 260.68Q1362.63 183.31, 1440 225.95Q1505.63 171.58, 1560 237.21z" fill="rgba(135, 206, 235, 1)d"></path>
@@ -19,6 +15,5 @@ export const About = () => {
           </mask>
         </defs>
       </svg>
-    </LandingAboutStyled>
   )
 }

@@ -35,7 +35,6 @@ export const NavStyles = styled.nav<MenuType>`
   ul {
     gap: 1.5rem;
     margin-right: 20px;
-
     list-style: none;
     border-radius: 30px;
     box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
@@ -63,7 +62,7 @@ export const NavStyles = styled.nav<MenuType>`
     position: relative;
     font-weight: bold;
     font-size: 1.3rem;
-    color: var(--blue-first);
+    color: #87ceeb;
     @media (max-width: 790px) {
       font-size: 2rem;
     }

@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next"
 import { api } from "../api/axios"
-import { ApiTypes } from "./types"
+import { ApiTypes } from "../api/types"
 import { Header } from "../../components/FirstPage/Header"
 import { ContentOne } from "../../components/FirstPage/ContentOne"
 import { ContentTwo } from "../../components/FirstPage/ContentTwo"

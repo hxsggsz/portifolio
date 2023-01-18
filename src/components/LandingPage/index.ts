@@ -6,6 +6,7 @@ export const LandingHeaderStyled = styled.main`
   display: flex;
   margin-top: 40px;
   align-items: center;
+  z-index: 999;
   justify-content: space-evenly;
   background: blue;
   .images {
@@ -23,25 +24,5 @@ export const LandingHeaderStyled = styled.main`
     position: absolute;
     width: 100vw;
     height: 100vh;
-  }
-`;
-
-export const LandingAboutStyled = styled.div`
-  border-top: 10px solid white;
-  border-bottom: 10px solid white;
-  svg {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    transform: rotate(3.142rad);
-  }
-  svg::before {
-    content: "";
-    display: block;
-    width: 100vw;
-    background: white;
-  }
-  .cloud-white {
-    margin-top: 5px;
   }
 `;
