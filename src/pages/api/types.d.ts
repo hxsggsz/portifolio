@@ -21,6 +21,7 @@ export type ApiTypes = {
     about: {
       id: string;
       text: string;
+      image: string;
       translation: string;
       portifolioId: string;
     }[];
