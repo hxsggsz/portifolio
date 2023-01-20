@@ -3,9 +3,11 @@ import Link from "next/link"
 import { useState } from "react";
 import { NavStyles } from ".";
 import { Code, List, X } from "phosphor-react";
+import { IParallax } from "@react-spring/parallax";
+import { MutableRefObject } from "react";
 
 type NavbarTypes = {
-  options: { content: string; url: string; }[]
+  options: { content: string; url: void; }[]
 }
 
 
@@ -15,7 +17,7 @@ export const Navbar = ({ options }: NavbarTypes) => {
   const [isActiveItem, setIsActiveItem] = useState(false)
   return (
     <NavStyles show={isShowMenu}>
-
+{/* fazer isso funcionar https://www.youtube.com/watch?v=QzW03hyw_bU&t=405s */}
       <div className="mobile-menu">
         <Code className="icon" size={40} />
 
@@ -30,19 +32,20 @@ export const Navbar = ({ options }: NavbarTypes) => {
         {options.map((nav, idx) => {
           const isActive = idx === activeIdx;
           return (
-            <motion.li onHoverStart={() => setActiveIdx(idx)} onClick={() => setisShowMenu(false)} key={idx} >
-              <Link href={nav.url}>
+            <motion.li onHoverStart={() => setActiveIdx(idx)} onClick={() => {
+              setisShowMenu(false)
+              nav.url
+            }} key={idx} >
 
-                {isActive ? (
-                  <motion.span layoutId="background" className="background" />
-                ) : null}
+              {isActive ? (
+                <motion.span layoutId="background" className="background" />
+              ) : null}
 
-                <span onClick={() => {
-                  setActiveIdx(idx)
-                  setIsActiveItem(true)
-                }} >{nav.content}</span>
+              <span onClick={() => {
+                setActiveIdx(idx)
+                setIsActiveItem(true)
+              }} >{nav.content}</span>
 
-              </Link>
             </motion.li>
           )
         })}

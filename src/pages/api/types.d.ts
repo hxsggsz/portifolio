@@ -25,11 +25,27 @@ export type ApiTypes = {
       translation: string;
       portifolioId: string;
     }[];
+
     language: {
       id: string;
       name: string;
       images: string;
     }[];
+    project: {
+      id: string;
+      name: string;
+      images: string;
+      languages: string;
+      description: string;
+      url: string;
+      urlRepository: string;
+    }[]
+    certificate: {
+      id: string;
+      name: string;
+      images: string;
+      description: string;
+    }[]
   };
 };
 

@@ -8,7 +8,7 @@ export const LandingAboutStyled = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-   
+
   & > div {
     display: flex;
     text-align: center;
@@ -27,10 +27,24 @@ export const LandingAboutStyled = styled.div`
     background: #fff;
     border-radius: 10px;
     margin-bottom: 10px;
-  }
 
+    @media (max-width: 390px) {
+      width: 220px;
+      height: 150px;
+    }
+
+    @media (max-width: 255px) {
+      width: 150px;
+      height: 100px;
+    }
+  }
+  
   .ref {
     width: 98vw;
+    
+    @media (max-width: 425px) {
+      width: 95vw;
+    }
   }
 
   .wrapper {
@@ -39,9 +53,7 @@ export const LandingAboutStyled = styled.div`
   }
 
   .content {
-    width: 35vw;
-    height: 52vh;
-    padding: 1rem;
+    padding: 1rem 2rem;
     font-weight: bold;
     font-size: min(1.1rem, 3vw);
     background: #21262d;
@@ -51,5 +63,12 @@ export const LandingAboutStyled = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
+
+    @media (max-width: 425px) {
+      max-width: 95vw;
+    }
+  }
+  .content p {
+    font-size: min(16px, 5vw)
   }
 `;
