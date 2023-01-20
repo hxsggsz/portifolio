@@ -3,50 +3,53 @@ import styled from "styled-components";
 export const LandingAboutStyled = styled.div`
   width: 100vw;
   height: 100vh;
-  position: relative;
   display: flex;
+  position: relative;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+   
   & > div {
     display: flex;
-    align-items: center;
     text-align: center;
+    align-items: center;
   }
 
   & > h1 {
+    margin: 2rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem 0;
   }
 
   img {
     z-index: 2;
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
 
   .ref {
-    width: 100vw;
+    width: 98vw;
   }
 
   .wrapper {
     display: flex;
     gap: 0.7rem;
-    margin-left: 1%;
   }
 
   .content {
     width: 35vw;
     height: 52vh;
     padding: 1rem;
+    font-weight: bold;
     font-size: min(1.1rem, 3vw);
     background: #21262d;
     border-radius: 10px;
     border: 3px solid #fff;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    font-weight: bold;
+    justify-content: center;
   }
 `;

@@ -22,7 +22,7 @@ export const About = ({ about }: AboutType) => {
     }
   }, [])
   return (
-    <>
+    <> 
       <LandingAboutStyled>
         <h1>Sobre mim!</h1>
         {/* responsável pelo efeito de slide */}
@@ -31,7 +31,7 @@ export const About = ({ about }: AboutType) => {
             {/* conteúdo da página */}
             {about.map(abt => (
               <div className="content" key={abt.id}>
-                <Image width={200} height={200} src={abt.image} alt="imagens da minha apresentação" />
+                <Image width={300} height={200} src={abt.image} alt="imagens da minha apresentação" />
                 <p>{abt.text}</p>
               </div>
             ))}

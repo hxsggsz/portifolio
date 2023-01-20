@@ -4,6 +4,7 @@ import { GetServerSideProps } from "next";
 import { About } from "../../components/LandingPage/about/About";
 import { Navbar } from "../../components/LandingPage/navbar/Navbar";
 import { HeaderLanding } from "../../components/LandingPage/header/Header";
+import { Languages } from "../../components/LandingPage/languages/languages";
 
 const options = [
   { content: "Home", url: "" },
@@ -19,6 +20,7 @@ export default function LandingPage({ firstPage, portifolio }: ApiTypes) {
       <Navbar options={options} />
       <HeaderLanding />
       <About about={portifolio.about} />
+      <Languages languages={portifolio.language} />
     </>
   )
 }
