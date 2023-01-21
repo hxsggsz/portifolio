@@ -4,6 +4,7 @@ import Image from "next/image"
 import { StyledCard } from "."
 
 type CardTypes = {
+   title: string,
    cert: {
       id: string;
       name: string;
@@ -12,19 +13,19 @@ type CardTypes = {
    }[]
 }
 
-export const Certificates = ({ cert }: CardTypes) => {
+export const Certificates = ({ title, cert }: CardTypes) => {
    return (
-      <StyledCard>
-         <h1>Meus certificados</h1>
+      <StyledCard id='certificates'>
+         <h1>{title}</h1>
          <div className='container'>
             {cert.map((items, idx) => (
                <motion.div
-               key={items.id}
-               initial={{ opacity: 0, translateX: -50, translateY: -50 }}
-               whileInView={{ opacity: 1, translateX: 0, translateY: 0 }}
+                  key={items.id}
+                  initial={{ opacity: 0, translateX: -50, translateY: -50 }}
+                  whileInView={{ opacity: 1, translateX: 0, translateY: 0 }}
                   transition={{ duration: 0.4, delay: idx * 0.2 }}
                   viewport={{ once: true, }}>
-                     <motion.div whileHover={{ scale: 1.1 }} className='card'>
+                  <motion.div whileHover={{ scale: 1.1 }} className='card'>
                      <Image width={380} height={270} src={items.images} alt={`foto do projeto ${items.name}`} />
 
                      <div className='texts'>

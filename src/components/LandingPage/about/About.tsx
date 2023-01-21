@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import React from 'react'
 
 type AboutType = {
+  title: string
   about: {
     id: string
     text: string
@@ -12,7 +13,7 @@ type AboutType = {
   }[],
 }
 
-export const About = ({ about }: AboutType) => {
+export const About = ({ title, about }: AboutType) => {
   const [width, setWidth] = useState<number>(19)
   const carousel = React.useRef<HTMLDivElement>(null)
 
@@ -21,19 +22,20 @@ export const About = ({ about }: AboutType) => {
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
     }
   }, [])
+  
   return (
-    <> 
-      <LandingAboutStyled>
-        <h1>Sobre mim!</h1>
+    <>
+      <LandingAboutStyled id='about'>
+        <h1>{title}</h1>
         {/* responsável pelo efeito de slide */}
         <motion.div className="ref" ref={carousel} whileTap={{ cursor: 'grabbing' }}>
           <motion.div className='wrapper' drag='x' dragConstraints={{ right: 0, left: -width }}>
             {/* conteúdo da página */}
             {about.map(abt => (
-              <div className="content" key={abt.id}>
+              <motion.div whileHover={{ scale: 1.1 }} className="content" key={abt.id}>
                 <Image width={300} height={200} src={abt.image} alt="imagens da minha apresentação" />
                 <p>{abt.text}</p>
-              </div>  
+              </motion.div>
             ))}
 
           </motion.div>

@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-y: hidden;
+    overflow-x: hidden;
     min-height: 100%;
     background: #000;
     color: #fff;

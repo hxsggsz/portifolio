@@ -47,8 +47,19 @@ export type ApiTypes = {
       description: string;
     }[]
   };
+  contact: {
+    text: string;
+    curriculum: string;
+  }
 };
 
+export type LangEngTypes = {
+  language: {
+    id: string;
+    name: string;
+    images: string;
+  }[];
+}
 // declare module namespace {
 //   export interface
 
