@@ -34,6 +34,7 @@ export const StyledButton = styled.div`
       border-radius: 10px;
       margin-right:10px;
       margin-bottom:10px;
+      z-index:999;
       border: 3px solid #fff;
          padding: 1rem;
          gap: 0.4rem;

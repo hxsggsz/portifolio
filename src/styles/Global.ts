@@ -10,6 +10,12 @@ export const GlobalStyle = createGlobalStyle`
     --blue-sky: #87ceeb;
     --grey-first: #7180B9;
     --white-first: #DFF3E4;
+
+    /* fake google */
+    --white-google: #ffffff;
+    --grey-dark: #202124;
+    --grey-light: #303134;
+    --grey-lighter-than-light: #bdc1bc;
   }
   /* Reset */
   * {
