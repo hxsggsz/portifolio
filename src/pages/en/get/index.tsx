@@ -27,20 +27,20 @@ export default function Get() {
 
    const onSubmit: SubmitHandler<InputTypes> = ({ search }) => {
 
-      if (search === "certificado" || search === "certificados") {
-         route.push("/ptbr/get/certificate")
+      if (search === "certificate" || search === "certificates") {
+         route.push("/en/get/certificate")
       }
-      if (search === "projeto" || search === "projetos") {
-         route.push("/ptbr/get/projects")
+      if (search === "project" || search === "projetcts") {
+         route.push("/en/get/projects")
       }
-      if (search === "linguagem" || search === "linguagens") {
-         route.push("/ptbr/get/languages")
+      if (search === "language" || search === "lkanguages") {
+         route.push("/en/get/languages")
       }
       if (search === 'landing page') {
-         route.push("/ptbr/get/LandingPage")
+         route.push("/en/get/LandingPageEn")
       }
       else {
-         route.push("/ptbr/get/notFound")
+         route.push("/en/get/notFound")
       }
    }
 
