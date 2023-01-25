@@ -49,6 +49,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 2px;
   }
 } 
+
   a {
     text-decoration: none;
   }
