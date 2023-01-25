@@ -1,8 +1,10 @@
+import React from "react";
 import * as yup from "yup";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { StyledGet } from "../../components/Get";
+import { useRouter } from "next/router";
 import { MagnifyingGlass } from "phosphor-react";
+import { StyledGet } from "../../../styles/index";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm, SubmitHandler } from "react-hook-form";
 
 type InputTypes = {
    search: string;
@@ -16,22 +18,36 @@ const schema = yup.object({
       .max(100, 'você não pode ter mais de 100 caracteres')
 })
 
-export default function Teste() {
-   const { register, handleSubmit, formState: { errors } } = useForm<InputTypes>({
+export default function Get() {
+   const route = useRouter()
+
+   const { register, handleSubmit, formState: { errors }, } = useForm<InputTypes>({
       resolver: yupResolver(schema),
    });
 
    const onSubmit: SubmitHandler<InputTypes> = ({ search }) => {
-      console.log(search);
-   }
 
+      if (search === "certificado" || search === "certificados") {
+         route.push("/ptbr/get/certificate")
+      }
+      if (search === "projeto" || search === "projetos") {
+         route.push("/ptbr/get/projects")
+      }
+      if (search === "linguagem" || search === "linguagens") {
+         route.push("/ptbr/get/languages")
+      }
+      else {
+         route.push("/ptbr/get/notFound")
+      }
+   }
+   
    return (
       <StyledGet>
          <h1>Get( )</h1>
 
          <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor='search'>
-               <input {...register("search")} />
+               <input autoComplete="off" {...register("search")} />
                <MagnifyingGlass size={24} />
             </label>
             <span>{errors.search?.message}</span>

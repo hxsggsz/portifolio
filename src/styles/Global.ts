@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     --grey-dark: #202124;
     --grey-light: #303134;
     --grey-lighter-than-light: #bdc1bc;
+    --blue-google: #60abf8;
   }
   /* Reset */
   * {
@@ -35,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     overflow-x: hidden;
     min-height: 100%;
-    background: #000;
+    background: #202124;
     color: #fff;
      &::-webkit-scrollbar {
     width: 0.7vw;

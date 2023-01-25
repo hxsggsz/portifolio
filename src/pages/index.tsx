@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router'
-import { Language } from '../components/ChooseLanguages/Language'
+import { useRouter } from "next/router";
+import { Language } from "../components/ChooseLanguages/Language";
 
 export default function Home() {
   function randomNumber() {
@@ -11,8 +11,8 @@ export default function Home() {
   function handleClick() {
     //redireciona o usuário com base no número que vem dessa função
     let value = randomNumber()
-    value == 0 && router.push('/teste')
-    value == 1 && router.push('/opcao')
+    value == 0 && router.push("/teste")
+    value == 1 && router.push("/opcao")
   }
 
   return (

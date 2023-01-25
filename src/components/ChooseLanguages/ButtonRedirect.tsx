@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { ReactNode } from "react"
-import { motion } from "framer-motion"
+import Link from "next/link";
+import { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 type ButtonTypes = {
   href: string,

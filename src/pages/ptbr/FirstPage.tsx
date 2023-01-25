@@ -1,11 +1,11 @@
-import { GetServerSideProps } from "next"
-import { api } from "../api/axios"
-import { ApiTypes } from "../api/types"
-import { Header } from "../../components/FirstPage/Header"
-import { ContentOne } from "../../components/FirstPage/ContentOne"
-import { ContentTwo } from "../../components/FirstPage/ContentTwo"
-import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax"
-import { useRef } from "react"
+import { useRef } from "react";
+import { api } from "../api/axios";
+import { ApiTypes } from "../api/types";
+import { GetServerSideProps } from "next/types";
+import { Header } from "../../components/FirstPage/Header";
+import { ContentOne } from "../../components/FirstPage/ContentOne";
+import { ContentTwo } from "../../components/FirstPage/ContentTwo";
+import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 
 export default function FirstPage({ firstPage }: ApiTypes) {
   const parallax = useRef<IParallax>(null!)
@@ -21,7 +21,7 @@ export default function FirstPage({ firstPage }: ApiTypes) {
           <ContentOne text={firstPage.partTwo.content} image={firstPage.partTwo.images} altText='Uma aba de um Macbook com o simbolo do react' />
         </ParallaxLayer>
 
-        <ParallaxLayer style={{overflow: "scroll"}} offset={2} factor={5} speed={1}>
+        <ParallaxLayer style={{ overflow: "scroll" }} offset={2} factor={5} speed={1}>
           <ContentTwo text={firstPage.partThree.content} image={firstPage.partThree.images} altText='te' />
         </ParallaxLayer>
       </Parallax>

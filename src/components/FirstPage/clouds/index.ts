@@ -24,13 +24,8 @@ export const CloudsStyled = styled.div`
     }
 
     @media (max-width: 603px) {
-      /* font-size: 1.6rem; */
       text-align: center;
       margin-top: 5px;
-    }
-
-    @media (max-width: 355px) {
-      /* font-size: 1.2rem; */
     }
   }
 
@@ -39,16 +34,6 @@ export const CloudsStyled = styled.div`
       max-width: 100%;
       height: 300px;
     }
-
-    /* @media (max-width: 455px) {
-      width: 400px;
-      height: 300px;
-    }
-
-    @media (max-width: 405px) {
-      width: 350px;
-      height: 300px; 
-    } */
   }
 
   .container {
@@ -71,59 +56,5 @@ export const CloudsStyled = styled.div`
     align-items: center;
     padding-top: 7rem;
     height: 100%;
-  }
-`;
-
-// smallClouds
-
-export const SmallCloudsStyled = styled.div`
-  width: 100vw;
-  height: 100vh;
-  padding: 1rem;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  justify-content: center;
-  background: #87ceeb;
-
-  .title {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-  }
-  .container {
-    flex-direction: row;
-    gap: 1rem;
-    z-index: 5;
-    display: flex;
-  }
-  .wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  h1 {
-    color: black;
-    z-index: 5;
-    font-size: min(1.5rem, 4vw);
-  }
-
-  img {
-    @media (max-width: 570px) {
-      max-width: 170px;
-      max-height: 120px;
-      z-index: 5;
-    }
   }
 `;

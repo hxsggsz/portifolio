@@ -1,14 +1,14 @@
 import { api } from "../api/axios";
-import { ApiTypes, LangEngTypes } from '../api/types';
+import { ApiTypes } from '../api/types';
 import { GetServerSideProps } from "next";
 import { About } from "../../components/LandingPage/about/About";
 import { Navbar } from "../../components/LandingPage/navbar/Navbar";
+import { MenuButton } from "../../components/MenuButton/MenuButton";
+import { EndPage } from "../../components/LandingPage/EndPage/EndPage";
+import { Projects } from '../../components/LandingPage/projects/projects';
 import { HeaderLanding } from "../../components/LandingPage/header/Header";
 import { Languages } from "../../components/LandingPage/languages/languages";
-import { Projects } from '../../components/LandingPage/projects/projects';
 import { Certificates } from "../../components/LandingPage/certificates/certificates";
-import { EndPage } from "../../components/LandingPage/EndPage/EndPage";
-import { MenuButton } from "../../components/MenuButton/MenuButton";
 
 const options = [
    { content: "Home", url: 'header' },

@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import { Link } from "react-scroll";
-import { useState } from "react";
 import { NavStyles } from ".";
+import { useState } from "react";
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 import { Code, List, X } from "phosphor-react";
 
 
@@ -16,8 +16,9 @@ export const Navbar = ({ options }: NavbarTypes) => {
   const [isActiveItem, setIsActiveItem] = useState(false)
   return (
     <NavStyles show={isShowMenu}>
-      {/* fazer isso funcionar https://www.youtube.com/watch?v=QzW03hyw_bU&t=405s */}
+      
       <div className="mobile-menu">
+
         <Code className="icon" size={40} />
 
         <motion.div whileTap={{ rotate: 360 }} transition={{ type: "spring" }} className="button" onClick={() => setisShowMenu(!isShowMenu)}>

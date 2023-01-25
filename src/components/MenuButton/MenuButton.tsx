@@ -1,10 +1,10 @@
-import { FilePdf, Plus, X } from "phosphor-react"
-import { StyledButton } from "."
-import * as Popover from '@radix-ui/react-popover';
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { StyledButton } from ".";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { FilePdf, Plus, X } from "phosphor-react";
+import * as Popover from "@radix-ui/react-popover";
 
 type ButtonProps = {
    title: string;
@@ -32,15 +32,15 @@ export const MenuButton = ({ title, curriculo }: ButtonProps) => {
                <Link href={curriculo}><FilePdf size={32} /></Link>
 
                <div className="wrapper-icons">
-                  <Link target='_blank' href='https://github.com/hxsggsz'>
+                  <Link target="_blank" href="https://github.com/hxsggsz">
                      <motion.div whileHover={{ y: -4 }} whileTap={{ y: 0 }} className="icons">
-                        <Image width={25} height={25} src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' alt='github' />
+                        <Image width={25} height={25} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github" />
                         <h3>github</h3>
                      </motion.div>
                   </Link>
-                  <Link target='_blank' href='https://www.linkedin.com/in/hxsggsz/'>
+                  <Link target="_blank" href="https://www.linkedin.com/in/hxsggsz/">
                      <motion.div whileHover={{ y: -4 }} whileTap={{ y: 0 }} className="icons">
-                        <Image width={25} height={25} src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg' alt='linkedin' />
+                        <Image width={25} height={25} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="linkedin" />
                         <h3>linkedin</h3>
                      </motion.div>
                   </Link>
