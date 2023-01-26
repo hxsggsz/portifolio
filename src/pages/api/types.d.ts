@@ -35,6 +35,7 @@ export type ApiTypes = {
       id: string;
       name: string;
       images: string;
+      icon: string;
       languages: string;
       description: string;
       url: string;
