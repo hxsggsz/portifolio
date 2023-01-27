@@ -21,7 +21,7 @@ export const MenuButton = ({ title, curriculo }: ButtonProps) => {
          <Popover.Root>
             <Popover.Trigger onClick={() => setIsOpen(!isOpen)} className="button" >
                <motion.div whileTap={{ rotate: 360 }}>
-                  {isOpen ? <Plus color="white" size={32} /> : <X color="white" size={32} />}
+                  {isOpen ? <X color="white" size={32} /> : <Plus color="white" size={32} />}
                </motion.div>
 
             </Popover.Trigger>

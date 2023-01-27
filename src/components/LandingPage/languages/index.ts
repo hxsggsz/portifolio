@@ -5,6 +5,7 @@ export const StyledLanguages = styled.div`
    align-items: center;
    flex-direction: column;
    text-align: center;
+   background: #000;
 
    h1 {
       margin-bottom: 10%;
@@ -35,5 +36,7 @@ export const StyledLanguages = styled.div`
       flex-direction: column;
       background: #21262d;
       border: 3px solid #fff;
+      user-select: none;
+      pointer-events: none;
    }
 `;

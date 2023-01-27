@@ -17,7 +17,16 @@ export const GlobalStyle = createGlobalStyle`
     --grey-light: #303134;
     --grey-lighter-than-light: #bdc1bc;
     --blue-google: #60abf8;
+
+    /* computer */
+    --white-pc: #fff;
+    --black-pc: #000000;
+    --red-pc: #eb6953;
+    --purple-pc: #7e46dd;
+    --yellow-pc: #fbad17;
+    --grey-pc: #b3b3b3;
   }
+
   /* Reset */
   * {
     margin: 0;

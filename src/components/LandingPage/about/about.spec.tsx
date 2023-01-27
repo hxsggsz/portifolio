@@ -7,7 +7,7 @@ const about = [
 
 describe('About.tsx', () => {
   it('should render the About component with attributes correctly', () => {
-    render(<About about={about} />)
+    render(<About about={about} title={'titulo'} />)
 
     const title = screen.getByRole('heading', {
       name: /sobre mim!/i

@@ -22,7 +22,7 @@ export const About = ({ title, about }: AboutType) => {
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
     }
   }, [])
-  
+
   return (
     <>
       <LandingAboutStyled id="about">
@@ -33,7 +33,7 @@ export const About = ({ title, about }: AboutType) => {
             {/* conteúdo da página */}
             {about.map(abt => (
               <motion.div whileHover={{ scale: 1.1 }} className="content" key={abt.id}>
-                <Image width={300} height={200} src={abt.image} alt="imagens da minha apresentação" />
+                <Image width={350} height={250} src={abt.image} alt="imagens da minha apresentação" />
                 <p>{abt.text}</p>
               </motion.div>
             ))}

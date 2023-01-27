@@ -4,6 +4,8 @@ export const StyledCard = styled.div`
    display: flex;
    align-items: center;
    flex-direction: column;
+   background: #000;
+   
 
    & > h1 {
       margin-top: 10rem;
@@ -37,6 +39,7 @@ export const StyledCard = styled.div`
    
    .card img {
       border-radius: 8px 8px 0 0;
+      pointer-events: none;
    }
 
    .texts {

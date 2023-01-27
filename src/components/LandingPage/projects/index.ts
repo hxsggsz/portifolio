@@ -4,6 +4,7 @@ export const StyledProjects = styled.div`
    display: flex;
    align-items: center;
    flex-direction: column;
+   background: #000;
    
    & > h1 {
       margin: 5rem 0;
