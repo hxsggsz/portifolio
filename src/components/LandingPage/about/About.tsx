@@ -14,7 +14,7 @@ type AboutType = {
 }
 
 export const About = ({ title, about }: AboutType) => {
-  const [width, setWidth] = useState<number>(19)
+  const [width, setWidth] = useState<number>(0)
   const carousel = React.useRef<HTMLDivElement>(null)
 
   useEffect(() => {

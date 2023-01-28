@@ -59,6 +59,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 } 
 
+  img {
+    pointer-events: none;
+  }
+
   a {
     text-decoration: none;
   }

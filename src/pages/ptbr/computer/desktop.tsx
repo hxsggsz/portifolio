@@ -8,7 +8,6 @@ export default function Login() {
          <Head>
             <title>Portifolio - Desktop</title>
          </Head>
-
          <Desktop />
          <Taskbar />
       </>
