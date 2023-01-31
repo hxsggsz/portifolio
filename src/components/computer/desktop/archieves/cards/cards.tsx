@@ -15,7 +15,7 @@ export const Cards = ({ image, text }: CardType) => {
         </div>
 
         <div className="text">
-          <h2>{text}</h2>
+          <h3>{text}</h3>
         </div>
 
       </div>

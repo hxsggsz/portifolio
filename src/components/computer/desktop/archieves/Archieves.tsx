@@ -1,11 +1,8 @@
 import Image from "next/image";
 import { StyledIcons } from ".";
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { CornersOut, Minus, Square, X } from "phosphor-react";
-import useSizeScreen from "../../../../hooks/useSizeScreen";
-import { Cards } from "./cards/cards";
+import { App } from "./app/app";
 import { useComputer } from "../../../../hooks/useComputer";
+import { Icon } from "./icon/icon";
 
 type IconTypes = {
   name: string;
@@ -13,28 +10,34 @@ type IconTypes = {
   about?: {
     text: string;
     image: string;
-  }[]
-}
+  }[];
+};
 
-export const Icons = ({ name, icon, about }: IconTypes) => {
+export const Archieves = ({ name, icon, about }: IconTypes) => {
   const computer = useComputer();
-  const { width } = useSizeScreen()
   return (
-    <StyledIcons
-      isFullScreen={computer.isFullScreen}
-      isShow={computer.isChangeBackground}
-    >
+    <StyledIcons isShow={computer.isChangeBackground}>
       {/* icon on desktop */}
-      <div
+      <Icon icon={icon} name={name} isOpen={computer.isAppOpen} onOpen={computer.handleApp} onChangeBackground={computer.changeBackground} />
+      {/* <div
         className="icon"
         onDoubleClick={computer.handleApp}
         onClick={computer.changeBackground}
       >
         <Image width={70} height={70} src={icon} alt="icon" />
         <p>{name}</p>
-      </div>
+      </div> */}
 
-      {/* the app */}
+      <App
+        isShow={computer.isAppOpen}
+        isFullScreen={computer.isFullScreen}
+        onMinus={computer.handleApp}
+        onFullScreen={computer.handleFullScreen}
+        onClose={computer.handleApp}
+        about={about}
+      />
+      {/* the app
+      
       {computer.isAppOpen && (
         <motion.div drag dragConstraints={{
           left: -width, right: width,
@@ -42,7 +45,7 @@ export const Icons = ({ name, icon, about }: IconTypes) => {
         }} className="app">
           <motion.div className="menuBar">
             <div className="buttons">
-              {/* mudar isso aqui mais pra frente */}
+              mudar isso aqui mais pra frente
               <button onClick={computer.handleApp} className="button">
                 <Minus size={20} />
               </button>
@@ -61,16 +64,19 @@ export const Icons = ({ name, icon, about }: IconTypes) => {
             </div>
           </motion.div>
 
-          {/* conteúdo do app */}
+          conteúdo do app
           <div className="content">
             {about?.map(abt => (
               <>
                 <Cards image={abt.image} text={abt.text} />
               </>
             ))}
+
+
+            <ConfigColors />
           </div>
         </motion.div>
-      )}
+      )} */}
     </StyledIcons>
   );
 };

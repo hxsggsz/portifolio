@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const StyledCards = styled.div`
-  max-width: 30vw;
-  max-height: 30vh;
+  max-width: 40vw;
+  min-width: 17rem;
+  max-height: 50vh;
   margin-top: 1rem;
   margin-bottom: 20rem;
   
+@media (max-width: 650px) {
+  max-width:100vw
+}
+
   & > div {
     display: flex;
     align-items: center;

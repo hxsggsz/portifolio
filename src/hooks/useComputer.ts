@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export const useComputer = () => {
   const [computer, setComputer] = useState({
-    isAppOpen: true,
+    isAppOpen: false,
     isChangeBackground: false,
     isFullScreen: false,
   });

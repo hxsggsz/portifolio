@@ -20,11 +20,23 @@ export const GlobalStyle = createGlobalStyle`
 
     /* computer */
     --white-pc: #fff;
+
     --black-pc: #000000;
+
     --red-pc: #eb6953;
-    --purple-pc: #7e46dd;
-    --yellow-pc: #fbad17;
+    --red-dark: #51241c;
+
+    --blue-pc: #4fa6db;
+    --blue-dark: #336c8e;
+
     --grey-pc: #b3b3b3;
+    --grey-dark: #666666;
+
+    --purple-pc: #7e46dd;
+    --purple-dark: #522d90;
+
+    --yellow-pc: #fbad17;
+    --yellow-dark: #ae780f;
   }
 
   /* Reset */

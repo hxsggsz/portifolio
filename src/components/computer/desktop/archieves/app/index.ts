@@ -1,22 +1,10 @@
 import styled from "styled-components";
 
 type IconTypes = {
-  isShow: boolean;
   isFullScreen: boolean;
 };
 
-export const StyledIcons = styled.div<IconTypes>`
-  .icon {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 6px;
-    background: ${({ isShow }) => (isShow ? "rgba(126, 70, 221,0.6)" : "none")};
-    border-radius: 4px;
-    border: ${({ isShow }) => (isShow ? "2px solid #522d90" : "none")};
-    user-select: text;
-  }
-
+export const StyledApp = styled.div<IconTypes>`
   .app {
     position: absolute;
     top: 0;
@@ -62,9 +50,9 @@ export const StyledIcons = styled.div<IconTypes>`
   .content {
     display: grid;
     place-items: center;
-    grid-gap: 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 0 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
     grid-auto-flow: row;
     grid-auto-columns: minmax(1rem, 1fr);
     overflow-y: auto;

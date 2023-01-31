@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { StyledTaskBar } from ".";
-import bg from "../../../../../public/wallpaper.jpg";
+import bg from "../../../../public/wallpaper.jpg";
 
 export const Taskbar = () => {
   return (
