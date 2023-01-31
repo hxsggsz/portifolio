@@ -5,6 +5,7 @@ export const useComputer = () => {
     isAppOpen: false,
     isChangeBackground: false,
     isFullScreen: false,
+    colors: "",
   });
 
   return {
@@ -26,6 +27,10 @@ export const useComputer = () => {
         ...computer,
         isFullScreen: !computer.isFullScreen,
       });
+    },
+    handleColors(color: string) {
+      setComputer({ ...computer, colors: color });
+      console.log(color);
     },
   };
 };

@@ -14,5 +14,5 @@ export const ConfigColors = () => {
         <div onClick={() => setColors("yellow")} className="yellow" />
       </div>
     </StyledConfig>
-  )
+  ) 
 }

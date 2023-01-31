@@ -10,7 +10,7 @@ export const StyledApp = styled.div<IconTypes>`
     top: 0;
     left: ${({ isFullScreen }) => (isFullScreen ? "0" : "25%")};
     background: var(--black-pc);
-    border: 5px solid var(--purple-pc);
+    border: 5px solid ${({ theme }) => theme.primary};
     width: 100%;
     max-width: ${({ isFullScreen }) => (isFullScreen ? "100vw" : "55vw")};
     max-height: 92vh;
@@ -20,7 +20,7 @@ export const StyledApp = styled.div<IconTypes>`
   .menuBar {
     height: 6vh;
     width: 100%;
-    background: var(--purple-pc);
+    background: ${({ theme }) => theme.primary};
   }
 
   .buttons {
@@ -66,8 +66,66 @@ export const StyledApp = styled.div<IconTypes>`
     }
 
     &::-webkit-scrollbar-thumb {
-      background: #522d90;
+      background: ${({ theme }) => theme.secondary};
       border-radius: 2px;
     }
+  }
+
+  .config-colors {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 0;
+  }
+
+  .title-colors {
+    font-size: max(1rem, 3vw);
+  }
+
+  .colors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem 1rem;
+  }
+
+  .purple,
+  .blue,
+  .red,
+  .grey,
+  .yellow {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: 50%;
+
+    @media (max-width: 725px) {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .purple {
+    border: 3px solid var(--purple-dark);
+    background: var(--purple-pc);
+  }
+
+  .blue {
+    border: 3px solid var(--blue-dark);
+    background: var(--blue-pc);
+  }
+
+  .red {
+    border: 3px solid var(--red-dark);
+    background: var(--red-pc);
+  }
+
+  .grey {
+    border: 3px solid var(--grey-dark);
+    background: var(--grey-pc);
+  }
+
+  .yellow {
+    border: 3px solid var(--yellow-dark);
+    background: var(--yellow-pc);
   }
 `;

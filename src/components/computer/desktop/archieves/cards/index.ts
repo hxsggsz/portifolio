@@ -6,24 +6,24 @@ export const StyledCards = styled.div`
   max-height: 50vh;
   margin-top: 1rem;
   margin-bottom: 20rem;
-  
-@media (max-width: 650px) {
-  max-width:100vw
-}
+
+  @media (max-width: 650px) {
+    max-width: 100vw;
+  }
 
   & > div {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 3px solid var(--purple-pc);
+    border: 3px solid ${({ theme }) => theme.primary};
     text-align: center;
     padding: 6px;
   }
 
   .image {
     background: var(--white-pc);
-    border-bottom: 3px solid var(--purple-pc);
+    border-bottom: 3px solid ${({ theme }) => theme.primary};
     width: 100%;
   }
 

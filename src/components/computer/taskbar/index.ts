@@ -9,7 +9,7 @@ export const StyledTaskBar = styled.div`
   left: 0;
   bottom: 0;
   border: 1px solid var(--black-pc);
-  background: var(--purple-pc);
+  background: ${({ theme }) => theme.primary};
 
   .taskbar-content {
     display: flex;

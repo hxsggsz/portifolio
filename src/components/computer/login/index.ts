@@ -32,7 +32,7 @@ export const StyledLogin = styled.div`
     gap: 6px;
     background: var(--white-pc);
     border-radius: 6px;
-    border: 2px solid #000;
+    border: 2px solid var(--black-pc);
     user-select: none;
   }
 

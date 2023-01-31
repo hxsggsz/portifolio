@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 type IconTypes = {
   isShow: boolean;
@@ -10,9 +10,9 @@ export const StyledIcon = styled.div<IconTypes>`
     align-items: center;
     flex-direction: column;
     padding: 6px;
-    background: ${({ isShow }) => (isShow ? "rgba(126, 70, 221,0.6)" : "none")};
+    background: ${({ isShow, theme }) => (isShow ? theme.background : "none")};
     border-radius: 4px;
-    border: ${({ isShow }) => (isShow ? "2px solid #522d90" : "none")};
-    user-select: text;
+    border: ${({ isShow, theme }) => (isShow ? theme.secondary : "none")};
+    user-select: none;
   }
 `;
