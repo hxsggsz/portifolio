@@ -1,103 +1,81 @@
-import { ReactNode, useState, createContext, useContext, useCallback } from "react"
-import { BlueTheme, GreyTheme, PurpleTheme, RedTheme, YellowTheme } from "../styles/themes/themes"
-import { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components";
+import { ReactNode, useState, createContext, useContext, useCallback } from "react";
+import { BlueTheme, GreyTheme, PurpleTheme, RedTheme, YellowTheme } from "../styles/themes/themes";
 
-interface SearchTypes {
+interface ThemeTypes {
   children: ReactNode
 }
 
-export interface StateProps {
+interface StateProps {
   handleTheme: (color: string) => void
-  setCurrentTheme: (color: string) => void
+  setCurrentTheme: () => {
+    primary: string
+    secondary: string
+    background: string
+  }
 }
-
 
 export const ThemeContext = createContext({} as StateProps)
 
 
-
 export const useThemes = () => useContext(ThemeContext);
-// fazer isso aqui funcionar amanha pra ter localhost
-const getActive = () => {
+// pega o nome do tema pelo localStorage
+const getThemeByLocalStorage = () => {
   if (typeof window !== "undefined") {
 
     let currentTheme = localStorage.getItem("theme");
 
     if (currentTheme) {
-      return JSON.parse(currentTheme) as any;
+      return JSON.parse(currentTheme);
     }
-    return {};
+    return "";
   }
 };
-console.log(getActive())
 
-export const ThemesProvider = ({ children }: SearchTypes) => {
-  const [colors, setColors] = useState(getActive()!)
+export const ThemesProvider = ({ children }: ThemeTypes) => {
+  const [colors, setColors] = useState(getThemeByLocalStorage())
   const [theme, setTheme] = useState(PurpleTheme)
 
+  // muda o useState de colors com base no que o usuário escolher nas Configs
   const handleTheme = (color: string) => {
     if (typeof window !== "undefined") {
       setColors(color);
-      console.log(color)
+      localStorage.setItem("theme", JSON.stringify(color));
     }
   }
 
-  // const setCurrentTheme = () => {
-  //   if (colors !== "undefined") {
-  //     switch (colors!) {
-  //       case "purple":
-  //         setTheme(PurpleTheme);
-  //         break;
+  /**
+   * retorna o tema com base no useState colors
+   * useCallback pra essa função só ser executada quando o usuario mudar o tema 
+   */
+  const setCurrentTheme = useCallback(() => {
+    switch (colors) {
+      case "purple":
+        setTheme(PurpleTheme);
+        break;
+      case "blue":
+        setTheme(BlueTheme);
+        break;
+      case "red":
+        setTheme(RedTheme);
+        break;
+      case "grey":
+        setTheme(GreyTheme);
+        break;
+      case "yellow":
+        setTheme(YellowTheme);
+        break;
 
-  //       case "blue":
-  //         setTheme(BlueTheme);
-  //         break;
-
-  //       case "red":
-  //         setTheme(RedTheme);
-  //         break;
-
-  //       case "grey":
-  //         setTheme(GreyTheme);
-  //         break;
-
-  //       case "yellow":
-  //         setTheme(YellowTheme);
-  //         break;
-
-  //       default:
-  //         return PurpleTheme;
-  //     }
-  //     return theme;
-  //   }
-  // }
-
-  const setCurrentTheme = useCallback((color: string) => {
-    if (color === "purple") {
-      localStorage.setItem("theme", JSON.stringify(PurpleTheme));
-      setTheme(PurpleTheme);
+      default:
+        setTheme(PurpleTheme);
+        break;
     }
-    if (color === "blue") {
-      localStorage.setItem("theme", JSON.stringify(BlueTheme));
-      setTheme(BlueTheme);
-    }
-    if (color === "red") {
-      localStorage.setItem("theme", JSON.stringify(RedTheme));
-      setTheme(RedTheme);
-    }
-    if (color === "grey") {
-      localStorage.setItem("theme", JSON.stringify(GreyTheme));
-      setTheme(GreyTheme);
-    }
-    if (color === "yellow") {
-      localStorage.setItem("theme", JSON.stringify(YellowTheme));
-      setTheme(YellowTheme);
-    }
-  }, [])
+    return theme;
+  }, [colors, theme])
 
   return (
     <ThemeContext.Provider value={{ handleTheme, setCurrentTheme }}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={setCurrentTheme}>
         {children}
       </ThemeProvider>
     </ThemeContext.Provider>

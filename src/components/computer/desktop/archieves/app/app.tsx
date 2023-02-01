@@ -69,11 +69,11 @@ export const App = ({
             <div className="config-colors">
               <h1 className="title-colors">Escolha a sua cor favorita!</h1>
               <div className="colors">
-                <div onClick={() => { setCurrentTheme("purple") }} className="purple" />
-                <div onClick={() => { setCurrentTheme("blue") }} className="blue" />
-                <div onClick={() => { setCurrentTheme("red") }} className="red" />
-                <div onClick={() => { setCurrentTheme("grey") }} className="grey" />
-                <div onClick={() => { setCurrentTheme("yellow") }} className="yellow" />
+                <div onClick={() => { handleTheme("purple") }} className="purple" />
+                <div onClick={() => { handleTheme("blue") }} className="blue" />
+                <div onClick={() => { handleTheme("red") }} className="red" />
+                <div onClick={() => { handleTheme("grey") }} className="grey" />
+                <div onClick={() => { handleTheme("yellow") }} className="yellow" />
               </div>
             </div>
           </div>
