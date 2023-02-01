@@ -4,6 +4,7 @@ import { Cards } from "../cards/cards";
 import { Minus, CornersOut, Square, X } from "phosphor-react";
 import useSizeScreen from "../../../../../hooks/useSizeScreen";
 import { useComputer } from "../../../../../hooks/useComputer";
+import { useThemes } from "../../../../../context/themeContext";
 
 type AppTypes = {
   isShow: boolean;
@@ -26,7 +27,7 @@ export const App = ({
   about,
 }: AppTypes) => {
   const { width } = useSizeScreen();
-  const computer = useComputer()
+  const { handleTheme, setCurrentTheme } = useThemes();
   return (
     <StyledApp isFullScreen={isFullScreen}>
       {isShow && (
@@ -68,11 +69,11 @@ export const App = ({
             <div className="config-colors">
               <h1 className="title-colors">Escolha a sua cor favorita!</h1>
               <div className="colors">
-                <div onClick={() => { computer.handleColors("purple") }} className="purple" />
-                <div onClick={() => { computer.handleColors("blue") }} className="blue" />
-                <div onClick={() => { computer.handleColors("red") }} className="red" />
-                <div onClick={() => { computer.handleColors("grey") }} className="grey" />
-                <div onClick={() => { computer.handleColors("yellow") }} className="yellow" />
+                <div onClick={() => { setCurrentTheme("purple") }} className="purple" />
+                <div onClick={() => { setCurrentTheme("blue") }} className="blue" />
+                <div onClick={() => { setCurrentTheme("red") }} className="red" />
+                <div onClick={() => { setCurrentTheme("grey") }} className="grey" />
+                <div onClick={() => { setCurrentTheme("yellow") }} className="yellow" />
               </div>
             </div>
           </div>
