@@ -4,9 +4,10 @@ import { StyledCards } from "."
 type CardType = {
   image: string;
   text: string;
+  description?: string;
 }
 
-export const Cards = ({ image, text }: CardType) => {
+export const Cards = ({ image, text, description }: CardType) => {
   return (
     <StyledCards>
       <div>
@@ -16,6 +17,7 @@ export const Cards = ({ image, text }: CardType) => {
 
         <div className="text">
           <h3>{text}</h3>
+          <p>{description}</p>
         </div>
 
       </div>

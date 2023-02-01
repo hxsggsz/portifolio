@@ -12,9 +12,28 @@ export const StyledConfig = styled.div`
     gap: 1rem;
   }
 
+  .config-colors {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 0;
+  }
+
+  .title-colors {
+    font-size: max(1rem, 3vw);
+  }
+
+  .colors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem 1rem;
+  }
+
   .purple,
   .blue,
+  .green,
   .red,
+  .pink,
   .grey,
   .yellow {
     width: 3rem;
@@ -38,9 +57,19 @@ export const StyledConfig = styled.div`
     background: var(--blue-pc);
   }
 
+  .green {
+    border: 3px solid var(--green-dark);
+    background: var(--green-pc);
+  }
+
   .red {
     border: 3px solid var(--red-dark);
     background: var(--red-pc);
+  }
+
+  .pink {
+    border: 3px solid var(--pink-dark);
+    background: var(--pink-pc);
   }
 
   .grey {
@@ -51,5 +80,17 @@ export const StyledConfig = styled.div`
   .yellow {
     border: 3px solid var(--yellow-dark);
     background: var(--yellow-pc);
+  }
+
+  .languages {
+    display: flex;
+    gap: 4rem 1rem;
+  }
+
+  .options {
+    cursor: pointer;
+    margin: 3rem 0;
+    padding: 12px;
+    border: 3px solid ${({ theme }) => theme.primary};
   }
 `;

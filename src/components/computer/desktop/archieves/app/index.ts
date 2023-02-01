@@ -15,6 +15,10 @@ export const StyledApp = styled.div<IconTypes>`
     max-width: ${({ isFullScreen }) => (isFullScreen ? "100vw" : "55vw")};
     max-height: 92vh;
     overflow: hidden;
+
+    @media (max-width: 830px) {
+      max-width: 100vw;
+    }
   }
 
   .menuBar {
@@ -51,7 +55,7 @@ export const StyledApp = styled.div<IconTypes>`
     display: grid;
     place-items: center;
     grid-gap: 0 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: repeat(2, 1fr);
     grid-auto-flow: row;
     grid-auto-columns: minmax(1rem, 1fr);
@@ -85,12 +89,14 @@ export const StyledApp = styled.div<IconTypes>`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10rem 1rem;
+    gap: 15rem 1rem;
   }
 
   .purple,
   .blue,
+  .green,
   .red,
+  .pink,
   .grey,
   .yellow {
     width: 3rem;
@@ -114,9 +120,19 @@ export const StyledApp = styled.div<IconTypes>`
     background: var(--blue-pc);
   }
 
+  .green {
+    border: 3px solid var(--green-dark);
+    background: var(--green-pc);
+  }
+
   .red {
     border: 3px solid var(--red-dark);
     background: var(--red-pc);
+  }
+
+  .pink {
+    border: 3px solid var(--pink-dark);
+    background: var(--pink-pc);
   }
 
   .grey {
@@ -127,5 +143,17 @@ export const StyledApp = styled.div<IconTypes>`
   .yellow {
     border: 3px solid var(--yellow-dark);
     background: var(--yellow-pc);
+  }
+
+  .languages {
+    display: flex;
+    gap: 4rem 1rem;
+  }
+
+  .options {
+    cursor: pointer;
+    margin: 3rem 0;
+    padding: 12px;
+    border: 3px solid ${({ theme }) => theme.primary};
   }
 `;

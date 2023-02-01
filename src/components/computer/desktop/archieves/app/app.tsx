@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Cards } from "../cards/cards";
 import { Minus, CornersOut, Square, X } from "phosphor-react";
 import useSizeScreen from "../../../../../hooks/useSizeScreen";
-import { useComputer } from "../../../../../hooks/useComputer";
-import { useThemes } from "../../../../../context/themeContext";
+import Link from "next/link";
+import { CardsLang } from "../cards/cardsLang/cardsLang";
 
 type AppTypes = {
   isShow: boolean;
@@ -16,6 +16,20 @@ type AppTypes = {
     text: string;
     image: string;
   }[];
+  isConfig?: boolean;
+  config?: {
+    title: string;
+    titleLang: string;
+    handleTheme: (color: string) => void;
+    onHideEng?: () => void;
+    onHidePt?: () => void;
+    hrefEng?: string;
+    hrefPt?: string;
+  };
+  lang?: {
+    name: string;
+    images: string;
+  }[]
 };
 
 export const App = ({
@@ -25,9 +39,11 @@ export const App = ({
   onFullScreen,
   onClose,
   about,
+  isConfig,
+  config,
+  lang
 }: AppTypes) => {
   const { width } = useSizeScreen();
-  const { handleTheme, setCurrentTheme } = useThemes();
   return (
     <StyledApp isFullScreen={isFullScreen}>
       {isShow && (
@@ -59,26 +75,106 @@ export const App = ({
 
           {/* conteúdo do app */}
           <div className="content">
-            {/* {about?.map((abt) => (
+            {about?.map((abt) => (
               <>
                 <Cards image={abt.image} text={abt.text} />
               </>
-            ))} */}
+            ))}
 
-            {/* <ConfigColors /> */}
-            <div className="config-colors">
-              <h1 className="title-colors">Escolha a sua cor favorita!</h1>
-              <div className="colors">
-                <div onClick={() => { handleTheme("purple") }} className="purple" />
-                <div onClick={() => { handleTheme("blue") }} className="blue" />
-                <div onClick={() => { handleTheme("red") }} className="red" />
-                <div onClick={() => { handleTheme("grey") }} className="grey" />
-                <div onClick={() => { handleTheme("yellow") }} className="yellow" />
-              </div>
-            </div>
+            {lang?.map(lang => (
+              <>
+                <CardsLang name={lang.name} images={lang.images} />
+              </>
+            ))}
+
+            {isConfig && (
+              <>
+                <h1>{config?.title}</h1>
+                <div className="config-colors">
+                  <div className="colors">
+                    <motion.div
+                      whileTap={{ scale: [1, 1.3, 0.9] }}
+                      onClick={() => {
+                        config?.handleTheme("purple");
+                      }}
+                      className="purple"
+                    />
+                    <motion.div
+                      whileTap={{ scale: [1, 1.3, 0.9] }}
+                      onClick={() => {
+                        config?.handleTheme("blue");
+                      }}
+                      className="blue"
+                    />
+                    <motion.div
+                      whileTap={{ scale: [1, 1.3, 0.9] }}
+                      onClick={() => {
+                        config?.handleTheme("green");
+                      }}
+                      className="green"
+                    />
+                    <motion.div
+                      whileTap={{ scale: [1, 1.3, 0.9] }}
+                      onClick={() => {
+                        config?.handleTheme("red");
+                      }}
+                      className="red"
+                    />
+                    <motion.div
+                      whileTap={{ scale: [1, 1.3, 0.9] }}
+                      onClick={() => {
+                        config?.handleTheme("pink");
+                      }}
+                      className="pink"
+                    />
+                    <motion.div
+                      whileTap={{ scale: [1, 1.3, 0.9] }}
+                      onClick={() => {
+                        config?.handleTheme("grey");
+                      }}
+                      className="grey"
+                    />
+                    <motion.div
+                      whileTap={{ scale: [1, 1.3, 0.9] }}
+                      onClick={() => {
+                        config?.handleTheme("yellow");
+                      }}
+                      className="yellow"
+                    />
+                  </div>
+                </div>
+
+                <div style={{ marginTop: "2rem" }}>
+                  <h1>{config?.titleLang}</h1>
+
+                  <div className="languages">
+                    <Link href={config?.hrefEng ? config.hrefEng : ''}>
+                      <motion.div
+                        whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
+                        className="options"
+                        onClick={config?.onHideEng}
+                      >
+                        <h1>English</h1>
+                      </motion.div>
+                    </Link>
+
+                    <Link href={config?.hrefPt ? config.hrefPt : ''}>
+                      <motion.div
+                        whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
+                        className="options"
+                        onClick={config?.onHidePt}
+                      >
+                        <h1>Português</h1>
+                      </motion.div>
+                    </Link>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </motion.div>
-      )}
-    </StyledApp>
+      )
+      }
+    </StyledApp >
   );
 };

@@ -10,10 +10,22 @@ export const BlueTheme = {
   background: "rgba(51, 108, 142, 0.6)",
 };
 
+export const GreenTheme = {
+  primary: "#6eb1a0",
+  secondary: "#3e645a",
+  background: "rgba(62, 100, 90, 0.6)",
+};
+
 export const RedTheme = {
   primary: "#eb6953",
   secondary: "#51241c",
   background: "rgba(81, 36, 28, 0.6)",
+};
+
+export const PinkTheme = {
+  primary: "#e29b97",
+  secondary: "#956663",
+  background: "rgba(149, 102, 99, 0.6)",
 };
 
 export const GreyTheme = {

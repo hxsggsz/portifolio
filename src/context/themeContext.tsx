@@ -1,28 +1,32 @@
 import { ThemeProvider } from "styled-components";
-import { ReactNode, useState, createContext, useContext, useCallback } from "react";
-import { BlueTheme, GreyTheme, PurpleTheme, RedTheme, YellowTheme } from "../styles/themes/themes";
+import {
+  ReactNode,
+  useState,
+  createContext,
+  useContext,
+  useCallback,
+} from "react";
+import * as themes from "../styles/themes/themes";
 
 interface ThemeTypes {
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface StateProps {
-  handleTheme: (color: string) => void
+  handleTheme: (color: string) => void;
   setCurrentTheme: () => {
-    primary: string
-    secondary: string
-    background: string
-  }
+    primary: string;
+    secondary: string;
+    background: string;
+  };
 }
 
-export const ThemeContext = createContext({} as StateProps)
-
+export const ThemeContext = createContext({} as StateProps);
 
 export const useThemes = () => useContext(ThemeContext);
 // pega o nome do tema pelo localStorage
 const getThemeByLocalStorage = () => {
   if (typeof window !== "undefined") {
-
     let currentTheme = localStorage.getItem("theme");
 
     if (currentTheme) {
@@ -33,8 +37,8 @@ const getThemeByLocalStorage = () => {
 };
 
 export const ThemesProvider = ({ children }: ThemeTypes) => {
-  const [colors, setColors] = useState(getThemeByLocalStorage())
-  const [theme, setTheme] = useState(PurpleTheme)
+  const [colors, setColors] = useState(getThemeByLocalStorage());
+  const [theme, setTheme] = useState(themes.PurpleTheme);
 
   // muda o useState de colors com base no que o usuário escolher nas Configs
   const handleTheme = (color: string) => {
@@ -42,42 +46,46 @@ export const ThemesProvider = ({ children }: ThemeTypes) => {
       setColors(color);
       localStorage.setItem("theme", JSON.stringify(color));
     }
-  }
+  };
 
   /**
    * retorna o tema com base no useState colors
-   * useCallback pra essa função só ser executada quando o usuario mudar o tema 
+   * useCallback pra essa função só ser executada quando o usuario mudar o tema
    */
   const setCurrentTheme = useCallback(() => {
     switch (colors) {
       case "purple":
-        setTheme(PurpleTheme);
+        setTheme(themes.PurpleTheme);
         break;
       case "blue":
-        setTheme(BlueTheme);
+        setTheme(themes.BlueTheme);
+        break;
+      case "green":
+        setTheme(themes.GreenTheme);
         break;
       case "red":
-        setTheme(RedTheme);
+        setTheme(themes.RedTheme);
+        break;
+      case "pink":
+        setTheme(themes.PinkTheme);
         break;
       case "grey":
-        setTheme(GreyTheme);
+        setTheme(themes.GreyTheme);
         break;
       case "yellow":
-        setTheme(YellowTheme);
+        setTheme(themes.YellowTheme);
         break;
 
       default:
-        setTheme(PurpleTheme);
+        setTheme(themes.PurpleTheme);
         break;
     }
     return theme;
-  }, [colors, theme])
+  }, [colors, theme]);
 
   return (
     <ThemeContext.Provider value={{ handleTheme, setCurrentTheme }}>
-      <ThemeProvider theme={setCurrentTheme}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={setCurrentTheme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
-  )
-}
+  );
+};

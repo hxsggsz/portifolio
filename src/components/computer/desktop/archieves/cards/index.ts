@@ -18,20 +18,22 @@ export const StyledCards = styled.div`
     flex-direction: column;
     border: 3px solid ${({ theme }) => theme.primary};
     text-align: center;
-    padding: 6px;
+    padding: 0 6px;
+    overflow: hidden;
   }
 
   .image {
     background: var(--white-pc);
     border-bottom: 3px solid ${({ theme }) => theme.primary};
-    width: 100%;
+    width: 110%;
   }
 
   .text {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    margin-top: 1rem;
     flex-direction: column;
-    height: 50vh;
+    height: 30vh;
   }
 `;

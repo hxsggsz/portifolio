@@ -25,9 +25,15 @@ export const GlobalStyle = createGlobalStyle`
 
     --red-pc: #eb6953;
     --red-dark: #51241c;
+    
+    --pink-pc: #e29b97;
+    --pink-dark: #956663;
 
     --blue-pc: #4fa6db;
     --blue-dark: #336c8e;
+
+    --green-pc: #6eb1a0;
+    --green-dark: #3e645a;
 
     --grey-pc: #b3b3b3;
     --grey-dark: #666666;
@@ -77,6 +83,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: #fff;
   }
   ul {
       list-style: none;

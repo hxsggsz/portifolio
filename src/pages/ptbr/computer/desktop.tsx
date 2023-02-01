@@ -2,11 +2,13 @@ import Head from "next/head";
 import { Taskbar } from "../../../components/computer/taskbar/taskbar";
 import { StyledDesktop } from "../../../components/computer/desktop";
 import bg from "../../../../public/wallpaper.jpg";
-import arquivo from "../../../../public/arquivo.png";
-import { Archieves } from "../../../components/computer/desktop/archieves/Archieves";
 import { GetServerSideProps } from "next";
 import { api } from "../../api/axios";
 import { ApiTypes } from "../../api/types";
+import { ConfigColors } from "../../../components/computer/desktop/archieves/config/config";
+import { About } from "../../../components/computer/desktop/archieves/about/About";
+import { CardsLang } from "../../../components/computer/desktop/archieves/cards/cardsLang/cardsLang";
+import { Languages } from "../../../components/computer/desktop/archieves/Languages/Languages";
 
 export default function Login({ portifolio }: ApiTypes) {
    return (
@@ -21,12 +23,11 @@ export default function Login({ portifolio }: ApiTypes) {
             <title>Portifolio - Desktop</title>
          </Head>
 
-         <Archieves
-            name="sobre-mim.txt"
-            icon={arquivo.src}
-            about={portifolio.about}
-         />
-
+         <div className="icons">
+         <ConfigColors />
+         <About about={portifolio.about} />
+         <Languages lang={portifolio.language} />
+         </div>
          <Taskbar />
       </StyledDesktop>
    );
