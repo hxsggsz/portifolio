@@ -13,6 +13,7 @@ type AppTypes = {
   onFullScreen: () => void;
   onClose: () => void;
   about?: {
+    id: string;
     text: string;
     image: string;
   }[];
@@ -27,9 +28,27 @@ type AppTypes = {
     hrefPt?: string;
   };
   lang?: {
+    id: string;
     name: string;
     images: string;
-  }[]
+  }[];
+  cert?: {
+    id: string;
+    name: string;
+    images: string;
+    description: string;
+  }[];
+  isProject?: boolean;
+  project?: {
+    id: string;
+    icon: string;
+    images: string;
+    name: string;
+    description: string;
+    urlRepository: string;
+    url: string;
+    languages: string;
+  };
 };
 
 export const App = ({
@@ -41,11 +60,14 @@ export const App = ({
   about,
   isConfig,
   config,
-  lang
+  lang,
+  cert,
+  isProject,
+  project,
 }: AppTypes) => {
   const { width } = useSizeScreen();
   return (
-    <StyledApp isFullScreen={isFullScreen}>
+    <StyledApp isProject={isProject ? isProject : false} isFullScreen={isFullScreen}>
       {isShow && (
         <motion.div
           drag
@@ -76,80 +98,109 @@ export const App = ({
           {/* conteúdo do app */}
           <div className="content">
             {about?.map((abt) => (
-              <>
-                <Cards image={abt.image} text={abt.text} />
-              </>
+              <Cards key={abt.id} images={abt.image} text={abt.text} icon={""} />
             ))}
 
-            {lang?.map(lang => (
-              <>
-                <CardsLang name={lang.name} images={lang.images} />
-              </>
+            {lang?.map((lang) => (
+              <CardsLang key={lang.id} name={lang.name} images={lang.images} />
             ))}
 
-            {isConfig && (
-              <>
+            {cert?.map((cert) => (
+              <Cards
+                key={cert.id}
+                images={cert.images}
+                text={cert.name}
+                description={cert.description} icon={""} />
+            ))}
+
+          </div>
+
+          {isProject &&
+            <div className="projects">
+              <Cards
+                isProject={isProject}
+                url={project?.url}
+                repo={project?.urlRepository}
+                images={project?.images ? project.images : ""}
+                text={project?.name}
+                description={project?.description}
+                langs={project?.languages}
+                icon={project ? project.icon : ""}
+              />
+            </div>
+          }
+
+          {isConfig && (
+            <>
+              <div className="config-colors">
                 <h1>{config?.title}</h1>
-                <div className="config-colors">
-                  <div className="colors">
-                    <motion.div
-                      whileTap={{ scale: [1, 1.3, 0.9] }}
-                      onClick={() => {
-                        config?.handleTheme("purple");
-                      }}
-                      className="purple"
-                    />
-                    <motion.div
-                      whileTap={{ scale: [1, 1.3, 0.9] }}
-                      onClick={() => {
-                        config?.handleTheme("blue");
-                      }}
-                      className="blue"
-                    />
-                    <motion.div
-                      whileTap={{ scale: [1, 1.3, 0.9] }}
-                      onClick={() => {
-                        config?.handleTheme("green");
-                      }}
-                      className="green"
-                    />
-                    <motion.div
-                      whileTap={{ scale: [1, 1.3, 0.9] }}
-                      onClick={() => {
-                        config?.handleTheme("red");
-                      }}
-                      className="red"
-                    />
-                    <motion.div
-                      whileTap={{ scale: [1, 1.3, 0.9] }}
-                      onClick={() => {
-                        config?.handleTheme("pink");
-                      }}
-                      className="pink"
-                    />
-                    <motion.div
-                      whileTap={{ scale: [1, 1.3, 0.9] }}
-                      onClick={() => {
-                        config?.handleTheme("grey");
-                      }}
-                      className="grey"
-                    />
-                    <motion.div
-                      whileTap={{ scale: [1, 1.3, 0.9] }}
-                      onClick={() => {
-                        config?.handleTheme("yellow");
-                      }}
-                      className="yellow"
-                    />
-                  </div>
+                <div className="colors">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: [1, 1.3, 0.9] }}
+                    onClick={() => {
+                      config?.handleTheme("purple");
+                    }}
+                    className="purple"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: [1, 1.3, 0.9] }}
+                    onClick={() => {
+                      config?.handleTheme("blue");
+                    }}
+                    className="blue"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: [1, 1.3, 0.9] }}
+                    onClick={() => {
+                      config?.handleTheme("green");
+                    }}
+                    className="green"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: [1, 1.3, 0.9] }}
+                    onClick={() => {
+                      config?.handleTheme("red");
+                    }}
+                    className="red"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: [1, 1.3, 0.9] }}
+                    onClick={() => {
+                      config?.handleTheme("pink");
+                    }}
+                    className="pink"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: [1, 1.3, 0.9] }}
+                    onClick={() => {
+                      config?.handleTheme("grey");
+                    }}
+                    className="grey"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: [1, 1.3, 0.9] }}
+                    onClick={() => {
+                      config?.handleTheme("yellow");
+                    }}
+                    className="yellow"
+                  />
                 </div>
+              </div>
 
-                <div style={{ marginTop: "2rem" }}>
+              <div style={{ marginTop: "2rem" }}>
+                <div className="chooseLanguages">
                   <h1>{config?.titleLang}</h1>
-
-                  <div className="languages">
-                    <Link href={config?.hrefEng ? config.hrefEng : ''}>
+                  <div className="buttons">
+                    <Link href={config?.hrefEng ? config.hrefEng : ""}>
                       <motion.div
+                        whileHover={{ y: -10 }}
                         whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
                         className="options"
                         onClick={config?.onHideEng}
@@ -158,8 +209,9 @@ export const App = ({
                       </motion.div>
                     </Link>
 
-                    <Link href={config?.hrefPt ? config.hrefPt : ''}>
+                    <Link href={config?.hrefPt ? config.hrefPt : ""}>
                       <motion.div
+                        whileHover={{ y: -10 }}
                         whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
                         className="options"
                         onClick={config?.onHidePt}
@@ -169,12 +221,11 @@ export const App = ({
                     </Link>
                   </div>
                 </div>
-              </>
-            )}
-          </div>
+              </div>
+            </>
+          )}
         </motion.div>
-      )
-      }
-    </StyledApp >
+      )}
+    </StyledApp>
   );
 };

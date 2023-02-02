@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type IconTypes = {
   isFullScreen: boolean;
+  isProject: boolean;
 };
 
 export const StyledApp = styled.div<IconTypes>`
@@ -15,10 +16,6 @@ export const StyledApp = styled.div<IconTypes>`
     max-width: ${({ isFullScreen }) => (isFullScreen ? "100vw" : "55vw")};
     max-height: 92vh;
     overflow: hidden;
-
-    @media (max-width: 830px) {
-      max-width: 100vw;
-    }
   }
 
   .menuBar {
@@ -57,7 +54,7 @@ export const StyledApp = styled.div<IconTypes>`
     grid-gap: 0 3rem;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: repeat(2, 1fr);
-    grid-auto-flow: row;
+    /* grid-auto-flow: row; */
     grid-auto-columns: minmax(1rem, 1fr);
     overflow-y: auto;
     max-height: 92vh;
@@ -75,21 +72,51 @@ export const StyledApp = styled.div<IconTypes>`
     }
   }
 
-  .config-colors {
+  .config-colors,
+  .projects {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 2rem 0;
+    ${({ isProject }) => (isProject ? "overflow-y: auto" : "none")};
+    
+    /* scrollbar */
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      background: none;
+      width: 0.5vw;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme.secondary};
+      border-radius: 2px;
+    }
+  }
   }
 
   .title-colors {
     font-size: max(1rem, 3vw);
   }
 
+  .chooseLanguages {
+    margin-top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
   .colors {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15rem 1rem;
+    gap: 1rem;
   }
 
   .purple,

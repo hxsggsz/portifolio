@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 export const StyledCardLang = styled.div`
   display: grid;
-  grid-gap: 1rem 0;
+  grid-gap: 1rem;
   place-items: center;
-  margin: 1rem 0;
+  margin: 0.5rem 2rem;
   padding: 12px;
-  width: 20vw;
-  height: 12vw;
+  width: 25vw;
+  height: 30vh;
   border: 4px solid ${({ theme }) => theme.primary};
+  
+  @media (max-width: 677px) {
+    width: 35vw;
+  }
 `;

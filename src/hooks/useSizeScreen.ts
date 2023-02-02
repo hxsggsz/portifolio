@@ -5,10 +5,24 @@ type SizeTypes = {
   height: number;
 };
 
+const InitialWidth = () => {
+  if(typeof window !== "undefined") {
+    return window.screen.width
+  }
+  return 1080
+}
+
+const InitialHeight = () => {
+  if(typeof window !== "undefined") {
+    return window.screen.height
+  }
+  return 920
+}
+
 const useSizeScreen = () => {
   const initialState = {
-    width: 0,
-    height: 0,
+    width: InitialWidth(),
+    height: InitialHeight(),
   };
 
   const [size, setSize] = useState<SizeTypes>(initialState);

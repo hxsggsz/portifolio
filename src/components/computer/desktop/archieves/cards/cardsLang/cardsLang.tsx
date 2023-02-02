@@ -9,7 +9,7 @@ type CardLangTypes = {
 export const CardsLang = ({ name, images }: CardLangTypes) => {
   return (
     <StyledCardLang>
-      <Image width={120} height={70} src={images} alt={`icone do ${name}`} />
+      <Image width={170} height={80} src={images} alt={`icone do ${name}`} />
       <h1>{name}</h1>
     </StyledCardLang>
   );

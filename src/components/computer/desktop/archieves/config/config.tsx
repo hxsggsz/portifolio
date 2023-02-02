@@ -30,7 +30,7 @@ export const ConfigColors = () => {
 
   const config = {
     title: "Escolha a sua cor favorita!",
-    titleLang: "Escolha a sua linguage!",
+    titleLang: "Escolha a sua linguagem!",
     handleTheme,
     onHidePt: handleShowConfig,
     hrefEng: "making",
@@ -39,7 +39,7 @@ export const ConfigColors = () => {
     <StyledConfig>
       <Icon
         icon={configs.src}
-        name="configs"
+        name="configurações"
         isBackgroundDifferent={computer.isChangeBackground}
         onOpen={() => { setIsShow(true) }}
         onChangeBackground={computer.changeBackground}
