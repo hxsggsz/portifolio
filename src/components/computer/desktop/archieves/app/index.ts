@@ -16,6 +16,11 @@ export const StyledApp = styled.div<IconTypes>`
     max-width: ${({ isFullScreen }) => (isFullScreen ? "100vw" : "55vw")};
     max-height: 92vh;
     overflow: hidden;
+
+    @media (max-width: 740px) {
+      max-width: 100vw;
+      left: 0;
+    }
   }
 
   .menuBar {

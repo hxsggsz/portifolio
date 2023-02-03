@@ -1,7 +1,7 @@
 import { StyledApp } from ".";
 import { motion } from "framer-motion";
 import { Cards } from "../cards/cards";
-import { Minus, CornersOut, Square, X } from "phosphor-react";
+import { Minus, CornersOut, Square, X, Browsers, Browser } from "phosphor-react";
 import useSizeScreen from "../../../../../hooks/useSizeScreen";
 import Link from "next/link";
 import { CardsLang } from "../cards/cardsLang/cardsLang";
@@ -86,7 +86,7 @@ export const App = ({
               </button>
 
               <button onClick={onFullScreen} className="button">
-                {isFullScreen ? <CornersOut size={20} /> : <Square size={20} />}
+                {isFullScreen ? <Browsers size={20}  /> : <Browser size={20} weight="bold" />}
               </button>
 
               <button onClick={onClose} className="buttonClose">

@@ -23,8 +23,8 @@ export default function Login({ portifolio }: ApiTypes) {
    const router = useRouter();
    const { width } = useSizeScreen()
 
-   if (width <= 600) {
-      console.log("menor que 600 px", width)
+   if (width <= 525) {
+      router.replace("/mobile")
    }
    return (
       <StyledDesktop
