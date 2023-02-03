@@ -13,15 +13,15 @@ export const StyledLogin = styled.div`
   img {
     background: var(--white-pc);
     border-radius: 51%;
-    border: 3px solid white;
+    border: 3px solid ${({ theme }) => theme.primary};
   }
-
+  
   label {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-
+  
   form {
     width: 20rem;
     height: 34px;
@@ -32,7 +32,7 @@ export const StyledLogin = styled.div`
     gap: 6px;
     background: var(--white-pc);
     border-radius: 6px;
-    border: 2px solid var(--black-pc);
+    border: 3px solid ${({ theme }) => theme.primary};
     user-select: none;
   }
 

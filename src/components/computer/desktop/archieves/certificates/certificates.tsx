@@ -4,6 +4,7 @@ import pastas from "../../../../../../public/pastas.png"
 import { App } from "../app/app"
 
 type CertTypes = {
+  name: string;
   cert: {
     id: string;
     name: string;
@@ -12,14 +13,14 @@ type CertTypes = {
   }[]
 }
 
-export const Certificates = ({ cert }: CertTypes) => {
+export const Certificates = ({ name, cert }: CertTypes) => {
   const computer = useComputer()
 
   return (
     <>
       <Icon
         icon={pastas.src}
-        name="Certificados"
+        name={name}
         isBackgroundDifferent={computer.isChangeBackground}
         onOpen={() => computer.handleTaskBar(pastas.src)}
         onChangeBackground={computer.changeBackground}

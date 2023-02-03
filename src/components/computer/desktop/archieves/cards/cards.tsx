@@ -41,7 +41,7 @@ export const Cards = ({ icon, images, text, description, isProject, repo, url, l
                     whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
                     className="buttonCard"
                   >
-                    Projeto
+                    Site
                   </motion.div>
                 </Link>
 

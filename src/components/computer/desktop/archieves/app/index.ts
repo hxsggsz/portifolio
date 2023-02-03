@@ -35,6 +35,7 @@ export const StyledApp = styled.div<IconTypes>`
   .buttonClose {
     background: inherit;
     border: none;
+    padding: 4px;
   }
 
   .button:hover {
@@ -78,7 +79,7 @@ export const StyledApp = styled.div<IconTypes>`
     justify-content: center;
     flex-direction: column;
     gap: 2rem 0;
-    ${({ isProject }) => (isProject ? "overflow-y: auto" : "none")};
+    overflow-y: ${({ isProject }) => (isProject ? "auto" : "none")};
     
     /* scrollbar */
     &::-webkit-scrollbar {

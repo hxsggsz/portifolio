@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { StyledTaskBar } from ".";
-import bg from "../../../../public/wallpaper.jpg";
-import { useComputer } from "../../../hooks/useComputer";
 import { useTaskBar } from "../../../context/taskBarContext";
 
 export const Taskbar = () => {

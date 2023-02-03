@@ -19,6 +19,6 @@ export const StyledTaskBar = styled.div`
   }
 
   .taskbar-content img {
-    border-radius: 50%;
+    border-radius: 40%;
   }
 `;

@@ -6,10 +6,11 @@ import Link from "next/link";
 import { useState } from "react";
 
 type loginTypes = {
-   href: string
+   href: string;
+   defaultValue: string;
 }
 
-export const LoginWindows = ({ href }: loginTypes) => {
+export const LoginWindows = ({ href, defaultValue }: loginTypes) => {
    const [isText, setIsText] = useState<boolean>(false)
    return (
       <StyledLogin>
@@ -23,7 +24,7 @@ export const LoginWindows = ({ href }: loginTypes) => {
             </label>
 
             <form>
-               <input className="fake-input" type={isText ? 'text' : 'password'} disabled={true} defaultValue={'nãoé1234'} />
+               <input className="fake-input" type={isText ? 'text' : 'password'} disabled={true} defaultValue={defaultValue} />
 
                <div onClick={() => setIsText(!isText)} className="eye">
                   {isText ? <EyeClosed style={{ cursor: 'pointer' }} color={'black'} size={25} /> : <Eye style={{ cursor: 'pointer' }} color={'black'} size={25} />}

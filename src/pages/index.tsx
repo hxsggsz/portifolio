@@ -1,23 +1,14 @@
-import { useRouter } from "next/router";
-import { Language } from "../components/ChooseLanguages/Language";
+import Head from "next/head";
+import { LoginWindows } from "../components/computer/login/login";
 
-export default function Home() {
-  function randomNumber() {
-    return Math.floor(Math.random() * 2)
-  }
+export default function Login() {
+   return (
+      <>
+         <Head>
+            <title>Portifolio - Login</title>
+         </Head>
 
-  const router = useRouter()
-
-  function handleClick() {
-    //redireciona o usuário com base no número que vem dessa função
-    let value = randomNumber()
-    value == 0 && router.push("/teste")
-    value == 1 && router.push("/opcao")
-  }
-
-  return (
-    <>
-      <Language />
-    </>
-  )
+         <LoginWindows href="/desktop" defaultValue="naoé1234" />
+      </>
+   )
 }

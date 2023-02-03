@@ -1,25 +1,25 @@
 import Head from "next/head";
-import { Taskbar } from "../../../components/computer/taskbar/taskbar";
-import { StyledDesktop } from "../../../components/computer/desktop";
-import bg from "../../../../public/wallpaper.jpg";
-import { GetServerSideProps } from "next";
-import { api } from "../../api/axios";
-import { ApiTypes } from "../../api/types";
-import { ConfigColors } from "../../../components/computer/desktop/archieves/config/config";
-import { About } from "../../../components/computer/desktop/archieves/about/About";
-import { Languages } from "../../../components/computer/desktop/archieves/Languages/Languages";
-import { Certificates } from "../../../components/computer/desktop/archieves/certificates/certificates";
-import { Icon } from "../../../components/computer/desktop/archieves/icon/icon";
-import { useComputer } from "../../../hooks/useComputer";
+import { api } from "./api/axios";
+import { ApiTypes } from "./api/types";
+import get from "../../public/get.png";
 import { useRouter } from "next/router";
-import get from "../../../../public/get.png";
-import { Linkedin } from "../../../components/computer/desktop/archieves/icon/contact/linkedin";
-import { Github } from "../../../components/computer/desktop/archieves/icon/contact/github";
-import useSizeScreen from "../../../hooks/useSizeScreen";
-import { Project } from "../../../components/computer/desktop/archieves/projects/project";
+import { GetServerSideProps } from "next";
+import bg from "../../public/wallpaper.jpg";
+import useSizeScreen from "../hooks/useSizeScreen";
+import { useComputer } from "../hooks/useComputer";
+import { StyledDesktop } from "../components/computer/desktop";
+import { Taskbar } from "../components/computer/taskbar/taskbar";
+import { Icon } from "../components/computer/desktop/archieves/icon/icon";
+import { About } from "../components/computer/desktop/archieves/about/About";
+import { Configs } from "../components/computer/desktop/archieves/config/config";
+import { Project } from "../components/computer/desktop/archieves/projects/project";
+import { Github } from "../components/computer/desktop/archieves/icon/contact/github";
+import { Languages } from "../components/computer/desktop/archieves/Languages/Languages";
+import { Linkedin } from "../components/computer/desktop/archieves/icon/contact/linkedin";
+import { Certificates } from "../components/computer/desktop/archieves/certificates/certificates";
 
 export default function Login({ portifolio }: ApiTypes) {
-   const computer = useComputer( );
+   const computer = useComputer();
    const router = useRouter();
    const { width } = useSizeScreen()
 
@@ -39,10 +39,10 @@ export default function Login({ portifolio }: ApiTypes) {
          </Head>
 
          <div className="icons">
-            <ConfigColors />
+            <Configs />
             <About name="SobreMim.txt" about={portifolio.about} />
             <Languages name="Linguagens" lang={portifolio.language} />
-            <Certificates cert={portifolio.certificate} />
+            <Certificates cert={portifolio.certificate} name={"Meus Certificados"} />
             <Linkedin />
             <Github />
          </div>

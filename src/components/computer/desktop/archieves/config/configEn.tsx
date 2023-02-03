@@ -1,27 +1,27 @@
-import { StyledConfig } from ".";
-import { useThemes } from "../../../../../context/themeContext";
 import { App } from "../app/app";
+import { StyledConfig } from ".";
 import { Icon } from "../icon/icon";
-import { useComputer } from "../../../../../hooks/useComputer";
 import configs from "../../../../../../public/gear.png"
+import { useThemes } from "../../../../../context/themeContext";
+import { useComputer } from "../../../../../hooks/useComputer";
 
-export const Configs = () => {
+export const ConfigsEn = () => {
   const computer = useComputer();
   const { handleTheme } = useThemes();
 
   const config = {
-    title: "Escolha a sua cor favorita!",
-    titleLang: "Escolha a sua linguagem!",
+    title: "Select your favorite color!",
+    titleLang: "Select your language",
     handleTheme,
-    isDisabledEng: false,
-    isDisabledPt: true,
-    hrefEng: "/en/desktop",
+    isDisabledEng: true,
+    isDisabledPt: false,
+    hrefPt: "/desktop",
   };
   return (
     <StyledConfig>
       <Icon
         icon={configs.src}
-        name="configurações"
+        name="configurations"
         isBackgroundDifferent={computer.isChangeBackground}
         onOpen={() => computer.handleIsShowConfig(configs.src)}
         onChangeBackground={computer.changeBackground}
