@@ -5,10 +5,11 @@ import { App } from "../app/app"
 
 type CertTypes = {
   cert: {
-    name: string
-    images: string
-    description: string
-  }[] 
+    id: string;
+    name: string;
+    images: string;
+    description: string;
+  }[]
 }
 
 export const Certificates = ({ cert }: CertTypes) => {
@@ -20,16 +21,16 @@ export const Certificates = ({ cert }: CertTypes) => {
         icon={pastas.src}
         name="Certificados"
         isBackgroundDifferent={computer.isChangeBackground}
-        onOpen={computer.handleApp}
+        onOpen={() => computer.handleTaskBar(pastas.src)}
         onChangeBackground={computer.changeBackground}
       />
 
       <App
         isShow={computer.isAppOpen}
         isFullScreen={computer.isFullScreen}
-        onMinus={computer.handleApp}
+        onMinus={computer.minimizeApp}
         onFullScreen={computer.handleFullScreen}
-        onClose={computer.handleApp}
+        onClose={() => computer.removeiconAndCloseApp(pastas.src)}
         cert={cert}
       />
     </>

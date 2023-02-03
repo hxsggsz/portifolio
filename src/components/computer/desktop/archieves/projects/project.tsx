@@ -24,16 +24,16 @@ export const Project = ({ projects }: Projectstypes) => {
         icon={projects.icon}
         name={projects.name}
         isBackgroundDifferent={computer.isChangeBackground}
-        onOpen={computer.handleApp}
+        onOpen={() => computer.handleTaskBar(projects.icon)}
         onChangeBackground={computer.changeBackground}
       />
 
       <App
         isShow={computer.isAppOpen}
         isFullScreen={computer.isFullScreen}
-        onMinus={computer.handleApp}
+        onMinus={computer.minimizeApp}
         onFullScreen={computer.handleFullScreen}
-        onClose={computer.handleApp}
+        onClose={() => computer.removeiconAndCloseApp(projects.icon)}
         isProject={true}
         project={projects}
       />

@@ -32,7 +32,8 @@ export const ConfigColors = () => {
     title: "Escolha a sua cor favorita!",
     titleLang: "Escolha a sua linguagem!",
     handleTheme,
-    onHidePt: handleShowConfig,
+    isDisabledEng: false,
+    isDisabledPt: true,
     hrefEng: "making",
   };
   return (
@@ -41,18 +42,18 @@ export const ConfigColors = () => {
         icon={configs.src}
         name="configurações"
         isBackgroundDifferent={computer.isChangeBackground}
-        onOpen={() => { setIsShow(true) }}
+        onOpen={() => computer.handleIsShowConfig(configs.src)}
         onChangeBackground={computer.changeBackground}
       />
 
       <App
         config={config}
-        isConfig={isShow}
-        isShow={isShow}
+        isConfig={computer.isShowConfig}
+        isShow={computer.isShowConfig}
         isFullScreen={computer.isFullScreen}
-        onMinus={handleShowConfig}
+        onMinus={computer.minimizeApp}
         onFullScreen={computer.handleFullScreen}
-        onClose={handleShowConfig}
+        onClose={() => computer.removeiconAndCloseConfig(configs.src)}
       />
     </StyledConfig>
   );

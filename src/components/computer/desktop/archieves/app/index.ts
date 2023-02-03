@@ -35,7 +35,6 @@ export const StyledApp = styled.div<IconTypes>`
   .buttonClose {
     background: inherit;
     border: none;
-    padding: 4px;
   }
 
   .button:hover {
@@ -177,10 +176,16 @@ export const StyledApp = styled.div<IconTypes>`
     gap: 4rem 1rem;
   }
 
-  .options {
+  .options, .options:disabled {
     cursor: pointer;
     margin: 3rem 0;
     padding: 12px;
     border: 3px solid ${({ theme }) => theme.primary};
+    background: var(--black-pc);
+    color: var(--white-pc);
+  }
+  
+  .options:disabled {
+    cursor: not-allowed;
   }
 `;

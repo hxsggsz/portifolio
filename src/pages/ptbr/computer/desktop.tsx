@@ -19,7 +19,7 @@ import useSizeScreen from "../../../hooks/useSizeScreen";
 import { Project } from "../../../components/computer/desktop/archieves/projects/project";
 
 export default function Login({ portifolio }: ApiTypes) {
-   const computer = useComputer();
+   const computer = useComputer( );
    const router = useRouter();
    const { width } = useSizeScreen()
 

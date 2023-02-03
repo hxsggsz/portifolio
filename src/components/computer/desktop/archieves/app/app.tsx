@@ -22,8 +22,8 @@ type AppTypes = {
     title: string;
     titleLang: string;
     handleTheme: (color: string) => void;
-    onHideEng?: () => void;
-    onHidePt?: () => void;
+    isDisabledEng: boolean;
+    isDisabledPt: boolean;
     hrefEng?: string;
     hrefPt?: string;
   };
@@ -199,25 +199,25 @@ export const App = ({
                   <h1>{config?.titleLang}</h1>
                   <div className="buttons">
                     <Link href={config?.hrefEng ? config.hrefEng : ""}>
-                      <motion.div
+                      <motion.button
                         whileHover={{ y: -10 }}
                         whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
                         className="options"
-                        onClick={config?.onHideEng}
+                        disabled={config?.isDisabledEng}
                       >
                         <h1>English</h1>
-                      </motion.div>
+                      </motion.button>
                     </Link>
 
                     <Link href={config?.hrefPt ? config.hrefPt : ""}>
-                      <motion.div
+                      <motion.button
                         whileHover={{ y: -10 }}
                         whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
                         className="options"
-                        onClick={config?.onHidePt}
+                        disabled={config?.isDisabledPt}
                       >
                         <h1>Português</h1>
-                      </motion.div>
+                      </motion.button>
                     </Link>
                   </div>
                 </div>

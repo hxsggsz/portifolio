@@ -19,7 +19,7 @@ export const Icon = ({
   return (
     <StyledIcon isShow={isBackgroundDifferent}>
       <div className="icon" onDoubleClick={onOpen} onClick={onChangeBackground}>
-        <Image width={70} height={58} src={icon} alt={`icone do ${name}`} />
+        <Image width={75} height={62} src={icon} alt={`icone do ${name}`} />
         <p>{name}</p>
       </div>
     </StyledIcon>

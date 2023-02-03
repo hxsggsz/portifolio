@@ -1,12 +1,18 @@
 import Image from "next/image";
 import { StyledTaskBar } from ".";
 import bg from "../../../../public/wallpaper.jpg";
+import { useComputer } from "../../../hooks/useComputer";
+import { useTaskBar } from "../../../context/taskBarContext";
 
 export const Taskbar = () => {
+  const { taskBar } = useTaskBar()
   return (
     <StyledTaskBar>
       <div className="taskbar-content">
-        <Image width={50} height={50} src={bg} alt="icon" />
+        {/* fazer isso funcionar */}
+        {taskBar.length > 0 && taskBar.map(item => (
+          <Image key={item.id} width={50} height={50} src={item.image} alt="icon" />
+        ))}
       </div>
     </StyledTaskBar>
   )
