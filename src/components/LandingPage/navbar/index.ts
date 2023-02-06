@@ -59,7 +59,7 @@ export const NavStyles = styled.nav<MenuType>`
       transition: top 0.5s 0.1s ease;
     }
   }
-
+ 
   a {
     z-index: 2;
     cursor: pointer;

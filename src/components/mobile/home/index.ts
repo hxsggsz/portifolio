@@ -5,26 +5,39 @@ export const StyledHome = styled.div`
   width: 525px;
   position: relative;
   overflow: hidden;
+  /* z-index: -1; */
 
-  .menu {
-    cursor: pointer;
+  .wrapper {
+    /* z-index: -1; */
     position: absolute;
-    bottom: 6%;
-    left: 50%;
+    left: 0;
+    bottom: 0;
+    width: 525px;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+  }
+
+  .wrapper button {
+    z-index: 9;
+    cursor: pointer;
     box-shadow: 5px 4px 4px 1px rgba(0, 0, 0, 0.2);
     background: var(--white-pc);
-    transform: translateX(-50%);
     border: 5px solid #000;
     border-radius: 50%;
     padding: 4px;
-    z-index: 9;
+    display: flex;
+    align-items: center;
   }
 
   .background {
+    /* z-index: -2; */
     bottom: 0;
     left: 0;
-    width: 200vw;
-    height: 10vh;
+    width: 120vw;
+    height: 14vh;
     position: absolute;
     background: ${({ theme }) => theme.primary};
   }

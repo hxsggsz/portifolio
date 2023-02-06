@@ -61,7 +61,7 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
     min-height: 100%;
     background: #202124;
     color: #fff;

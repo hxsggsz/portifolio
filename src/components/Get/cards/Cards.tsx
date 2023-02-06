@@ -15,7 +15,7 @@ export const CardGet = ({ title, cards }: CardTypes) => {
       <StyledCard>
          <h1>{title}</h1>
          {cards.map(card => (
-            <div className="card">
+            <div key={card.name} className="card">
                <div className="content">
                   <h1>{card.name}</h1>
                   <p>{card.description}</p>

@@ -7,7 +7,7 @@ const langs = [
 
 describe('About.tsx', () => {
   it('should render the About component with attributes correctly', () => {
-    render(<Languages languages={langs} />)
+    render(<Languages languages={langs} title={'titulo'} />)
 
     const icon = screen.getByRole('img', {
       name: /icone do test/i

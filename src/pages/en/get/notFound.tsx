@@ -8,7 +8,7 @@ export default function NotFound({ portifolio }: ApiTypes) {
    return (
       <>
          <Header href="/en/get/" />
-         <h1 style={{ marginTop: '10rem', display: 'flex', justifyContent: 'center' }}>Don't find what you search but this can be usefull.</h1>
+         <h1 style={{ marginTop: '10rem', display: 'flex', justifyContent: 'center' }}> I did not find what you search but this can be usefull.</h1>
          <CardGet title="certificates" cards={portifolio.certificate} />
          <CardGet title="projects" cards={portifolio.project} />
          <CardGet title="languages/frameworks that i use" cards={portifolio.language} />

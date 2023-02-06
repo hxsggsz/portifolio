@@ -15,7 +15,6 @@ type IconTypes = {
 
 export const About = ({ name, about }: IconTypes) => {
   const computer = useComputer();
-  const { getIconToTaskBar } = useTaskBar()
   return (
     <>
       {/* icon on desktop */}
