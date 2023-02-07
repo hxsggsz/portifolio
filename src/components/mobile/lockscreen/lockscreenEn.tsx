@@ -1,13 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { StyledLockScreen } from ".";
-import { Calendar } from "./calendar/calendar";
 import { motion } from "framer-motion";
 import { Fingerprint } from "phosphor-react";
-import { useState } from "react";
+import { CalendarEn } from "./calendar/calendarEn";
 import { useMobile } from "../../../hooks/useMobile";
 
-export const LoockScreen = () => {
+export const LoockScreenEn = () => {
   const mobile = useMobile()
   return (
     <StyledLockScreen isLocked={mobile.isLocked}>
@@ -15,7 +14,7 @@ export const LoockScreen = () => {
       <div>
 
         <div className="calendar">
-          <Calendar />
+          <CalendarEn />
         </div>
 
         <div>
@@ -24,13 +23,13 @@ export const LoockScreen = () => {
             <motion.div whileHover={{ y: 10 }} className="notification">
               <Image width={70} height={70} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="icone do linkedin" />
 
-              <h3>Victor Hugo quer fazer conexão com você!</h3>
+              <h3>Victor Hugo want to make a connection with you!</h3>
             </motion.div>
           </Link>
         </div>
 
         <div onClick={mobile.handleIsLocked} className="fingerPrint">
-          <h3>Aperte e segure no leitor de digital</h3>
+          <h3>Hold to unlock the phone</h3>
           <Fingerprint size={96} weight="bold" />
         </div>
       </div>

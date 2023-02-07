@@ -1,9 +1,9 @@
-import { DiamondsFour } from "phosphor-react";
 import { StyledHome } from ".";
-import bg from "../../../../public/wallpaper.jpg";
-import { motion } from "framer-motion";
 import { useState } from "react";
-import { Menu } from "../menu/menu";
+import { motion } from "framer-motion";
+import { MenuEn } from "../menu/menuEn";
+import { DiamondsFour } from "phosphor-react";
+import bg from "../../../../public/wallpaper.jpg";
 import { useMobile } from "../../../hooks/useMobile";
 
 type HomeType = {
@@ -35,7 +35,7 @@ type HomeType = {
   }[]
 }
 
-export const Home = ({ about, lang, cert, projects }: HomeType) => {
+export const HomeEn = ({ about, lang, cert, projects }: HomeType) => {
   const mobile = useMobile()
   return (
     <StyledHome
@@ -46,7 +46,7 @@ export const Home = ({ about, lang, cert, projects }: HomeType) => {
       }}
     >
 
-      <Menu about={about} lang={lang} cert={cert} projects={projects} isShowMenu={mobile.isShowMenu} onOpenMenu={mobile.handleMenu} />
+      <MenuEn about={about} lang={lang} cert={cert} projects={projects} isShowMenu={mobile.isShowMenu} onOpenMenu={mobile.handleMenu} />
 
       <div className="wrapper">
         <motion.button

@@ -5,20 +5,20 @@ import { useMobile } from "../../../../hooks/useMobile";
 import { useThemes } from "../../../../context/themeContext";
 
 type ConfigTypes = {
-  name: string 
+  name: string
 }
 
-export const Config = ({ name }: ConfigTypes) => {
+export const ConfigEn = ({ name }: ConfigTypes) => {
   const { handleTheme } = useThemes();
   const mobile = useMobile()
 
   const configs = {
-    title: "Escolha a sua cor favorita!",
-    titleLang: "Escolha a sua linguagem!",
+    title: "Select your favorite color!",
+    titleLang: "Select your language!",
     handleTheme,
-    isDisabledEng: false,
-    isDisabledPt: true,
-    hrefEng: "/en/mobile",
+    isDisabledEng: true,
+    isDisabledPt: false,
+    hrefEng: "/mobile",
   };
   return (
     <>

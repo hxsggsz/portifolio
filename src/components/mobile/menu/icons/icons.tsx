@@ -14,4 +14,4 @@ export const Icon = ({ image, name, setIsAppOpen }: IconTypes) => {
       <h2>{name}</h2>
     </StyledIcon>
   )
-}
+} 

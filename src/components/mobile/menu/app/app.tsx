@@ -1,12 +1,14 @@
-import { X } from "phosphor-react"
-import { StyledApp } from "."
-import Image from "next/image"
+import { X } from "phosphor-react";
+import { StyledApp } from ".";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Cards } from "../../../computer/desktop/archieves/cards/cards";
+import { once } from "events";
 
 type AppTypes = {
-  isAppOpen: boolean
-  onAppOpen: () => void
+  isAppOpen: boolean;
+  onAppOpen: () => void;
   about?: {
     id: string;
     text: string;
@@ -33,6 +35,7 @@ type AppTypes = {
     images: string;
     description: string;
   }[];
+  isProject?: boolean;
   project?: {
     id: string;
     icon: string;
@@ -53,12 +56,18 @@ export const App = ({
   config,
   lang,
   cert,
+  isProject,
   project,
 }: AppTypes) => {
   return (
     <StyledApp isAppOpen={isAppOpen}>
       <div className="closeMenu">
-        <X onClick={onAppOpen} style={{ cursor: "pointer" }} size={35} color={"white"} />
+        <X
+          onClick={onAppOpen}
+          style={{ cursor: "pointer" }}
+          size={35}
+          color={"white"}
+        />
       </div>
 
       {isConfig && (
@@ -157,11 +166,72 @@ export const App = ({
       )}
 
       {about?.map((abt) => (
-        <div key={abt.id} className="about">
-          <Image width={300} height={300} src={abt.image} alt="imagem de ilustração" />
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          key={abt.id}
+          className="about"
+        >
+          <Image
+            width={300}
+            height={300}
+            src={abt.image}
+            alt="imagem de ilustração"
+          />
           <h2>{abt.text}</h2>
-        </div>
+        </motion.div>
       ))}
+
+      {lang?.map((lang) => (
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="langs"
+          key={lang.id}
+        >
+          <Image
+            width={100}
+            height={100}
+            src={lang.images}
+            alt={`icone do ${lang.name}`}
+          />
+          <h1>{lang.name}</h1>
+        </motion.div>
+      ))}
+
+      {cert?.map((cert) => (
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="cert"
+          key={cert.id}
+        >
+          <Cards
+            images={cert.images}
+            text={cert.name}
+            description={cert.description}
+            icon={""}
+          />
+        </motion.div>
+      ))}
+
+      {isProject && (
+        <div className="projects">
+          <Cards
+            isProject={isProject}
+            url={project?.url}
+            repo={project?.urlRepository}
+            images={project?.images ? project.images : ""}
+            text={project?.name}
+            description={project?.description}
+            langs={project?.languages}
+            icon={project ? project.icon : ""}
+          />
+        </div>
+      )}
     </StyledApp>
-  )
-}
+  );
+};

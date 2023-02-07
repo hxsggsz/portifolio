@@ -34,6 +34,7 @@ export const StyledLockScreen = styled.div<StyledTypes>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0 1rem;
     margin-top: 7rem;
     margin-left: 0.4rem;
     padding: 1rem;

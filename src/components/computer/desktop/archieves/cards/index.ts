@@ -9,7 +9,7 @@ export const StyledCards = styled.div<StyledCardTypes>`
   min-width: 17rem;
   max-height: 50vh;
   margin-top: 1rem;
-  margin-bottom: 20rem;
+  margin-bottom: 10rem;
 
   @media (max-width: 650px) {
     max-width: 100vw;
@@ -25,8 +25,11 @@ export const StyledCards = styled.div<StyledCardTypes>`
     text-align: center;
     padding: 0 6px 12px 6px;
     overflow-x: hidden;
-  }
 
+    @media (max-width: 650px) {
+      width: 95vw;
+    }
+  }
 
   h2 {
     font-size: 1.3rem;
@@ -51,7 +54,7 @@ export const StyledCards = styled.div<StyledCardTypes>`
     display: flex;
     align-items: end;
     gap: 1rem;
-    margin-bottom: 10rem;
+    margin-bottom: 1rem;
   }
 
   .buttonCard {

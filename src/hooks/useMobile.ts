@@ -4,6 +4,8 @@ import { useState } from "react";
 export const useMobile = () => {
   const [mobile, setMobile] = useState({
     isAppOpen: false,
+    isLocked: true,
+    isShowMenu: false,
   });
 
   return {
@@ -12,6 +14,21 @@ export const useMobile = () => {
       setMobile({
         ...mobile,
         isAppOpen: !mobile.isAppOpen,
+      });
+    },
+
+    async handleIsLocked() {
+      setTimeout(() => {
+        setMobile({
+          ...mobile,
+          isLocked: false,
+        });
+      }, 500);
+    },
+    handleMenu() {
+      setMobile({
+        ...mobile,
+        isShowMenu: !mobile.isShowMenu,
       });
     },
   };

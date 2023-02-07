@@ -39,5 +39,17 @@ export const StyledMenu = styled.div<MenuTypes>`
     flex-wrap: wrap;
     margin-right: 2rem;
     overflow-y: auto;
+
+    /* scrollbar */
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      background: none;
+      width: 1vw;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme.secondary};
+      border-radius: 2px;
+    }
   }
 `;

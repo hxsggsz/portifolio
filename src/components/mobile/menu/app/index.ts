@@ -17,13 +17,14 @@ export const StyledApp = styled.div<AppTypes>`
   align-items: center;
   justify-content: start;
   flex-direction: column;
+  gap: 2rem 0;
   overflow-y: auto;
 
   /* scrollbar */
   &::-webkit-scrollbar {
     -webkit-appearance: none;
     background: none;
-    width: 1rem;
+    width: 1vw;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -155,9 +156,28 @@ export const StyledApp = styled.div<AppTypes>`
     justify-content: center;
     margin-bottom: 2rem;
   }
-  
+
   .about h2 {
+    max-width: 90vw;
     text-align: center;
     margin-left: 1rem;
+  }
+
+  .langs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem 0;
+    border: 3px solid ${({ theme }) => theme.primary};
+    padding: 1rem;
+    min-width: 50vw;
+  }
+
+  .cert {
+    margin-left: 1.7rem;
+  }
+  
+  .projects {
+    margin-left: 1.7rem;
   }
 `;

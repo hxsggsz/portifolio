@@ -1,11 +1,11 @@
 import { X } from "phosphor-react";
 import { StyledMenu } from ".";
 import { Dispatch, SetStateAction } from "react";
-import { Config } from "./config/config";
 import { About } from "./about/about";
 import { Languages } from "./languages/languages";
 import { Certificates } from "./certificates/certificates";
 import { Projects } from "./projects/projects";
+import { ConfigEn } from "./config/configEn";
 
 type MenuTypes = {
   isShowMenu: boolean;
@@ -27,7 +27,7 @@ type MenuTypes = {
     description: string;
   }[];
   projects: {
-    id: string
+    id: string;
     name: string;
     images: string;
     description: string;
@@ -35,16 +35,16 @@ type MenuTypes = {
     urlRepository: string;
     url: string;
     languages: string;
-  }[]
+  }[];
 };
 
-export const Menu = ({
+export const MenuEn = ({
   isShowMenu,
   onOpenMenu,
   about,
   lang,
   cert,
-  projects
+  projects,
 }: MenuTypes) => {
   return (
     <StyledMenu isShowMenu={isShowMenu}>
@@ -58,11 +58,11 @@ export const Menu = ({
       </div>
 
       <div className="container">
-        <Config name="Configurações" />
-        <About name="SobreMim.txt" about={about} />
-        <Languages name="Linguagens" lang={lang} />
-        <Certificates name={"Certificados"} cert={cert} />
-        {projects.map(prj => (
+        <ConfigEn name="Configuration" />
+        <About name="AboutMe.txt" about={about} />
+        <Languages name="Languages" lang={lang} />
+        <Certificates name="Certificates" cert={cert} />
+        {projects.map((prj) => (
           <Projects key={prj.id} projects={prj} />
         ))}
       </div>

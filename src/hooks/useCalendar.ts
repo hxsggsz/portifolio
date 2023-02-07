@@ -11,8 +11,19 @@ export const useCalendar = () => {
     { numberDay: 1, day: "Seg" },
     { numberDay: 2, day: "Ter" },
     { numberDay: 3, day: "Qua" },
+    { numberDay: 4, day: "Qui" },
     { numberDay: 5, day: "Sex" },
     { numberDay: 6, day: "Sáb" },
+  ];
+
+  const weekDaysEn = [
+    { numberDay: 0, day: "Sum" },
+    { numberDay: 1, day: "Mon" },
+    { numberDay: 2, day: "Tue" },
+    { numberDay: 3, day: "Wed" },
+    { numberDay: 3, day: "Thu" },
+    { numberDay: 5, day: "Fri" },
+    { numberDay: 6, day: "Sat" },
   ];
 
   const currentMonth = [
@@ -28,6 +39,21 @@ export const useCalendar = () => {
     { number: 10, month: "Outubro" },
     { number: 11, month: "Novembro" },
     { number: 12, month: "Dezembro" },
+  ];
+
+  const currentMonthEn = [
+    { number: 1, month: "January" },
+    { number: 2, month: "February" },
+    { number: 3, month: "March" },
+    { number: 4, month: "April" },
+    { number: 5, month: "May" },
+    { number: 6, month: "June" },
+    { number: 7, month: "Jule" },
+    { number: 8, month: "August" },
+    { number: 9, month: "September" },
+    { number: 10, month: "October" },
+    { number: 11, month: "November" },
+    { number: 12, month: "December" },
   ];
 
   return {
@@ -62,6 +88,30 @@ export const useCalendar = () => {
       let Month = "";
 
       currentMonth.map((mnth) => {
+        if (mnth.number === month) {
+          Month = mnth.month;
+        }
+      });
+      return Month;
+    },
+    getWeekEn() {
+      const date = new Date();
+      const week = date.getDay();
+      let currentDay = "";
+
+      weekDaysEn.map((day) => {
+        if (day.numberDay === week) {
+          currentDay = day.day;
+        }
+      });
+      return currentDay;
+    },
+    getMothEn() {
+      const date = new Date();
+      const month = date.getMonth() + 1;
+      let Month = "";
+
+      currentMonthEn.map((mnth) => {
         if (mnth.number === month) {
           Month = mnth.month;
         }
