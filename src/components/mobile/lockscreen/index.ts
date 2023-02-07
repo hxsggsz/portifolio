@@ -13,20 +13,20 @@ export const StyledLockScreen = styled.div<StyledTypes>`
     rgba(255, 255, 255, 0)
   );
   backdrop-filter: blur(10px);
-  width: 550px;
+  width: 100vw;
   height: 100vh;
   position: absolute;
   top: ${({ isLocked }) => (isLocked ? 0 : "6000px")};
   transition: top 0.5s 10ms ease;
   bottom: 0;
   display: flex;
-  align-items: start;
-  justify-content: start;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 
   .calendar {
     margin-left: 1rem;
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
 
   .notification {
@@ -40,6 +40,10 @@ export const StyledLockScreen = styled.div<StyledTypes>`
     padding: 1rem;
     background: #000;
     border: 2px solid ${({ theme }) => theme.primary};
+
+    @media (max-width: 520px) {
+      width: 100vw;
+    }
   }
 
   .fingerPrint {

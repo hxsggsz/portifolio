@@ -2,17 +2,15 @@ import styled from "styled-components";
 
 export const StyledHome = styled.div`
   height: 100vh;
-  width: 525px;
+  width: 100vw;
   position: relative;
   overflow: hidden;
-  /* z-index: -1; */
 
   .wrapper {
-    /* z-index: -1; */
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 525px;
+    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: end;
@@ -33,7 +31,6 @@ export const StyledHome = styled.div`
   }
 
   .background {
-    /* z-index: -2; */
     bottom: 0;
     left: 0;
     width: 120vw;

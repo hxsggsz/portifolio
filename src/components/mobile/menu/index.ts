@@ -6,7 +6,7 @@ type MenuTypes = {
 
 export const StyledMenu = styled.div<MenuTypes>`
   z-index: 99;
-  width: 550px;
+  width: 100vw;
   height: 100vh;
   position: absolute;
   top: ${({ isShowMenu }) => (isShowMenu ? 0 : "6000px")};
@@ -19,17 +19,11 @@ export const StyledMenu = styled.div<MenuTypes>`
   background: var(--black-pc);
 
   .closeMenu {
-    width: 525px;
+    width: 100vw;
     display: flex;
     justify-content: flex-end;
     padding: 2rem 3.5rem;
 
-    @media (max-width: 410px) {
-      padding-right: 7rem;
-    }
-    @media (max-width: 305px) {
-      padding-right: 9rem;
-    }
   }
 
   .container {

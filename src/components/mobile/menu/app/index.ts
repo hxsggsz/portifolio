@@ -5,7 +5,7 @@ type AppTypes = {
 };
 
 export const StyledApp = styled.div<AppTypes>`
-  width: 550px;
+  width: 100vw;
   height: 100vh;
   z-index: 9999;
   background: var(--black-pc);
@@ -33,17 +33,10 @@ export const StyledApp = styled.div<AppTypes>`
   }
 
   .closeMenu {
-    width: 525px;
+    width: 100vw;
     display: flex;
     justify-content: flex-end;
     padding: 2rem 2.6rem;
-
-    @media (max-width: 410px) {
-      padding-right: 7rem;
-    }
-    @media (max-width: 305px) {
-      padding-right: 9rem;
-    }
   }
 
   .config-colors,
@@ -87,8 +80,6 @@ export const StyledApp = styled.div<AppTypes>`
   .pink,
   .grey,
   .yellow {
-    /* width: 3rem;
-    height: 3rem; */
     cursor: pointer;
     border-radius: 50%;
     width: min(3rem, 8vw);
@@ -176,7 +167,7 @@ export const StyledApp = styled.div<AppTypes>`
   .cert {
     margin-left: 1.7rem;
   }
-  
+
   .projects {
     margin-left: 1.7rem;
   }

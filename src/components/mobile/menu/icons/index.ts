@@ -7,5 +7,9 @@ export const StyledIcon = styled.div`
   padding: 1rem;
   background: ${({ theme }) => theme.primary};
   border: 5px solid ${({ theme }) => theme.background};
-  min-width: 40vw;
+  width: 45vw;
+
+  @media (max-width: 450px) {
+    width: 60vw;
+  }
 `;
