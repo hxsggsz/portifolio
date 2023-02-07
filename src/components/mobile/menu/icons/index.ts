@@ -7,9 +7,12 @@ export const StyledIcon = styled.div`
   padding: 1rem;
   background: ${({ theme }) => theme.primary};
   border: 5px solid ${({ theme }) => theme.background};
-  width: 45vw;
+  width: 40vw;
 
-  @media (max-width: 450px) {
-    width: 60vw;
+  @media (max-width: 395px) {
+    width: 50vw;
+  }
+  @media (max-width: 295px) {
+    width: 70vw;
   }
 `;

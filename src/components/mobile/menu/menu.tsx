@@ -1,11 +1,13 @@
 import { X } from "phosphor-react";
 import { StyledMenu } from ".";
-import { Dispatch, SetStateAction } from "react";
+import arquivos from "../../../../public/arquivo.png"
 import { Config } from "./config/config";
 import { About } from "./about/about";
 import { Languages } from "./languages/languages";
 import { Certificates } from "./certificates/certificates";
 import { Projects } from "./projects/projects";
+import { Icon } from "./icons/icons";
+import Link from "next/link";
 
 type MenuTypes = {
   isShowMenu: boolean;
@@ -62,6 +64,18 @@ export const Menu = ({
         <About name="SobreMim.txt" about={about} />
         <Languages name="Linguagens" lang={lang} />
         <Certificates name={"Certificados"} cert={cert} />
+
+        <Link href='https://drive.google.com/file/d/1_fslTX23NEtBmZLDYVwdNIP5u1NZDzIN/view' target="_blank">
+          <Icon image={arquivos.src} name={"currículo"} setIsAppOpen={() => { }} />
+        </Link>
+        <Link href='https://www.linkedin.com/in/hxsggsz/' target="_blank">
+          <Icon image={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"} name={"Linkedin"} setIsAppOpen={() => { }} />
+        </Link>
+
+        <Link href='https://github.com/hxsggsz?tab=repositories' target="_blank">
+          <Icon image={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"} name={"Github"} setIsAppOpen={() => { }} />
+        </Link>
+
         {projects.map(prj => (
           <Projects key={prj.id} projects={prj} />
         ))}

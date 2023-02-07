@@ -10,8 +10,8 @@ type IconTypes = {
 export const Icon = ({ image, name, setIsAppOpen }: IconTypes) => {
   return (
     <StyledIcon onClick={setIsAppOpen}>
-      <Image width={110} height={110} src={image} alt={`icone do ${name}`} />
-      <h2>{name}</h2>
+      <Image width={90} height={90} src={image} alt={`icone do ${name}`} />
+      <h3>{name}</h3>
     </StyledIcon>
   )
 } 

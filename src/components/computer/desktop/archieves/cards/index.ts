@@ -21,13 +21,15 @@ export const StyledCards = styled.div<StyledCardTypes>`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 3px solid ${({ theme }) => theme.primary};
+    border: 3px solid
+      ${({ theme, isProject }) => (isProject ? "none" : theme.primary)};
     text-align: center;
     padding: 0 6px 12px 6px;
     overflow-x: hidden;
 
     @media (max-width: 650px) {
       width: 95vw;
+      padding-bottom: 5rem;
     }
   }
 

@@ -17,6 +17,7 @@ import { Github } from "../../components/computer/desktop/archieves/icon/contact
 import { Languages } from "../../components/computer/desktop/archieves/Languages/Languages";
 import { Linkedin } from "../../components/computer/desktop/archieves/icon/contact/linkedin";
 import { Certificates } from "../../components/computer/desktop/archieves/certificates/certificates";
+import { Curriculo } from "../../components/computer/desktop/archieves/curriculo/curriculo";
 
 export default function Login({ portifolio }: ApiTypes) {
   const computer = useComputer();
@@ -53,13 +54,17 @@ export default function Login({ portifolio }: ApiTypes) {
         ))}
       </div>
 
-      <Icon
-        icon={get.src}
-        name="Get( )"
-        isBackgroundDifferent={computer.isChangeBackground}
-        onOpen={() => router.replace("/ptbr/get/")}
-        onChangeBackground={computer.changeBackground}
-      />
+      <div>
+        <Icon
+          icon={get.src}
+          name="Get( )"
+          isBackgroundDifferent={computer.isChangeBackground}
+          onOpen={() => router.replace("/ptbr/get/")}
+          onChangeBackground={computer.changeBackground}
+        />
+        <Curriculo name="Curriculum" href="https://drive.google.com/file/d/1mVWFgxG6wB6Ahwna3Y4qZauwLH1t3d0d/view" />
+      </div>
+      
       <Taskbar />
     </StyledDesktop>
   );

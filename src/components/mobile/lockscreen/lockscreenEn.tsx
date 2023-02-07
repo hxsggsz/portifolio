@@ -28,10 +28,10 @@ export const LoockScreenEn = () => {
           </Link>
         </div>
 
-        <div onClick={mobile.handleIsLocked} className="fingerPrint">
+        <motion.div onHoverStart={mobile.handleIsLocked} className="fingerPrint">
           <h3>Hold to unlock the phone</h3>
           <Fingerprint size={96} weight="bold" />
-        </div>
+        </motion.div>
       </div>
     </StyledLockScreen>
   );

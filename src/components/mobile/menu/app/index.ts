@@ -19,6 +19,7 @@ export const StyledApp = styled.div<AppTypes>`
   flex-direction: column;
   gap: 2rem 0;
   overflow-y: auto;
+  overflow-x: hidden;
 
   /* scrollbar */
   &::-webkit-scrollbar {

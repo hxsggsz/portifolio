@@ -23,7 +23,6 @@ export const StyledMenu = styled.div<MenuTypes>`
     display: flex;
     justify-content: flex-end;
     padding: 2rem 3.5rem;
-
   }
 
   .container {
@@ -32,6 +31,7 @@ export const StyledMenu = styled.div<MenuTypes>`
     justify-content: center;
     flex-wrap: wrap;
     margin-right: 2rem;
+    padding-bottom: 8rem;
     overflow-y: auto;
 
     /* scrollbar */
