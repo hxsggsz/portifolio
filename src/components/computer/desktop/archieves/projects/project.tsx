@@ -40,3 +40,4 @@ export const Project = ({ projects }: Projectstypes) => {
     </>
   )
 }
+

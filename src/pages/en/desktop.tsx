@@ -1,8 +1,5 @@
 import Head from "next/head";
-import { api } from "../api/axios";
-import { ApiTypes } from "../api/types";
 import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
 import bg from "../../../public/wallpaper.jpg"
 import useSizeScreen from "../../hooks/useSizeScreen";
 import { StyledDesktop } from "../../components/computer/desktop";
@@ -15,18 +12,16 @@ import { Languages } from "../../components/computer/desktop/archieves/Languages
 import { Linkedin } from "../../components/computer/desktop/archieves/icon/contact/linkedin";
 import { Certificates } from "../../components/computer/desktop/archieves/certificates/certificates";
 import { Curriculo } from "../../components/computer/desktop/archieves/curriculo/curriculo";
-import { useState } from "react";
+import { useFetcher } from "../../hooks/useFetcher";
+import { Loading } from "../../components/computer/loading/loading";
 
-export default function Login({ portifolio }: ApiTypes) {
+export default function Login() {
   const router = useRouter();
   const { width } = useSizeScreen()
-  const [isLoaded, setIsLoaded] = useState(false)
+  const { data } = useFetcher('/portifolio-en')
 
   if (width <= 600) {
     router.replace("/mobile")
-  }
-  if (width > 600) {
-    setTimeout(() => setIsLoaded(true), 2500)
   }
 
   return (
@@ -42,19 +37,19 @@ export default function Login({ portifolio }: ApiTypes) {
       </Head>
 
 
-      {isLoaded ? (
+      {data ? (
         <>
           <div className="icons">
             <ConfigsEn />
-            <About name="AboutMe.txt" about={portifolio.about} />
-            <Languages name="Languages" lang={portifolio.language} />
-            <Certificates cert={portifolio.certificate} name={"My certificates"} />
+            <About name="AboutMe.txt" about={data.about} />
+            <Languages name="Languages" lang={data.language} />
+            <Certificates cert={data.certificate} name={"My certificates"} />
             <Linkedin />
             <Github />
           </div>
 
           <div className="icons2">
-            {portifolio.project.map(proj => (
+            {data.project.map(proj => (
               <Project key={proj.id} projects={proj} />
             ))}
           </div>
@@ -63,17 +58,8 @@ export default function Login({ portifolio }: ApiTypes) {
             <Curriculo name="Curriculum" href="https://drive.google.com/file/d/1mVWFgxG6wB6Ahwna3Y4qZauwLH1t3d0d/view" />
           </div>
         </>
-      ) : <div style={{ width: "100vw", height: "100vh" }} />}
+      ) : <Loading />}
       <Taskbar />
     </StyledDesktop>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await api.get("/portifolio-en");
-  return {
-    props: {
-      portifolio: response.data,
-    },
-  };
-};

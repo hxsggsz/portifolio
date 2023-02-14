@@ -86,7 +86,7 @@ export const App = ({
               </button>
 
               <button onClick={onFullScreen} className="button">
-                {isFullScreen ? <Browsers size={20}  /> : <Browser size={20} weight="bold" />}
+                {isFullScreen ? <Browsers size={20} /> : <Browser size={20} weight="bold" />}
               </button>
 
               <button onClick={onClose} className="buttonClose">

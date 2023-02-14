@@ -1,28 +1,21 @@
-import { GetServerSideProps } from "next";
+import { useFetcher } from "../hooks/useFetcher";
 import { Home } from "../components/mobile/home/home";
 import { LoockScreen } from "../components/mobile/lockscreen/lockscreen";
-import { api } from "./api/axios";
-import { ApiTypes } from "./api/types";
 
-export default function Mobile({ portifolio }: ApiTypes) {
+export default function Mobile() {
+  const { data } = useFetcher('/portifolio')
+  if (!data) {
+    return []
+  }
   return (
     <>
       <LoockScreen />
       <Home
-        about={portifolio.about}
-        lang={portifolio.language}
-        cert={portifolio.certificate}
-        projects={portifolio.project}
+        about={data.about}
+        lang={data.language}
+        cert={data.certificate}
+        projects={data.project}
       />
     </>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await api.get("/portifolio");
-  return {
-    props: {
-      portifolio: response.data,
-    },
-  };
-};

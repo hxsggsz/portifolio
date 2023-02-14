@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://portifolio-api-eg8n.onrender.com",
+  baseURL: "https://portifolio-api-py22.onrender.com",
 });

@@ -2,7 +2,6 @@ import { DiamondsFour } from "phosphor-react";
 import { StyledHome } from ".";
 import bg from "../../../../public/wallpaper.jpg";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Menu } from "../menu/menu";
 import { useMobile } from "../../../hooks/useMobile";
 
