@@ -13,7 +13,7 @@ export const Icon = ({
   icon,
   name,
   isBackgroundDifferent,
-  onOpen,
+  onOpen, 
   onChangeBackground,
 }: IconType) => {
   return (

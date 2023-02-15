@@ -81,15 +81,15 @@ export const App = ({
         >
           <motion.div className="menuBar">
             <div className="buttons">
-              <button onClick={onMinus} className="button">
+              <button data-testid="minus" onClick={onMinus} className="button">
                 <Minus size={20} />
               </button>
 
-              <button onClick={onFullScreen} className="button">
+              <button data-testid="fullScreen" onClick={onFullScreen} className="button">
                 {isFullScreen ? <Browsers size={20} /> : <Browser size={20} weight="bold" />}
               </button>
 
-              <button onClick={onClose} className="buttonClose">
+              <button data-testid="close" onClick={onClose} className="buttonClose">
                 <X size={20} />
               </button>
             </div>

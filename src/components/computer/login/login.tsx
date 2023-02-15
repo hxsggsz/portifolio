@@ -1,43 +1,52 @@
+import Link from "next/link";
 import Image from "next/image";
-import { StyledLogin } from './index';
+import { StyledLogin } from "./index";
 import login from "../../../../public/login.png";
 import { ArrowFatRight, Eye, EyeClosed } from "phosphor-react";
-import Link from "next/link";
-import { useState } from "react";
 
 type loginTypes = {
-   href: string;
-   defaultValue: string;
-}
+  href: string;
+  defaultValue: string;
+  isText: boolean;
+  setIsText: () => void;
+};
 
-export const LoginWindows = ({ href, defaultValue }: loginTypes) => {
-   const [isText, setIsText] = useState<boolean>(false)
-   return (
-      <StyledLogin>
+export const LoginWindows = (props: loginTypes) => {
+  return (
+    <StyledLogin>
+      <Image width={220} height={210} src={login} alt="foto do windows" />
 
-         <Image width={220} height={210} src={login} alt='foto do windows' />
+      <div>
+        <label>
+          <h2>PORTIFOLIO</h2>
+        </label>
 
-         <div>
+        <form>
+          <input
+            className="fake-input"
+            data-testId="fake-input"
+            type={props.isText ? "text" : "password"}
+            disabled={true}
+            defaultValue={props.defaultValue}
+          />
 
-            <label>
-               <h2>PORTIFOLIO</h2>
-            </label>
+          <div data-testId="show-login" onClick={props.setIsText} className="eye">
+            {props.isText ? (
+              <EyeClosed
+                style={{ cursor: "pointer" }}
+                color={"black"}
+                size={25}
+              />
+            ) : (
+              <Eye style={{ cursor: "pointer" }} color={"black"} size={25} />
+            )}
+          </div>
 
-            <form>
-               <input className="fake-input" type={isText ? 'text' : 'password'} disabled={true} defaultValue={defaultValue} />
-
-               <div onClick={() => setIsText(!isText)} className="eye">
-                  {isText ? <EyeClosed style={{ cursor: 'pointer' }} color={'black'} size={25} /> : <Eye style={{ cursor: 'pointer' }} color={'black'} size={25} />}
-               </div>
-
-               <Link href={href}>
-                  <ArrowFatRight color={'black'} size={25} />
-               </Link>
-
-            </form>
-
-         </div>
-
-      </StyledLogin>
-   )
-}
+          <Link data-testId="component" href={props.href}>
+            <ArrowFatRight color={"black"} size={25} />
+          </Link>
+        </form>
+      </div>
+    </StyledLogin>
+  );
+};

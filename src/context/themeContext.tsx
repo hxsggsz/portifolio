@@ -1,4 +1,3 @@
-import { ThemeProvider } from "styled-components";
 import {
   ReactNode,
   useState,
@@ -6,6 +5,7 @@ import {
   useContext,
   useCallback,
 } from "react";
+import { ThemeProvider } from "styled-components";
 import * as themes from "../styles/themes/themes";
 
 interface ThemeTypes {
@@ -13,7 +13,10 @@ interface ThemeTypes {
 }
 
 interface StateProps {
+  colors: string;
+
   handleTheme: (color: string) => void;
+
   setCurrentTheme: () => {
     primary: string;
     secondary: string;
@@ -32,7 +35,7 @@ const getThemeByLocalStorage = () => {
     if (currentTheme) {
       return JSON.parse(currentTheme);
     }
-    return "";
+    return "purple";
   }
 };
 
@@ -84,7 +87,7 @@ export const ThemesProvider = ({ children }: ThemeTypes) => {
   }, [colors, theme]);
 
   return (
-    <ThemeContext.Provider value={{ handleTheme, setCurrentTheme }}>
+    <ThemeContext.Provider value={{ colors, handleTheme, setCurrentTheme }}>
       <ThemeProvider theme={setCurrentTheme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );

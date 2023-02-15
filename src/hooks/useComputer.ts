@@ -3,7 +3,7 @@ import { useTaskBar } from "../context/taskBarContext";
 
 // hook com todas as funções da pagina Computer
 export const useComputer = () => {
-  const { getIconToTaskBar, removeIconFromTaskBar } = useTaskBar();
+  const { setIconToTaskBar, removeIconFromTaskBar } = useTaskBar();
   const [computer, setComputer] = useState({
     isAppOpen: false,
     isChangeBackground: false,
@@ -24,7 +24,7 @@ export const useComputer = () => {
         ...computer,
         isAppOpen: !computer.isAppOpen,
       });
-      getIconToTaskBar(image);
+      setIconToTaskBar(image);
     },
 
     handleIsShowConfig(image: string) {
@@ -33,7 +33,7 @@ export const useComputer = () => {
         isShowConfig: true,
       });
 
-      getIconToTaskBar(image);
+      setIconToTaskBar(image);
     },
 
     removeiconAndCloseConfig(image: string) {

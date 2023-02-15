@@ -2,7 +2,6 @@ import { App } from "../app/app";
 import { Icon } from "../icon/icon";
 import arquivo from "../../../../../../public/arquivo.png";
 import { useComputer } from "../../../../../hooks/useComputer";
-import { useTaskBar } from "../../../../../context/taskBarContext";
 
 type IconTypes = {
   name: string;
@@ -16,8 +15,7 @@ type IconTypes = {
 export const About = ({ name, about }: IconTypes) => {
   const computer = useComputer();
   return (
-    <>
-      {/* icon on desktop */}
+    <>  
       <Icon
         icon={arquivo.src}
         name={name}
@@ -27,8 +25,7 @@ export const About = ({ name, about }: IconTypes) => {
         }
         onChangeBackground={computer.changeBackground}
       />
-
-      {/* the app */}
+ 
       <App
         isShow={computer.isAppOpen}
         isFullScreen={computer.isFullScreen}

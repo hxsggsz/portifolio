@@ -1,5 +1,6 @@
+import { randomUUID } from "crypto";
 import bg from "../../public/wallpaper.jpg"
-import { ReactNode, createContext, useContext, useState, useId } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 
 interface ThemeTypes {
   children: ReactNode;
@@ -10,7 +11,7 @@ interface StateProps {
     id: string;
     image: string;
   }[]
-  getIconToTaskBar: (image: string) => void
+  setIconToTaskBar: (image: string) => void
   removeIconFromTaskBar: (image: string) => void
 };
 
@@ -21,10 +22,10 @@ export const useTaskBar = () => useContext(TaskBarContext);
 
 
 export const TaskBarProvider = ({ children }: ThemeTypes) => {
-  const id = useId()
+  const id = randomUUID()
   const [taskBar, setTaskBar] = useState([{ id, image: bg.src }]);
 
-  const getIconToTaskBar = (image: string) => {
+  const setIconToTaskBar = (image: string) => {
     const checkEquals = taskBar.find(img => img.image === image)
     if (checkEquals) {
       return taskBar
@@ -38,7 +39,7 @@ export const TaskBarProvider = ({ children }: ThemeTypes) => {
   }
 
   return (
-    <TaskBarContext.Provider value={{ taskBar, getIconToTaskBar, removeIconFromTaskBar }}>
+    <TaskBarContext.Provider value={{ taskBar, setIconToTaskBar, removeIconFromTaskBar }}>
       {children}
     </TaskBarContext.Provider>
   );

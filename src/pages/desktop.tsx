@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import bg from "../../public/wallpaper.jpg";
 import { useFetcher } from "../hooks/useFetcher";
 import useSizeScreen from "../hooks/useSizeScreen";
+import { useTaskBar } from "../context/taskBarContext";
 import { StyledDesktop } from "../components/computer/desktop";
 import { Taskbar } from "../components/computer/taskbar/taskbar";
 import { Loading } from "../components/computer/loading/loading";
@@ -19,7 +20,8 @@ export default function Login() {
    const router = useRouter();
    const { width } = useSizeScreen()
    const { data } = useFetcher('/portifolio')
-   console.log(data)
+   const { taskBar } = useTaskBar()
+
    if (width <= 600) {
       router.replace("/mobile")
    }
@@ -58,7 +60,7 @@ export default function Login() {
                </div>
             </>
          ) : <Loading />}
-         <Taskbar />
+         <Taskbar taskBar={taskBar} />
       </StyledDesktop>
    );
 }
