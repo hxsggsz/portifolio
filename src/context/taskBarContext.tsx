@@ -1,6 +1,5 @@
-import { randomUUID } from "crypto";
 import bg from "../../public/wallpaper.jpg"
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useState, useId } from "react";
 
 interface ThemeTypes {
   children: ReactNode;
@@ -22,7 +21,7 @@ export const useTaskBar = () => useContext(TaskBarContext);
 
 
 export const TaskBarProvider = ({ children }: ThemeTypes) => {
-  const id = randomUUID()
+  const id = useId()
   const [taskBar, setTaskBar] = useState([{ id, image: bg.src }]);
 
   const setIconToTaskBar = (image: string) => {

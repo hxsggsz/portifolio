@@ -15,8 +15,13 @@ import { Languages } from "../components/computer/desktop/archieves/Languages/La
 import { Linkedin } from "../components/computer/desktop/archieves/icon/contact/linkedin";
 import { Certificates } from "../components/computer/desktop/archieves/certificates/certificates";
 import { Curriculo } from "../components/computer/desktop/archieves/curriculo/curriculo";
+import { GetServerSideProps, GetStaticProps } from "next";
+import { getPortifolio } from "../lib/getPortifolio";
+import { ApiTypes } from "./api/types";
+import { prisma } from "../lib/prisma";
 
 export default function Login() {
+   // console.log(portifolio)
    const router = useRouter();
    const { width } = useSizeScreen()
    const { data } = useFetcher('/portifolio')
@@ -64,3 +69,29 @@ export default function Login() {
       </StyledDesktop>
    );
 }
+
+// export const getServerSideProps: GetServerSideProps = async () => {
+//    const data = await prisma.portifolio.findUnique({
+//       where: {
+//          id: "d60a741b-0c32-470f-ad45-a526612e214d",
+//       },
+//       include: {
+//          about: true,
+//          project: true,
+//          language: true,
+//          certificate: true,
+//       },
+//    });
+
+   // const portifolio = data.map((it: any) => {
+   //    return {
+   //       id: it.id,
+
+   //    }
+   // })
+//    return {
+//       props: {
+//          portifolio: data,
+//       }
+//    }
+// }

@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Portifolio {
+  id          String         @id @unique @default(uuid())
+  about       About[]
+  certificate Certificates[]
+  FirstPage   FirstPage[]
+  language    Languages[]
+  project     Projects[]
+}
+
+model Languages {
+  id           String      @id @unique @default(uuid())
+  name         String
+  images       String
+  portifolioId String?
+  createdAt    DateTime    @default(now())
+  translation  String      @default("ptbr")
+  Portifolio   Portifolio? @relation(fields: [portifolioId], references: [id])
+}
+
+model Certificates {
+  id           String      @id @unique @default(uuid())
+  name         String
+  images       String
+  description  String
+  portifolioId String?
+  createdAt    DateTime    @default(now())
+  translation  String      @default("ptbr")
+  Portifolio   Portifolio? @relation(fields: [portifolioId], references: [id])
+}
+
+model Projects {
+  id            String      @id @unique @default(uuid())
+  url           String
+  name          String
+  images        String
+  description   String
+  portifolioId  String?
+  createdAt     DateTime    @default(now())
+  urlRepository String
+  translation   String      @default("ptbr")
+  languages     String
+  icon          String?
+  Portifolio    Portifolio? @relation(fields: [portifolioId], references: [id])
+}
+
+model About {
+  id           String      @id @unique @default(uuid())
+  text         String
+  translation  String      @default("ptbr")
+  portifolioId String?
+  createdAt    DateTime    @default(now())
+  image        String?
+  Portifolio   Portifolio? @relation(fields: [portifolioId], references: [id])
+}
+
+model Contact {
+  id          String    @id @unique
+  text        String
+  translation String
+  curriculum  String
+  Socials     Socials[]
+}
+
+model FirstPage {
+  id           String      @id @unique
+  content      String
+  images       String
+  translation  String
+  portifolioId String?
+  Portifolio   Portifolio? @relation(fields: [portifolioId], references: [id])
+}
+
+model Socials {
+  id           String   @id @unique
+  socials      String
+  socialImages String
+  contactId    String?
+  socialLinks  String
+  translation  String
+  Contact      Contact? @relation(fields: [contactId], references: [id])
+}
