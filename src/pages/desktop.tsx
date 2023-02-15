@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import bg from "../../public/wallpaper.jpg";
-import { useFetcher } from "../hooks/useFetcher";
+import { useFetcher, usePortifolio } from "../hooks/usePortifolio";
 import useSizeScreen from "../hooks/useSizeScreen";
 import { useTaskBar } from "../context/taskBarContext";
 import { StyledDesktop } from "../components/computer/desktop";
@@ -15,17 +15,12 @@ import { Languages } from "../components/computer/desktop/archieves/Languages/La
 import { Linkedin } from "../components/computer/desktop/archieves/icon/contact/linkedin";
 import { Certificates } from "../components/computer/desktop/archieves/certificates/certificates";
 import { Curriculo } from "../components/computer/desktop/archieves/curriculo/curriculo";
-import { GetServerSideProps, GetStaticProps } from "next";
-import { getPortifolio } from "../lib/getPortifolio";
-import { ApiTypes } from "./api/types";
-import { prisma } from "../lib/prisma";
 
 export default function Login() {
-   // console.log(portifolio)
    const router = useRouter();
    const { width } = useSizeScreen()
-   const { data } = useFetcher('/portifolio')
    const { taskBar } = useTaskBar()
+   const { data: port } = usePortifolio("/api/portifolio")
 
    if (width <= 600) {
       router.replace("/mobile")
@@ -43,19 +38,19 @@ export default function Login() {
             <title>Portifolio - Desktop</title>
          </Head>
 
-         {data ? (
+         {port ? (
             <>
                <div className="icons">
                   <Configs />
-                  <About name="SobreMim.txt" about={data.about} />
-                  <Languages name="Linguagens" lang={data.language} />
-                  <Certificates cert={data.certificate} name={"Meus Certificados"} />
+                  <About name="SobreMim.txt" about={port.about} />
+                  <Languages name="Linguagens" lang={port.language} />
+                  <Certificates cert={port.certificate} name={"Meus Certificados"} />
                   <Linkedin />
                   <Github />
                </div>
 
                <div className="icons2">
-                  {data.project.map(proj => (
+                  {port.project.map(proj => (
                      <Project key={proj.id} projects={proj} />
                   ))}
                </div>
@@ -69,29 +64,3 @@ export default function Login() {
       </StyledDesktop>
    );
 }
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//    const data = await prisma.portifolio.findUnique({
-//       where: {
-//          id: "d60a741b-0c32-470f-ad45-a526612e214d",
-//       },
-//       include: {
-//          about: true,
-//          project: true,
-//          language: true,
-//          certificate: true,
-//       },
-//    });
-
-   // const portifolio = data.map((it: any) => {
-   //    return {
-   //       id: it.id,
-
-   //    }
-   // })
-//    return {
-//       props: {
-//          portifolio: data,
-//       }
-//    }
-// }

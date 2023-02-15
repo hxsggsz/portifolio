@@ -23,3 +23,27 @@ export async function getPortifolio() {
 
   return data;
 }
+
+export async function getPortifolioEn() {
+  const data = await prisma.portifolio.findUnique({
+    where: {
+      id: "8df70320-4c06-4936-854c-53545fdd7eca",
+    },
+    include: {
+      about: {
+        orderBy: {
+          createdAt: "asc",
+        },
+      },
+      project: true,
+      language: {
+        orderBy: {
+          createdAt: "asc",
+        },
+      },
+      certificate: true,
+    },
+  });
+
+  return data;
+}

@@ -1,10 +1,10 @@
-import { useFetcher } from "../../hooks/useFetcher";
+import { usePortifolio } from "../../hooks/usePortifolio";
 import { HomeEn } from "../../components/mobile/home/homeEn";
 import { LoockScreenEn } from "../../components/mobile/lockscreen/lockscreenEn";
 
 
 export default function Mobile() {
-  const { data } = useFetcher('/portifolio')
+  const { data } = usePortifolio('/portifolio-en')
   if (!data) {
     return []
   }

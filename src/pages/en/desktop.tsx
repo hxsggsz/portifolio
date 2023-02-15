@@ -12,13 +12,15 @@ import { Languages } from "../../components/computer/desktop/archieves/Languages
 import { Linkedin } from "../../components/computer/desktop/archieves/icon/contact/linkedin";
 import { Certificates } from "../../components/computer/desktop/archieves/certificates/certificates";
 import { Curriculo } from "../../components/computer/desktop/archieves/curriculo/curriculo";
-import { useFetcher } from "../../hooks/useFetcher";
+import { usePortifolio } from "../../hooks/usePortifolio";
 import { Loading } from "../../components/computer/loading/loading";
+import { useTaskBar } from "../../context/taskBarContext";
 
 export default function Login() {
   const router = useRouter();
   const { width } = useSizeScreen()
-  const { data } = useFetcher('/portifolio-en')
+  const { taskBar } = useTaskBar()
+  const { data } = usePortifolio('/portifolio-en')
 
   if (width <= 600) {
     router.replace("/mobile")
@@ -59,7 +61,7 @@ export default function Login() {
           </div>
         </>
       ) : <Loading />}
-      <Taskbar />
+      <Taskbar taskBar={taskBar} />
     </StyledDesktop>
   );
 }
