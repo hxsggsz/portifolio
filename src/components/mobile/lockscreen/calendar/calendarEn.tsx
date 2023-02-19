@@ -3,12 +3,11 @@ import { useCalendar } from "../../../../hooks/useCalendar";
 
 export const CalendarEn = () => {
   const calendar = useCalendar();
-  const currentDay = calendar.getDay()
-  const currentMonth = calendar.getMothEn()
-  const currentDayWeek = calendar.getWeekEn()
+
 
   setInterval(() => {
     calendar.clock()
+    calendar.getWeekEn()
   }, 1000)
   return (
     <StyledCalendar>
@@ -16,7 +15,7 @@ export const CalendarEn = () => {
         {calendar.hours < 10 ? "0" + calendar.hours : calendar.hours} :{" "}
         {calendar.minutes < 10 ? "0" + calendar.minutes : calendar.minutes}
       </h1>
-      <h2>{currentDayWeek}, {currentMonth} {currentDay}</h2>
+      <h2>{calendar.week}, {calendar.day}</h2>
     </StyledCalendar>
   )
 }

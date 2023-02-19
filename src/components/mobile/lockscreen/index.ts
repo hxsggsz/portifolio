@@ -47,6 +47,7 @@ export const StyledLockScreen = styled.div<StyledTypes>`
   }
 
   .fingerPrint {
+    cursor: pointer;
     height: 50%;
     overflow: hidden;
     display: flex;

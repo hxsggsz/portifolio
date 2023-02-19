@@ -4,13 +4,16 @@ import { StyledLockScreen } from ".";
 import { Calendar } from "./calendar/calendar";
 import { motion } from "framer-motion";
 import { Fingerprint } from "phosphor-react";
-import { useState } from "react";
-import { useMobile } from "../../../hooks/useMobile";
 
-export const LoockScreen = () => {
-  const mobile = useMobile()
+type LoockedTypes = {
+  isLocked:boolean;
+  handleLocked: () => void;
+}
+
+export const LoockScreen = ({isLocked, handleLocked}: LoockedTypes) => {
+
   return (
-    <StyledLockScreen isLocked={mobile.isLocked}>
+    <StyledLockScreen isLocked={isLocked}>
 
       <div>
 
@@ -29,9 +32,9 @@ export const LoockScreen = () => {
           </Link>
         </div>
 
-        <motion.div onClick={mobile.handleIsLocked} className="fingerPrint">
+        <motion.div onClick={handleLocked} className="fingerPrint">
           <h3>Aperte no leitor de digital</h3>
-          <Fingerprint size={96} weight="bold" />
+          <Fingerprint data-testid="button" size={96} weight="bold" />
         </motion.div>
       </div>
     </StyledLockScreen>

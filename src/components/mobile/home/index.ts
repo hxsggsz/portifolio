@@ -15,7 +15,7 @@ export const StyledHome = styled.div`
     display: flex;
     align-items: end;
     justify-content: center;
-    padding-bottom: 2.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .wrapper button {

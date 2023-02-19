@@ -17,7 +17,7 @@ export const StyledApp = styled.div<AppTypes>`
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  gap: 2rem 0;
+  gap: 3rem 0;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -146,7 +146,7 @@ export const StyledApp = styled.div<AppTypes>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 
   .about h2 {

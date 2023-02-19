@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import bg from "../../public/wallpaper.jpg";
-import { useFetcher, usePortifolio } from "../hooks/usePortifolio";
 import useSizeScreen from "../hooks/useSizeScreen";
 import { useTaskBar } from "../context/taskBarContext";
+import { usePortifolio } from "../hooks/usePortifolio";
 import { StyledDesktop } from "../components/computer/desktop";
 import { Taskbar } from "../components/computer/taskbar/taskbar";
 import { Loading } from "../components/computer/loading/loading";

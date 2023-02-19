@@ -17,13 +17,11 @@ export const useMobile = () => {
       });
     },
 
-    async handleIsLocked() {
-      setTimeout(() => {
-        setMobile({
-          ...mobile,
-          isLocked: false,
-        });
-      }, 500);
+    handleIsLocked() {
+      setMobile({
+        ...mobile,
+        isLocked: false,
+      });
     },
     handleMenu() {
       setMobile({
