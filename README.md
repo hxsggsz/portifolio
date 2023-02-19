@@ -6,6 +6,9 @@
   <li>React</li>
   <li>Next</li>
   <li>TypeScript</li>
+  <li>Jest</li>
+  <li>testing library</li>
+  <li>prisma</li>
   <li>Styled Components</li>
 </ul>
 
