@@ -65,7 +65,7 @@ export const MenuEn = ({
         <Languages name="Languages" lang={lang} />
         <Certificates name="Certificates" cert={cert} />
 
-        <Link href='https://drive.google.com/file/d/1mVWFgxG6wB6Ahwna3Y4qZauwLH1t3d0d/view' target="_blank">
+        <Link href='https://drive.google.com/file/d/1cBJMbCF33tJwRdO0hlD6ftxNI1Rp1Jlg/view?usp=sharing' target="_blank">
           <Icon image={arquivos.src} name={"curriculum"} setIsAppOpen={() => { }} />
         </Link>
         <Link href='https://www.linkedin.com/in/hxsggsz/' target="_blank">

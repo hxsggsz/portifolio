@@ -56,7 +56,7 @@ export default function Login() {
                </div>
 
                <div>
-                  <Curriculo name="Currículo" href="https://drive.google.com/file/d/1_fslTX23NEtBmZLDYVwdNIP5u1NZDzIN/view" />
+                  <Curriculo name="Currículo" href="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing" />
                </div>
             </>
          ) : <Loading />}
