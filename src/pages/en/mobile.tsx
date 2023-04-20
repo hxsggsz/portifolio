@@ -3,11 +3,13 @@ import { HomeEn } from "../../components/mobile/home/homeEn";
 import { LoockScreenEn } from "../../components/mobile/lockscreen/lockscreenEn";
 import Head from "next/head";
 import { useMobile } from "../../hooks/useMobile";
+import { LoockScreen } from "../../components/mobile/lockscreen/lockscreen";
+import { Home } from "../../components/mobile/home/home";
 
 
 export default function Mobile() {
-  const mobile = useMobile();
-  const { data } = usePortifolio('/portifolio-en')
+  const { data } = usePortifolio("/api/portifolio-en")
+  const mobile = useMobile()
   if (!data) {
     return []
   }
@@ -18,8 +20,8 @@ export default function Mobile() {
         <title>Portifolio - Mobile</title>
       </Head>
 
-      <LoockScreenEn />
-      <HomeEn
+      <LoockScreen isLocked={mobile.isLocked} handleLocked={mobile.handleIsLocked} />
+      <Home
         about={data.about}
         lang={data.language}
         cert={data.certificate}

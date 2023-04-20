@@ -6,10 +6,9 @@ type StyledCardTypes = {
 
 export const StyledCards = styled.div<StyledCardTypes>`
   max-width: ${({ isProject }) => (isProject ? "100vw" : "40vw")};
-  min-width: 17rem;
   max-height: 50vh;
   margin-top: 1rem;
-  margin-bottom: 10rem;
+  margin-bottom: 1rem;
 
   @media (max-width: 650px) {
     max-width: 100vw;
@@ -17,9 +16,9 @@ export const StyledCards = styled.div<StyledCardTypes>`
 
   & > div {
     display: flex;
-    gap: 1rem 0;
+    gap: 1rem;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
     border: 3px solid
       ${({ theme, isProject }) => (isProject ? "none" : theme.primary)};
@@ -43,12 +42,16 @@ export const StyledCards = styled.div<StyledCardTypes>`
     width: 110%;
   }
 
+  .image img {
+    object-fit: fill;
+  }
+
   .text {
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: start;
-    margin-top: 1rem;
+    margin: 2rem 0;
     flex-direction: column;
   }
 

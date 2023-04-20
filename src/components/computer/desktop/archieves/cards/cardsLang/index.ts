@@ -10,6 +10,10 @@ export const StyledCardLang = styled.div`
   height: 30vh;
   border: 4px solid ${({ theme }) => theme.primary};
   
+  img {
+    object-fit: contain;
+  }
+
   @media (max-width: 677px) {
     width: 35vw;
   }

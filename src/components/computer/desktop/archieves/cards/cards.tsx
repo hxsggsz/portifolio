@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 type CardType = {
-  icon: string
+  icon?: string
   images: string;
   text?: string;
   description?: string;
@@ -19,7 +19,12 @@ export const Cards = ({ icon, images, text, description, isProject, repo, url, l
     <StyledCards isProject={isProject}>
       <div>
         <div className="image">
-          <Image width={200} height={200} src={isProject ? icon : images} alt="cards" />
+          <Image
+            alt="cards"
+            width={200}
+            height={200}
+            src={isProject ? icon! : images}
+          />
         </div>
 
         <div className="text">

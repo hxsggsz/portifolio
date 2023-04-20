@@ -1,39 +1,22 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-type IconTypes = {
+type AppTypes = {
   isFullScreen: boolean;
-  isProject: boolean;
 };
 
-export const StyledApp = styled.div<IconTypes>`
-  .app {
-    position: absolute;
-    top: 0;
-    background: var(--black-pc);
-    border: 5px solid ${({ theme }) => theme.primary};
-    width: 100%;
-    left: ${({ isFullScreen }) => (isFullScreen ? "0" : "25%")};
-    max-width: ${({ isFullScreen }) => (isFullScreen ? "100vw" : "55vw")};
-    max-height: 92vh;
-    overflow: hidden;
-
-    @media (max-width: 740px) {
-      max-width: 100vw;
-      left: 0;
-    }
-  }
-
+export const StyledTest = styled(motion.div)`
   .menuBar {
     height: 6vh;
     width: 100%;
     background: ${({ theme }) => theme.primary};
   }
-
+  
   .buttons {
     display: flex;
     align-items: center;
     justify-content: end;
-    gap: 4px;
+    border: 1px solid ${({ theme }) => theme.primary};
   }
 
   .button,
@@ -54,16 +37,10 @@ export const StyledApp = styled.div<IconTypes>`
   }
 
   .content {
-    display: grid;
-    place-items: center;
-    grid-gap: 0 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: repeat(2, 1fr);
-    /* grid-auto-flow: row; */
-    grid-auto-columns: minmax(1rem, 1fr);
+    position: relative;
+    height: 100%;
     overflow-y: auto;
-    max-height: 92vh;
-
+    z-index: 2;
     /* scrollbar */
     &::-webkit-scrollbar {
       -webkit-appearance: none;
@@ -84,7 +61,6 @@ export const StyledApp = styled.div<IconTypes>`
     justify-content: center;
     flex-direction: column;
     gap: 2rem 0;
-    overflow-y: ${({ isProject }) => (isProject ? "auto" : "none")};
     
     /* scrollbar */
     &::-webkit-scrollbar {
@@ -98,7 +74,6 @@ export const StyledApp = styled.div<IconTypes>`
       border-radius: 2px;
     }
   }
-
 
   .title-colors {
     font-size: max(1rem, 3vw);
@@ -114,14 +89,12 @@ export const StyledApp = styled.div<IconTypes>`
 
   .buttons {
     display: flex;
-    gap: 1rem;
   }
 
   .colors {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
   }
 
   .purple,
@@ -194,4 +167,23 @@ export const StyledApp = styled.div<IconTypes>`
   .options:disabled {
     cursor: not-allowed;
   }
-`;
+`
+
+export const StyledApp = styled(motion.div)<AppTypes>`
+  position: absolute;
+  top: 0;
+  left: ${({ isFullScreen }) => (isFullScreen ? "0" : "25%")};
+  background: var(--black-pc);
+  border: 5px solid ${({ theme }) => theme.primary};
+  width: 100%;
+  max-width: ${({ isFullScreen }) => (isFullScreen ? "100vw" : "55vw")};
+  max-height: ${({ isFullScreen }) => (isFullScreen ? "100vh" : "82vh")};
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+  
+  @media (max-width: 740px) {
+    max-width: 100vw;
+    left: 0;
+  }
+`

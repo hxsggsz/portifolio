@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledHome = styled.div`
   height: 100vh;
+  height: 100svh;
   width: 100vw;
   position: relative;
   overflow: hidden;

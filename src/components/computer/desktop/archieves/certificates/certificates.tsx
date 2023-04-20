@@ -1,6 +1,5 @@
 import { useComputer } from "../../../../../hooks/useComputer"
 import { Icon } from "../icon/icon"
-import pastas from "../../../../../../public/pastas.png"
 import { App } from "../app/app"
 
 type CertTypes = {
@@ -19,10 +18,10 @@ export const Certificates = ({ name, cert }: CertTypes) => {
   return (
     <>
       <Icon
-        icon={pastas.src}
+        icon="/pastas.png"
         name={name}
         isBackgroundDifferent={computer.isChangeBackground}
-        onOpen={() => computer.handleTaskBar(pastas.src)}
+        onOpen={() => computer.handleTaskBar("/pastas.png")}
         onChangeBackground={computer.changeBackground}
       />
 
@@ -31,7 +30,7 @@ export const Certificates = ({ name, cert }: CertTypes) => {
         isFullScreen={computer.isFullScreen}
         onMinus={computer.minimizeApp}
         onFullScreen={computer.handleFullScreen}
-        onClose={() => computer.removeiconAndCloseApp(pastas.src)}
+        onClose={() => computer.removeiconAndCloseApp("/pastas.png")}
         cert={cert}
       />
     </>
