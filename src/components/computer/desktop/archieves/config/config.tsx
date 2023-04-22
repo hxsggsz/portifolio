@@ -1,41 +1,65 @@
+import { motion } from "framer-motion";
 import { StyledConfig } from ".";
 import { useThemes } from "../../../../../context/themeContext";
-import { App } from "../app/app";
-import { Icon } from "../icon/icon";
-import { useComputer } from "../../../../../hooks/useComputer";
-import configs from "../../../../../../public/gear.png"
+import { Archieve } from "../../../../archieve";
+import Link from "next/link";
+import { MutableRefObject } from "react";
 
-export const Configs = () => {
-  const computer = useComputer();
+export const Configs = (props: { appRef: MutableRefObject<HTMLDivElement | null> }) => {
   const { handleTheme } = useThemes();
+  const colors = ["purple", "blue", "green", "red", "pink", "grey", "yellow"]
 
-  const config = {
-    title: "Escolha a sua cor favorita!",
-    titleLang: "Escolha a sua linguagem!",
-    handleTheme,
-    isDisabledEng: false,
-    isDisabledPt: true,
-    hrefEng: "/en/desktop",
-  };
   return (
     <StyledConfig>
-      <Icon
-        icon={configs.src}
+      <Archieve
+        icon="/gear.png"
         name="configurações"
-        isBackgroundDifferent={computer.isChangeBackground}
-        onOpen={() => computer.handleIsShowConfig(configs.src)}
-        onChangeBackground={computer.changeBackground}
-      />
+        appRef={props.appRef}
+      >
+        <div className="config-colors">
+          <h1>Escolha a sua cor favorita!</h1>
+          <div className="colors">
+            {colors.map((color, idx) => (
+              <motion.div
+                key={idx}
+                className={color}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: [1, 1.3, 0.9] }}
+                onClick={() => handleTheme(color)}
+              />
+            ))}
+          </div>
+        </div>
 
-      <App
-        config={config}
-        isConfig={computer.isShowConfig}
-        isShow={computer.isShowConfig}
-        isFullScreen={computer.isFullScreen}
-        onMinus={computer.minimizeApp}
-        onFullScreen={computer.handleFullScreen}
-        onClose={() => computer.removeiconAndCloseConfig(configs.src)}
-      />
+        <div style={{ marginTop: "2rem" }}>
+          <div className="chooseLanguages">
+            <h1>Escolha a sua linguagem!</h1>
+
+            <div className="buttons">
+              <Link href="/en/desktop">
+                <motion.button
+                  whileHover={{ y: -10 }}
+                  whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
+                  className="options"
+                >
+                  <h1>English</h1>
+                </motion.button>
+              </Link>
+
+              <Link href="/desktop">
+                <motion.button
+                  whileHover={{ y: -10 }}
+                  whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
+                  className="options"
+                >
+                  <h1>Português</h1>
+                </motion.button>
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </Archieve>
     </StyledConfig>
   );
 };

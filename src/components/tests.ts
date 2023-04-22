@@ -89,6 +89,8 @@ export const StyledTest = styled(motion.div)`
 
   .buttons {
     display: flex;
+    border: none;
+    gap: 1rem;
   }
 
   .colors {

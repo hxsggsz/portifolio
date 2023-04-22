@@ -13,7 +13,7 @@ export const Taskbar = ({taskBar}: TaskbarTypes) => {
     <StyledTaskBar>
       <div className="taskbar-content">
         {taskBar.length > 0 && taskBar.map(item => (
-          <Image key={item.id} width={50} height={50} src={item.image} alt="icon" />
+          <Image key={item.id} width={45} height={45} src={item.image} alt="icon" />
         ))}
       </div>
     </StyledTaskBar>

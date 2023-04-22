@@ -1,26 +1,25 @@
 import Head from "next/head";
+import { useRef } from "react";
 import { useRouter } from "next/router";
 import bg from "../../../public/wallpaper.jpg"
+import { Archieve } from "../../components/archieve";
 import useSizeScreen from "../../hooks/useSizeScreen";
-import { StyledDesktop } from "../../components/computer/desktop";
-import { Taskbar } from "../../components/computer/taskbar/taskbar";
-import { About } from "../../components/computer/desktop/archieves/about/About";
-import { Project } from "../../components/computer/desktop/archieves/projects/project";
-import { ConfigsEn } from "../../components/computer/desktop/archieves/config/configEn";
-import { Github } from "../../components/computer/desktop/archieves/icon/contact/github";
-import { Languages } from "../../components/computer/desktop/archieves/Languages/Languages";
-import { Linkedin } from "../../components/computer/desktop/archieves/icon/contact/linkedin";
-import { Certificates } from "../../components/computer/desktop/archieves/certificates/certificates";
-import { Curriculo } from "../../components/computer/desktop/archieves/curriculo/curriculo";
+import { useTaskBar } from "../../context/taskBarContext";
 import { usePortifolio } from "../../hooks/usePortifolio";
 import { Loading } from "../../components/computer/loading/loading";
-import { useTaskBar } from "../../context/taskBarContext";
+import { Taskbar } from "../../components/computer/taskbar/taskbar";
+import { Configs } from "../../components/computer/desktop/archieves/config/config";
+import { LinkIcon } from "../../components/computer/desktop/archieves/icon/contact/LinkIcon";
+import { StyledContent, StyledDesktop, StyledProjects } from "../../components/computer/desktop";
+import { CardsLang } from "../../components/computer/desktop/archieves/cards/cardsLang/cardsLang";
+import { Cards } from "../../components/computer/desktop/archieves/cards/cards";
 
 export default function Login() {
   const router = useRouter();
   const { width } = useSizeScreen()
   const { taskBar } = useTaskBar()
-  const { data } = usePortifolio('/portifolio-en')
+  const { data: port } = usePortifolio('/api/portifolio-en')
+  const appRef = useRef<HTMLDivElement | null>(null)
 
   if (width <= 600) {
     router.replace("/mobile")
@@ -28,6 +27,7 @@ export default function Login() {
 
   return (
     <StyledDesktop
+      ref={appRef}
       style={{
         background: `url(${bg.src})`,
         backgroundSize: "cover",
@@ -39,25 +39,103 @@ export default function Login() {
       </Head>
 
 
-      {data ? (
+      {port ? (
         <>
           <div className="icons">
-            <ConfigsEn />
-            <About name="AboutMe.txt" about={data.about} />
-            <Languages name="Languages" lang={data.language} />
-            <Certificates cert={data.certificate} name={"My certificates"} />
-            <Linkedin />
-            <Github />
-          </div>
+            <Configs appRef={appRef}/>
+            <Archieve
+              icon="/arquivo.png"
+              name="sobre-mim.txt"
+              appRef={appRef}
+            >
+              <StyledContent>
+                {port.about.map(lang => (
+                  <Cards
+                    key={lang.id}
+                    text={lang.text}
+                    images={lang.image}
+                  />
+                ))}
+              </StyledContent>
+            </Archieve>
+            <Archieve
+              icon="/arquivo.png"
+              name="linguagens.txt"
+              appRef={appRef}
+            >
+              <StyledContent>
+                {port.language.map(lang => (
+                  <CardsLang
+                    key={lang.id}
+                    name={lang.name}
+                    images={lang.images}
+                  />
+                ))}
+              </StyledContent>
+            </Archieve>
 
+            <Archieve
+              icon="/pastas.png"
+              name="Certificados"
+              appRef={appRef}
+            >
+              <StyledContent>
+                {port.certificate.map(cert => (
+                  <Cards
+                    key={cert.id}
+                    text={cert.name}
+                    images={cert.images}
+                    description={cert.description}
+                  />
+                ))}
+              </StyledContent>
+            </Archieve>
+            <LinkIcon
+              name="Linkedin"
+              icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+              link="https://www.linkedin.com/in/hxsggsz/"
+              appRef={appRef}
+            />
+            <LinkIcon
+              name="Github"
+              icon="/github.png"
+              link="https://github.com/hxsggsz"
+              appRef={appRef}
+            />
+
+          </div>
           <div className="icons2">
-            {data.project.map(proj => (
-              <Project key={proj.id} projects={proj} />
+            {port.project.map(proj => (
+              <Archieve
+                key={proj.id}
+                icon={proj.icon}
+                name={proj.name}
+                appRef={appRef}
+              >
+                <StyledProjects>
+                  <Cards
+                    url={proj.url}
+                    isProject={true}
+                    icon={proj.icon}
+                    text={proj.name}
+                    images={proj.images}
+                    langs={proj.languages}
+                    repo={proj.urlRepository}
+                    description={proj.description}
+                  />
+                </StyledProjects>
+              </Archieve>
             ))}
           </div>
 
           <div>
-            <Curriculo name="Curriculum" href="https://drive.google.com/file/d/1cBJMbCF33tJwRdO0hlD6ftxNI1Rp1Jlg/view?usp=sharing" />
+            <LinkIcon
+              name="Currículo"
+              icon="/arquivo.png"
+              link="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing"
+              appRef={appRef}
+            />
+
           </div>
         </>
       ) : <Loading />}

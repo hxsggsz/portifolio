@@ -1,4 +1,4 @@
-import bg from "../../public/wallpaper.jpg"
+import bg from "../../public/favicon/favicon.ico"
 import { ReactNode, createContext, useContext, useState, useId } from "react";
 
 interface ThemeTypes {

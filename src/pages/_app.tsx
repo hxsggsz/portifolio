@@ -7,8 +7,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemesProvider>
-        <TaskBarProvider>
           <GlobalStyle />
+        <TaskBarProvider>
           <Component {...pageProps} />
         </TaskBarProvider>
       </ThemesProvider>

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRef } from "react";
 import { useRouter } from "next/router";
-import { Test } from "../components/test";
+import { Archieve } from "../components/archieve";
 import bg from "../../public/wallpaper.jpg";
 import useSizeScreen from "../hooks/useSizeScreen";
 import { useTaskBar } from "../context/taskBarContext";
@@ -10,9 +10,7 @@ import { Taskbar } from "../components/computer/taskbar/taskbar";
 import { Loading } from "../components/computer/loading/loading";
 import { Cards } from "../components/computer/desktop/archieves/cards/cards";
 import { Configs } from "../components/computer/desktop/archieves/config/config";
-import { Github } from "../components/computer/desktop/archieves/icon/contact/github";
-import { Linkedin } from "../components/computer/desktop/archieves/icon/contact/linkedin";
-import { Curriculo } from "../components/computer/desktop/archieves/curriculo/curriculo";
+import { LinkIcon } from "../components/computer/desktop/archieves/icon/contact/LinkIcon";
 import { StyledContent, StyledDesktop, StyledProjects } from "../components/computer/desktop";
 import { CardsLang } from "../components/computer/desktop/archieves/cards/cardsLang/cardsLang";
 
@@ -43,8 +41,8 @@ export default function Login() {
          {port ? (
             <>
                <div className="icons">
-                  <Configs />
-                  <Test
+                  <Configs appRef={appRef} />
+                  <Archieve
                      icon="/arquivo.png"
                      name="sobre-mim.txt"
                      appRef={appRef}
@@ -58,8 +56,8 @@ export default function Login() {
                            />
                         ))}
                      </StyledContent>
-                  </Test>
-                  <Test
+                  </Archieve>
+                  <Archieve
                      icon="/arquivo.png"
                      name="linguagens.txt"
                      appRef={appRef}
@@ -73,9 +71,9 @@ export default function Login() {
                            />
                         ))}
                      </StyledContent>
-                  </Test>
+                  </Archieve>
 
-                  <Test
+                  <Archieve
                      icon="/pastas.png"
                      name="Certificados"
                      appRef={appRef}
@@ -90,14 +88,24 @@ export default function Login() {
                            />
                         ))}
                      </StyledContent>
-                  </Test>
-                  <Linkedin />
-                  <Github />
+                  </Archieve>
+                  <LinkIcon
+                     name="Linkedin"
+                     icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                     link="https://www.linkedin.com/in/hxsggsz/"
+                     appRef={appRef}
+                  />
+                  <LinkIcon
+                     name="Github"
+                     icon="/github.png"
+                     link="https://github.com/hxsggsz"
+                     appRef={appRef}
+                  />
 
                </div>
                <div className="icons2">
                   {port.project.map(proj => (
-                     <Test
+                     <Archieve
                         key={proj.id}
                         icon={proj.icon}
                         name={proj.name}
@@ -115,12 +123,18 @@ export default function Login() {
                               description={proj.description}
                            />
                         </StyledProjects>
-                     </Test>
+                     </Archieve>
                   ))}
                </div>
 
                <div>
-                  <Curriculo name="Currículo" href="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing" />
+               <LinkIcon
+                     name="Currículo"
+                     icon="/arquivo.png"
+                     link="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing"
+                     appRef={appRef}
+                  />
+                  
                </div>
             </>
          ) : <Loading />}

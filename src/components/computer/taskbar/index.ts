@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledTaskBar = styled.div`
   width: 100%;
-  height: 10%;
+  height: 8vh;
   display: flex;
   align-items: center;
   position: absolute;
@@ -19,6 +19,6 @@ export const StyledTaskBar = styled.div`
   }
 
   .taskbar-content img {
-    border-radius: 40%;
+    border-radius: 10%;
   }
 `;
