@@ -2,17 +2,17 @@ import Head from "next/head";
 import { useRef } from "react";
 import { useRouter } from "next/router";
 import bg from "../../../public/wallpaper.jpg"
-import { Archieve } from "../../components/archieve";
 import useSizeScreen from "../../hooks/useSizeScreen";
 import { useTaskBar } from "../../context/taskBarContext";
 import { usePortifolio } from "../../hooks/usePortifolio";
 import { Loading } from "../../components/computer/loading/loading";
 import { Taskbar } from "../../components/computer/taskbar/taskbar";
-import { Configs } from "../../components/computer/desktop/archieves/config/config";
-import { LinkIcon } from "../../components/computer/desktop/archieves/icon/contact/LinkIcon";
-import { StyledContent, StyledDesktop, StyledProjects } from "../../components/computer/desktop";
-import { CardsLang } from "../../components/computer/desktop/archieves/cards/cardsLang/cardsLang";
 import { Cards } from "../../components/computer/desktop/archieves/cards/cards";
+import { StyledDesktop, StyledContent, StyledProjects } from "../../styles/desktop";
+import { Configs } from "../../components/computer/desktop/archieves/config/config";
+import { Archieve } from "../../components/computer/desktop/archieves/archieve/archieve";
+import { LinkIcon } from "../../components/computer/desktop/archieves/icon/contact/LinkIcon";
+import { CardsLang } from "../../components/computer/desktop/archieves/cards/cardsLang/cardsLang";
 
 export default function Login() {
   const router = useRouter();
@@ -35,7 +35,7 @@ export default function Login() {
       }}
     >
       <Head>
-        <title>Portifolio - Desktop</title>
+        <title>Portfolio - Desktop</title>
       </Head>
 
 
@@ -45,7 +45,7 @@ export default function Login() {
             <Configs appRef={appRef}/>
             <Archieve
               icon="/arquivo.png"
-              name="sobre-mim.txt"
+              name="about-me.txt"
               appRef={appRef}
             >
               <StyledContent>
@@ -60,7 +60,7 @@ export default function Login() {
             </Archieve>
             <Archieve
               icon="/arquivo.png"
-              name="linguagens.txt"
+              name="languages.txt"
               appRef={appRef}
             >
               <StyledContent>
@@ -76,7 +76,7 @@ export default function Login() {
 
             <Archieve
               icon="/pastas.png"
-              name="Certificados"
+              name="certificates"
               appRef={appRef}
             >
               <StyledContent>
@@ -130,7 +130,7 @@ export default function Login() {
 
           <div>
             <LinkIcon
-              name="Currículo"
+              name="resume"
               icon="/arquivo.png"
               link="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing"
               appRef={appRef}

@@ -9,11 +9,14 @@ export const StyledConfig = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     gap: 1rem;
+    overflow: hidden;
   }
 
   .config-colors {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 2rem 0;
   }
@@ -91,6 +94,27 @@ export const StyledConfig = styled.div`
     cursor: pointer;
     margin: 3rem 0;
     padding: 12px;
+    background: none;
+    color: var(--white);
     border: 3px solid ${({ theme }) => theme.primary};
+  }
+
+  .buttons {
+    display: flex;
+    border: none;
+    gap: 1rem;
+  }
+
+  .chooseLanguages {
+    margin-top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .languages {
+    display: flex;
+    gap: 4rem 1rem;
   }
 `;

@@ -11,12 +11,11 @@ export const StyledDesktop = styled.div`
 `;
 
 export const StyledContent = styled.div`
-    display: grid;
-    place-items: center;
-    grid-gap: 0 3rem;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: repeat(2, 1fr);
-    grid-auto-columns: minmax(1rem, 1fr);
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-bottom: 7rem;
   `;
 

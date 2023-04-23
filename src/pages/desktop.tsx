@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useRef } from "react";
 import { useRouter } from "next/router";
-import { Archieve } from "../components/archieve";
 import bg from "../../public/wallpaper.jpg";
 import useSizeScreen from "../hooks/useSizeScreen";
 import { useTaskBar } from "../context/taskBarContext";
@@ -9,9 +8,10 @@ import { usePortifolio } from "../hooks/usePortifolio";
 import { Taskbar } from "../components/computer/taskbar/taskbar";
 import { Loading } from "../components/computer/loading/loading";
 import { Cards } from "../components/computer/desktop/archieves/cards/cards";
+import { StyledDesktop, StyledContent, StyledProjects } from "../styles/desktop";
 import { Configs } from "../components/computer/desktop/archieves/config/config";
+import { Archieve } from "../components/computer/desktop/archieves/archieve/archieve";
 import { LinkIcon } from "../components/computer/desktop/archieves/icon/contact/LinkIcon";
-import { StyledContent, StyledDesktop, StyledProjects } from "../components/computer/desktop";
 import { CardsLang } from "../components/computer/desktop/archieves/cards/cardsLang/cardsLang";
 
 export default function Login() {

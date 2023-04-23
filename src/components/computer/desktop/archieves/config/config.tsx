@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
-import { StyledConfig } from ".";
-import { useThemes } from "../../../../../context/themeContext";
-import { Archieve } from "../../../../archieve";
 import Link from "next/link";
+import { StyledConfig } from ".";
+import { motion } from "framer-motion";
 import { MutableRefObject } from "react";
+import { Archieve } from "../archieve/archieve";
+import { useThemes } from "../../../../../context/themeContext";
 
 export const Configs = (props: { appRef: MutableRefObject<HTMLDivElement | null> }) => {
   const { handleTheme } = useThemes();
@@ -38,8 +38,8 @@ export const Configs = (props: { appRef: MutableRefObject<HTMLDivElement | null>
             <div className="buttons">
               <Link href="/en/desktop">
                 <motion.button
-                  whileHover={{ y: -10 }}
-                  whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
+                  whileHover={{ y: -5 }}
+                  whileTap={{ y: [0, 5, -5, 0], opacity: 0.4 }}
                   className="options"
                 >
                   <h1>English</h1>
@@ -48,8 +48,8 @@ export const Configs = (props: { appRef: MutableRefObject<HTMLDivElement | null>
 
               <Link href="/desktop">
                 <motion.button
-                  whileHover={{ y: -10 }}
-                  whileTap={{ y: [0, 10, -10, 0], opacity: 0.4 }}
+                  whileHover={{ y: -5 }}
+                  whileTap={{ y: [0, 5, -5, 0], opacity: 0.4 }}
                   className="options"
                 >
                   <h1>Português</h1>

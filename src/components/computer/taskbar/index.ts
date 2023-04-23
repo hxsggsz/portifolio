@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTaskBar = styled.div`
+export const StyledWrapper = styled.div`
   width: 100%;
   height: 8vh;
   display: flex;
@@ -10,15 +10,16 @@ export const StyledTaskBar = styled.div`
   bottom: 0;
   border: 1px solid var(--black-pc);
   background: ${({ theme }) => theme.primary};
+`;
 
-  .taskbar-content {
-    display: flex;
-    gap: 0 8px;
-    align-items: center;
-    margin-left: 12px;
-  }
-
-  .taskbar-content img {
-    border-radius: 10%;
+export const StyledTaskBar = styled.div`
+  display: flex;
+  gap: 0 8px; 
+  align-items: center;
+  margin-left: 12px;
+  
+  img:first-child {
+    border: 3px solid ${({ theme }) => theme.secondary};
+    border-radius: 50%;
   }
 `;
