@@ -24,14 +24,6 @@ export const StyledWrapper = styled.div<StyledCardTypes>`
     width: 95vw;
     padding-bottom: 5rem;
   }
-
-  .buttonsCard {
-    
-  }
-
-  .buttonCard {
-   
-  }
 `;
 
 export const StyledImage = styled.div<StyledCardTypes>`

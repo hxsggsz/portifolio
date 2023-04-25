@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { StyledConfig } from ".";
+import { StyledButton, StyledChooseLanguages, StyledColors, StyledConfig, StyledWrapperButtons } from '.';
 import { motion } from "framer-motion";
 import { MutableRefObject } from "react";
 import { Archieve } from "../archieve/archieve";
@@ -10,15 +10,15 @@ export const Configs = (props: { appRef: MutableRefObject<HTMLDivElement | null>
   const colors = ["purple", "blue", "green", "red", "pink", "grey", "yellow"]
 
   return (
-    <StyledConfig>
+    <>
       <Archieve
         icon="/gear.png"
         name="configurações"
         appRef={props.appRef}
       >
-        <div className="config-colors">
+        <StyledConfig>
           <h1>Escolha a sua cor favorita!</h1>
-          <div className="colors">
+          <StyledColors>
             {colors.map((color, idx) => (
               <motion.div
                 key={idx}
@@ -28,38 +28,33 @@ export const Configs = (props: { appRef: MutableRefObject<HTMLDivElement | null>
                 onClick={() => handleTheme(color)}
               />
             ))}
-          </div>
-        </div>
+          </StyledColors>
+        </StyledConfig>
 
-        <div style={{ marginTop: "2rem" }}>
-          <div className="chooseLanguages">
-            <h1>Escolha a sua linguagem!</h1>
+        <StyledChooseLanguages>
+          <h1>Escolha a sua linguagem!</h1>
 
-            <div className="buttons">
-              <Link href="/en/desktop">
-                <motion.button
-                  whileHover={{ y: -5 }}
-                  whileTap={{ y: [0, 5, -5, 0], opacity: 0.4 }}
-                  className="options"
-                >
-                  <h1>English</h1>
-                </motion.button>
-              </Link>
+          <StyledWrapperButtons>
+            <Link href="/en/desktop">
+              <StyledButton
+                whileHover={{ y: -5 }}
+                whileTap={{ y: [0, 5, -5, 0], opacity: 0.4 }}
+              >
+                <h1>English</h1>
+              </StyledButton>
+            </Link>
 
-              <Link href="/desktop">
-                <motion.button
-                  whileHover={{ y: -5 }}
-                  whileTap={{ y: [0, 5, -5, 0], opacity: 0.4 }}
-                  className="options"
-                >
-                  <h1>Português</h1>
-                </motion.button>
-              </Link>
-            </div>
-
-          </div>
-        </div>
+            <Link href="/desktop">
+              <StyledButton
+                whileHover={{ y: -5 }}
+                whileTap={{ y: [0, 5, -5, 0], opacity: 0.4 }}
+              >
+                <h1>Português</h1>
+              </StyledButton>
+            </Link>
+          </StyledWrapperButtons>
+        </StyledChooseLanguages>
       </Archieve>
-    </StyledConfig>
+    </>
   );
 };

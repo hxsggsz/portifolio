@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { StyledLogin } from "./index";
+import { StyledLabel, StyledLogin, StyledForm, StyledInput, StyledEye } from ".";
 import login from "../../../../public/login.png";
 import { ArrowFatRight, Eye, EyeClosed } from "phosphor-react";
 
@@ -11,42 +11,39 @@ type loginTypes = {
   setIsText: () => void;
 };
 
-export const LoginWindows = (props: loginTypes) => {
-  return (
-    <StyledLogin>
-      <Image width={220} height={210} src={login} alt="foto do windows" />
+export const LoginWindows = (props: loginTypes) => (
+  <StyledLogin>
+    <Image width={220} height={210} src={login} alt="foto do windows" />
 
-      <div>
-        <label>
-          <h2>PORTIFOLIO</h2>
-        </label>
+    <div>
+      <StyledLabel>
+        <h2>PORTIFOLIO</h2>
+      </StyledLabel>
 
-        <form>
-          <input
-            className="fake-input"
-            data-testId="fake-input"
-            type={props.isText ? "text" : "password"}
-            disabled={true}
-            defaultValue={props.defaultValue}
-          />
+      <StyledForm>
+        <StyledInput
+          className="fake-input"
+          data-testId="fake-input"
+          type={props.isText ? "text" : "password"}
+          disabled={true}
+          defaultValue={props.defaultValue}
+        />
 
-          <div data-testId="show-login" onClick={props.setIsText} className="eye">
-            {props.isText ? (
-              <EyeClosed
-                style={{ cursor: "pointer" }}
-                color={"black"}
-                size={25}
-              />
-            ) : (
-              <Eye style={{ cursor: "pointer" }} color={"black"} size={25} />
-            )}
-          </div>
+        <StyledEye data-testId="show-login" onClick={props.setIsText} className="eye">
+          {props.isText ? (
+            <EyeClosed
+              style={{ cursor: "pointer" }}
+              color={"black"}
+              size={25} />
+          ) : (
+            <Eye style={{ cursor: "pointer" }} color={"black"} size={25} />
+          )}
+        </StyledEye>
 
-          <Link data-testId="component" href={props.href}>
-            <ArrowFatRight color={"black"} size={25} />
-          </Link>
-        </form>
-      </div>
-    </StyledLogin>
-  );
-};
+        <Link data-testId="component" href={props.href}>
+          <ArrowFatRight color={"black"} size={25} />
+        </Link>
+      </StyledForm>
+    </div>
+  </StyledLogin>
+);
