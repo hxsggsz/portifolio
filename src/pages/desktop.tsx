@@ -128,13 +128,13 @@ export default function Login() {
                </div>
 
                <div>
-               <LinkIcon
+                  <LinkIcon
                      name="Currículo"
                      icon="/arquivo.png"
                      link="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing"
                      appRef={appRef}
                   />
-                  
+
                </div>
             </>
          ) : <Loading />}

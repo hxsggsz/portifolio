@@ -8,7 +8,7 @@ type TaskbarTypes = {
   }[]
 }
 
-export const Taskbar = ({taskBar}: TaskbarTypes) => {
+export const Taskbar = ({ taskBar }: TaskbarTypes) => {
   return (
     <StyledWrapper>
       <StyledTaskBar>

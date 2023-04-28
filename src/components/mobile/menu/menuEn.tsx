@@ -66,7 +66,7 @@ export const MenuEn = ({
         <Certificates name="Certificates" cert={cert} />
 
         <Link href='https://drive.google.com/file/d/1cBJMbCF33tJwRdO0hlD6ftxNI1Rp1Jlg/view?usp=sharing' target="_blank">
-          <Icon image={arquivos.src} name={"curriculum"} setIsAppOpen={() => { }} />
+          <Icon image={arquivos.src} name="resume" setIsAppOpen={() => { }} />
         </Link>
         <Link href='https://www.linkedin.com/in/hxsggsz/' target="_blank">
           <Icon image={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"} name={"Linkedin"} setIsAppOpen={() => { }} />
