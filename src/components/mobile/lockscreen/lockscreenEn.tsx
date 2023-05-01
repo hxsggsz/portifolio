@@ -16,7 +16,6 @@ export const LoockScreenEn = () => {
         <div className="calendar">
           <CalendarEn />
         </div>
-
         <div>
 
           <Link href="https://www.linkedin.com/in/hxsggsz/" target="_blank">
