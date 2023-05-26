@@ -132,7 +132,7 @@ export default function Login() {
             <LinkIcon
               name="resume"
               icon="/arquivo.png"
-              link="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing"
+              link="https://drive.google.com/file/d/1JWkQV8_lCKxQmGIMKdy1E6aLpjsxZDDi/view"
               appRef={appRef}
             />
 

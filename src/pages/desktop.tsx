@@ -131,7 +131,7 @@ export default function Login() {
                   <LinkIcon
                      name="Currículo"
                      icon="/arquivo.png"
-                     link="https://drive.google.com/file/d/1quEej_QzrQgpRd1LxrPSdN53ObvJVMk2/view?usp=sharing"
+                     link="https://drive.google.com/file/d/1lyo_hUsiy33S5qBh5tVcQE0Rqzi-C0C8/view"
                      appRef={appRef}
                   />
 
