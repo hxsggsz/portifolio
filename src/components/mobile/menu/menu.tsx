@@ -1,6 +1,6 @@
 import { X } from "phosphor-react";
 import { StyledMenu } from ".";
-import arquivos from "../../../../public/arquivo.png"
+import arquivos from "../../../../public/arquivo.png";
 import { Config } from "./config/config";
 import { About } from "./about/about";
 import { Languages } from "./languages/languages";
@@ -29,7 +29,7 @@ type MenuTypes = {
     description: string;
   }[];
   projects: {
-    id: string
+    id: string;
     name: string;
     images: string;
     description: string;
@@ -37,7 +37,7 @@ type MenuTypes = {
     urlRepository: string;
     url: string;
     languages: string;
-  }[]
+  }[];
 };
 
 export const Menu = ({
@@ -46,7 +46,7 @@ export const Menu = ({
   about,
   lang,
   cert,
-  projects
+  projects,
 }: MenuTypes) => {
   return (
     <StyledMenu isShowMenu={isShowMenu}>
@@ -65,18 +65,40 @@ export const Menu = ({
         <Languages name="Linguagens" lang={lang} />
         <Certificates name={"Certificados"} cert={cert} />
 
-        <Link href='https://drive.google.com/file/d/1lyo_hUsiy33S5qBh5tVcQE0Rqzi-C0C8/view' target="_blank">
-          <Icon image={arquivos.src} name={"currículo"} setIsAppOpen={() => { }} />
+        <Link
+          href="https://docs.google.com/document/d/1grDto1QoHQKuv0JkiF1hZqflyFtKI0apQrRsf1TDoVo/view#heading=h.5x0d5h95i329"
+          target="_blank"
+        >
+          <Icon
+            image={arquivos.src}
+            name={"currículo"}
+            setIsAppOpen={() => {}}
+          />
         </Link>
-        <Link href='https://www.linkedin.com/in/hxsggsz/' target="_blank">
-          <Icon image={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"} name={"Linkedin"} setIsAppOpen={() => { }} />
+        <Link href="https://www.linkedin.com/in/hxsggsz/" target="_blank">
+          <Icon
+            image={
+              "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            }
+            name={"Linkedin"}
+            setIsAppOpen={() => {}}
+          />
         </Link>
 
-        <Link href='https://github.com/hxsggsz?tab=repositories' target="_blank">
-          <Icon image={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"} name={"Github"} setIsAppOpen={() => { }} />
+        <Link
+          href="https://github.com/hxsggsz?tab=repositories"
+          target="_blank"
+        >
+          <Icon
+            image={
+              "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            }
+            name={"Github"}
+            setIsAppOpen={() => {}}
+          />
         </Link>
 
-        {projects.map(prj => (
+        {projects.map((prj) => (
           <Projects key={prj.id} projects={prj} />
         ))}
       </div>

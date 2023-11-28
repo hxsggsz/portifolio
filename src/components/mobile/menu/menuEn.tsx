@@ -1,6 +1,6 @@
 import { X } from "phosphor-react";
 import { StyledMenu } from ".";
-import arquivos from "../../../../public/arquivo.png"
+import arquivos from "../../../../public/arquivo.png";
 import { About } from "./about/about";
 import { Languages } from "./languages/languages";
 import { Certificates } from "./certificates/certificates";
@@ -65,15 +65,33 @@ export const MenuEn = ({
         <Languages name="Languages" lang={lang} />
         <Certificates name="Certificates" cert={cert} />
 
-        <Link href='https://drive.google.com/file/d/1JWkQV8_lCKxQmGIMKdy1E6aLpjsxZDDi/view' target="_blank">
-          <Icon image={arquivos.src} name="resume" setIsAppOpen={() => { }} />
+        <Link
+          href="https://docs.google.com/document/d/1Qbghqnb4htiGTMzQT-gT1GQOmWRoKkK8eZLuu4UCg4w/view"
+          target="_blank"
+        >
+          <Icon image={arquivos.src} name="resume" setIsAppOpen={() => {}} />
         </Link>
-        <Link href='https://www.linkedin.com/in/hxsggsz/' target="_blank">
-          <Icon image={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"} name={"Linkedin"} setIsAppOpen={() => { }} />
+        <Link href="https://www.linkedin.com/in/hxsggsz/" target="_blank">
+          <Icon
+            image={
+              "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            }
+            name={"Linkedin"}
+            setIsAppOpen={() => {}}
+          />
         </Link>
 
-        <Link href='https://github.com/hxsggsz?tab=repositories' target="_blank">
-          <Icon image={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"} name={"Github"} setIsAppOpen={() => { }} />
+        <Link
+          href="https://github.com/hxsggsz?tab=repositories"
+          target="_blank"
+        >
+          <Icon
+            image={
+              "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            }
+            name={"Github"}
+            setIsAppOpen={() => {}}
+          />
         </Link>
 
         {projects.map((prj) => (

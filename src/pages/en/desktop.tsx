@@ -1,14 +1,18 @@
 import Head from "next/head";
 import { useRef } from "react";
 import { useRouter } from "next/router";
-import bg from "../../../public/wallpaper.jpg"
+import bg from "../../../public/wallpaper.jpg";
 import useSizeScreen from "../../hooks/useSizeScreen";
 import { useTaskBar } from "../../context/taskBarContext";
 import { usePortifolio } from "../../hooks/usePortifolio";
 import { Loading } from "../../components/computer/loading/loading";
 import { Taskbar } from "../../components/computer/taskbar/taskbar";
 import { Cards } from "../../components/computer/desktop/archieves/cards/cards";
-import { StyledDesktop, StyledContent, StyledProjects } from "../../styles/desktop";
+import {
+  StyledDesktop,
+  StyledContent,
+  StyledProjects,
+} from "../../styles/desktop";
 import { Configs } from "../../components/computer/desktop/archieves/config/config";
 import { Archieve } from "../../components/computer/desktop/archieves/archieve/archieve";
 import { LinkIcon } from "../../components/computer/desktop/archieves/icon/contact/LinkIcon";
@@ -16,13 +20,13 @@ import { CardsLang } from "../../components/computer/desktop/archieves/cards/car
 
 export default function Login() {
   const router = useRouter();
-  const { width } = useSizeScreen()
-  const { taskBar } = useTaskBar()
-  const { data: port } = usePortifolio('/api/portifolio-en')
-  const appRef = useRef<HTMLDivElement | null>(null)
+  const { width } = useSizeScreen();
+  const { taskBar } = useTaskBar();
+  const { data: port } = usePortifolio("/api/portifolio-en");
+  const appRef = useRef<HTMLDivElement | null>(null);
 
   if (width <= 600) {
-    router.replace("/mobile")
+    router.replace("/mobile");
   }
 
   return (
@@ -38,33 +42,20 @@ export default function Login() {
         <title>Portfolio - Desktop</title>
       </Head>
 
-
       {port ? (
         <>
           <div className="icons">
-            <Configs appRef={appRef}/>
-            <Archieve
-              icon="/arquivo.png"
-              name="about-me.txt"
-              appRef={appRef}
-            >
+            <Configs appRef={appRef} />
+            <Archieve icon="/arquivo.png" name="about-me.txt" appRef={appRef}>
               <StyledContent>
-                {port.about.map(lang => (
-                  <Cards
-                    key={lang.id}
-                    text={lang.text}
-                    images={lang.image}
-                  />
+                {port.about.map((lang) => (
+                  <Cards key={lang.id} text={lang.text} images={lang.image} />
                 ))}
               </StyledContent>
             </Archieve>
-            <Archieve
-              icon="/arquivo.png"
-              name="languages.txt"
-              appRef={appRef}
-            >
+            <Archieve icon="/arquivo.png" name="languages.txt" appRef={appRef}>
               <StyledContent>
-                {port.language.map(lang => (
+                {port.language.map((lang) => (
                   <CardsLang
                     key={lang.id}
                     name={lang.name}
@@ -74,13 +65,9 @@ export default function Login() {
               </StyledContent>
             </Archieve>
 
-            <Archieve
-              icon="/pastas.png"
-              name="certificates"
-              appRef={appRef}
-            >
+            <Archieve icon="/pastas.png" name="certificates" appRef={appRef}>
               <StyledContent>
-                {port.certificate.map(cert => (
+                {port.certificate.map((cert) => (
                   <Cards
                     key={cert.id}
                     text={cert.name}
@@ -102,10 +89,9 @@ export default function Login() {
               link="https://github.com/hxsggsz"
               appRef={appRef}
             />
-
           </div>
           <div className="icons2">
-            {port.project.map(proj => (
+            {port.project.map((proj) => (
               <Archieve
                 key={proj.id}
                 icon={proj.icon}
@@ -132,13 +118,14 @@ export default function Login() {
             <LinkIcon
               name="resume"
               icon="/arquivo.png"
-              link="https://drive.google.com/file/d/1JWkQV8_lCKxQmGIMKdy1E6aLpjsxZDDi/view"
+              link="https://docs.google.com/document/d/1Qbghqnb4htiGTMzQT-gT1GQOmWRoKkK8eZLuu4UCg4w/view"
               appRef={appRef}
             />
-
           </div>
         </>
-      ) : <Loading />}
+      ) : (
+        <Loading />
+      )}
       <Taskbar taskBar={taskBar} />
     </StyledDesktop>
   );
